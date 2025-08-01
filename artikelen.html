@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artikelen - Dennis van Zetten</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <a href="index.html" class="logo">Dennis van Zetten</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="artikelen.html" class="active">Artikelen</a></li>
+          <li><a href="over-mij.html">Over Mij</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero-about">
+      <div class="container">
+        <h1>Artikelen & Tutorials</h1>
+        <p>Alles wat ik leer en ontdek over fotografie en .NET ontwikkeling</p>
+      </div>
+    </section>
+
+    <main class="container">
+      <div class="about-content">
+        <section class="articles-intro">
+          <div class="container" style="padding: 3rem">
+            <h2 class="section-title">Welkom bij mijn blog</h2>
+            <p
+              style="
+                text-align: center;
+                font-size: 1.1rem;
+                color: #666;
+                max-width: 800px;
+                margin: 0 auto;
+              "
+            >
+              Hier deel ik mijn kennis, ervaringen en ontdekkingen op het gebied
+              van fotografie en .NET ontwikkeling. Van praktische tutorials tot
+              persoonlijke inzichten - alles wat ik leer, deel ik graag met
+              jullie.
+            </p>
+          </div>
+        </section>
+
+        <!-- Filter Sectie -->
+        <section class="articles-filter">
+          <div class="container" style="padding: 2rem 3rem">
+            <div class="portfolio-categories">
+              <button class="filter-btn active" data-filter="all">
+                Alle Artikelen
+              </button>
+              <button class="filter-btn" data-filter="fotografie">
+                Fotografie
+              </button>
+              <button class="filter-btn" data-filter="dotnet">.NET</button>
+              <button class="filter-btn" data-filter="workflow">
+                Workflow
+              </button>
+              <button class="filter-btn" data-filter="tips">
+                Tips & Tricks
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Artikelen Grid -->
+        <section class="articles-grid-section">
+          <div class="container" style="padding: 0 3rem 4rem">
+            <div class="articles-grid">
+              <!-- Artikel 1: Compositieregels -->
+              <article
+                class="article-card"
+                data-category="fotografie"
+                id="compositieregels"
+              >
+                <div class="article-image">
+                  <img
+                    src="/api/placeholder/400/250"
+                    alt="Compositieregels in fotografie"
+                  />
+                </div>
+                <div class="article-content">
+                  <div class="article-meta">
+                    <span class="article-category fotografie">Fotografie</span>
+                    <span class="article-date">15 januari 2025</span>
+                  </div>
+                  <h2 class="article-title">
+                    Compositieregels die Echt Werken
+                  </h2>
+                  <p class="article-excerpt">
+                    De regel van derden kent iedereen, maar er zijn veel meer
+                    compositietechnieken die je foto's naar een hoger niveau
+                    kunnen tillen. In dit artikel deel ik de compositieregels
+                    die ik zelf het meest gebruik en waarom ze zo effectief
+                    zijn.
+                  </p>
+                  <div class="article-content-preview">
+                    <h3>Wat je leert in dit artikel:</h3>
+                    <ul>
+                      <li>
+                        <strong>Regel van derden</strong> - en wanneer je deze
+                        moet doorbreken
+                      </li>
+                      <li>
+                        <strong>Leading lines</strong> - hoe je de ogen van de
+                        kijker stuurt
+                      </li>
+                      <li>
+                        <strong>Framing</strong> - natuurlijke kaders in je
+                        omgeving gebruiken
+                      </li>
+                      <li>
+                        <strong>Negatieve ruimte</strong> - de kracht van leegte
+                      </li>
+                      <li>
+                        <strong>Patronen en herhaling</strong> - ritme in je
+                        foto's
+                      </li>
+                    </ul>
+                    <p>
+                      <strong>De regel van derden</strong> is vaak het eerste
+                      wat fotografen leren, en terecht. Door je onderwerp op een
+                      van de derde-lijnen te plaatsen creëer je automatisch een
+                      meer dynamische compositie dan wanneer je alles in het
+                      midden zet.
+                    </p>
+                    <p>
+                      Maar de echte kracht van compositie ligt in
+                      <strong>leading lines</strong>. Zoek naar lijnen in je
+                      omgeving - wegen, hekken, wolkenformaties - die de ogen
+                      van de kijker naar je hoofdonderwerp leiden. Dit creëert
+                      een visuele reis door je foto.
+                    </p>
+                    <p>
+                      <strong>Praktische tip:</strong> Gebruik je camera-app
+                      grid om de regel van derden te oefenen, maar vergeet niet
+                      om ook eens bewust af te wijken. Soms kan een perfect
+                      gecentreerde compositie juist de impact hebben die je
+                      zoekt.
+                    </p>
+                  </div>
+                  <div class="article-actions">
+                    <button
+                      class="read-more-btn"
+                      onclick="toggleArticle('compositieregels')"
+                    >
+                      Lees meer
+                    </button>
+                    <div class="article-tags">
+                      <span class="tag">Compositie</span>
+                      <span class="tag">Beginner</span>
+                      <span class="tag">Technieken</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Artikel 2: Minimal APIs -->
+              <article
+                class="article-card"
+                data-category="dotnet"
+                id="minimal-apis"
+              >
+                <div class="article-image">
+                  <img
+                    src="/api/placeholder/400/250"
+                    alt="ASP.NET Core Minimal APIs"
+                  />
+                </div>
+                <div class="article-content">
+                  <div class="article-meta">
+                    <span class="article-category dotnet">.NET</span>
+                    <span class="article-date">12 januari 2025</span>
+                  </div>
+                  <h2 class="article-title">ASP.NET Core Minimal APIs</h2>
+                  <p class="article-excerpt">
+                    Minimal APIs in .NET 6+ maken het mogelijk om snel en
+                    efficiënt APIs te bouwen met veel minder boilerplate code.
+                    Perfect voor microservices, prototypes of wanneer je gewoon
+                    snel iets werkends wilt hebben.
+                  </p>
+                  <div class="article-content-preview">
+                    <h3>Waarom Minimal APIs?</h3>
+                    <p>
+                      Traditionele Controller-based APIs zijn krachtig, maar
+                      brengen veel overhead mee voor eenvoudige scenarios.
+                      Minimal APIs geven je de mogelijkheid om endpoints te
+                      definiëren met minimale code.
+                    </p>
+                    <h3>Een eenvoudig voorbeeld:</h3>
+                    <div class="code-block">
+                      <pre><code>var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+app.MapGet("/api/users", () => 
+{
+    return new[] { 
+        new { Id = 1, Name = "John" },
+        new { Id = 2, Name = "Jane" }
+    };
+});
+
+app.MapPost("/api/users", (User user) => 
+{
+    // Validatie en opslaan logica
+    return Results.Created($"/api/users/{user.Id}", user);
+});
+
+app.Run();</code></pre>
+                    </div>
+                    <h3>Voordelen van Minimal APIs:</h3>
+                    <ul>
+                      <li>
+                        <strong>Minder code</strong> - geen controllers, actions
+                        of routing attributes nodig
+                      </li>
+                      <li>
+                        <strong>Betere performance</strong> - minder overhead
+                        dan controller-based APIs
+                      </li>
+                      <li>
+                        <strong>Snelle prototyping</strong> - ideaal voor
+                        proof-of-concepts
+                      </li>
+                      <li>
+                        <strong>Functioneel programmeren</strong> - alle logica
+                        in lambda's
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="article-actions">
+                    <button
+                      class="read-more-btn"
+                      onclick="toggleArticle('minimal-apis')"
+                    >
+                      Lees meer
+                    </button>
+                    <div class="article-tags">
+                      <span class="tag">ASP.NET Core</span>
+                      <span class="tag">API</span>
+                      <span class="tag">Intermediate</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Artikel 3: Git voor Fotografen -->
+              <article
+                class="article-card"
+                data-category="workflow"
+                id="git-fotografen"
+              >
+                <div class="article-image">
+                  <img
+                    src="/api/placeholder/400/250"
+                    alt="Git workflow voor fotografen"
+                  />
+                </div>
+                <div class="article-content">
+                  <div class="article-meta">
+                    <span class="article-category workflow">Workflow</span>
+                    <span class="article-date">8 januari 2025</span>
+                  </div>
+                  <h2 class="article-title">Git voor Fotografen</h2>
+                  <p class="article-excerpt">
+                    Versiecontrole is niet alleen voor programmeurs. Als
+                    fotograaf kun je Git gebruiken om je presets, scripts en
+                    zelfs je foto-concepten bij te houden. Een game-changer voor
+                    je creative workflow.
+                  </p>
+                  <div class="article-content-preview">
+                    <h3>Waarom Git als fotograaf?</h3>
+                    <p>
+                      Git helpt je niet alleen met code, maar ook met alle
+                      bestanden die onderdeel zijn van je fotografische
+                      workflow. Denk aan Lightroom presets, Photoshop actions,
+                      scripts, en zelfs conceptdocumenten voor shoots.
+                    </p>
+                    <h3>Praktische toepassingen:</h3>
+                    <ul>
+                      <li>
+                        <strong>Preset beheer</strong> - verschillende versies
+                        van je Lightroom presets bijhouden
+                      </li>
+                      <li>
+                        <strong>Script archief</strong> - batch processing
+                        scripts en automatisering
+                      </li>
+                      <li>
+                        <strong>Shoot planning</strong> - concepten, locaties en
+                        equipment lijsten
+                      </li>
+                      <li>
+                        <strong>Samenwerking</strong> - bestanden delen met
+                        andere fotografen of assistenten
+                      </li>
+                    </ul>
+                    <h3>Een voorbeeld repository structuur:</h3>
+                    <div class="code-block">
+                      <pre><code>photography-workflow/
+├── lightroom-presets/
+│   ├── portrait/
+│   ├── landscape/
+│   └── street/
+├── photoshop-actions/
+├── scripts/
+│   ├── batch-resize.py
+│   └── watermark-tool.js
+├── shoot-concepts/
+│   ├── 2025-winter-portraits.md
+│   └── urban-architecture-series.md
+└── equipment-lists/</code></pre>
+                    </div>
+                  </div>
+                  <div class="article-actions">
+                    <button
+                      class="read-more-btn"
+                      onclick="toggleArticle('git-fotografen')"
+                    >
+                      Lees meer
+                    </button>
+                    <div class="article-tags">
+                      <span class="tag">Git</span>
+                      <span class="tag">Workflow</span>
+                      <span class="tag">Productivity</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Artikel 4: focus Stacking -->
+              <article class="article-card" data-category="fotografie">
+                <div class="article-image">
+                  <img
+                    src="/api/placeholder/400/250"
+                    alt="Focus stacking tutorial"
+                  />
+                </div>
+                <div class="article-content">
+                  <div class="article-meta">
+                    <span class="article-category fotografie">Fotografie</span>
+                    <span class="article-date">5 januari 2025</span>
+                  </div>
+                  <h2 class="article-title">
+                    Focus Stacking voor Scherpe Macro's
+                  </h2>
+                  <p class="article-excerpt">
+                    Bij macrofotografie is de scherptediepte vaak beperkt. Focus
+                    stacking is een techniek waarmee je meerdere foto's op
+                    verschillende scherpte-punten combineert tot één volledig
+                    scherpe afbeelding.
+                  </p>
+                  <div class="article-actions">
+                    <button class="read-more-btn">Lees meer</button>
+                    <div class="article-tags">
+                      <span class="tag">Macro</span>
+                      <span class="tag">Post-processing</span>
+                      <span class="tag">Advanced</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Artikel 5: .NET Performance -->
+              <article class="article-card" data-category="dotnet">
+                <div class="article-image">
+                  <img
+                    src="/api/placeholder/400/250"
+                    alt=".NET Performance tips"
+                  />
+                </div>
+                <div class="article-content">
+                  <div class="article-meta">
+                    <span class="article-category dotnet">.NET</span>
+                    <span class="article-date">2 januari 2025</span>
+                  </div>
+                  <h2 class="article-title">
+                    Performance Optimalisatie in .NET 8
+                  </h2>
+                  <p class="article-excerpt">
+                    .NET 8 brengt veel performance verbeteringen. Van AOT
+                    compilation tot nieuwe garbage collection features - ontdek
+                    hoe je je applicaties sneller kunt maken.
+                  </p>
+                  <div class="article-actions">
+                    <button class="read-more-btn">Lees meer</button>
+                    <div class="article-tags">
+                      <span class="tag">Performance</span>
+                      <span class="tag">.NET 8</span>
+                      <span class="tag">Advanced</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Artikel 6: Lightroom Workflow -->
+              <article class="article-card" data-category="workflow">
+                <div class="article-image">
+                  <img
+                    src="/api/placeholder/400/250"
+                    alt="Lightroom workflow optimization"
+                  />
+                </div>
+                <div class="article-content">
+                  <div class="article-meta">
+                    <span class="article-category workflow">Workflow</span>
+                    <span class="article-date">28 december 2024</span>
+                  </div>
+                  <h2 class="article-title">Efficiënte Lightroom Workflow</h2>
+                  <p class="article-excerpt">
+                    Een geoptimaliseerde Lightroom workflow kan uren per week
+                    schelen. Van import tot export - ontdek hoe je je
+                    foto-editing process kunt versnellen.
+                  </p>
+                  <div class="article-actions">
+                    <button class="read-more-btn">Lees meer</button>
+                    <div class="article-tags">
+                      <span class="tag">Lightroom</span>
+                      <span class="tag">Efficiency</span>
+                      <span class="tag">Workflow</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Newsletter Signup -->
+        <section class="contact-cta">
+          <h2 class="section-title">Blijf op de hoogte</h2>
+          <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #666">
+            Mis geen nieuwe artikelen! Volg me op social media of stuur me een
+            bericht als je specifieke onderwerpen wilt zien.
+          </p>
+          <a href="mailto:contact@dennisvanzetten.nl" class="cta-button"
+            >Stel een Vraag</a
+          >
+
+          <div class="social-links">
+            <a href="https://github.com/DennisvanZetten" class="social-link">
+              <span>💻</span> GitHub
+            </a>
+            <a
+              href="https://www.instagram.com/dennisvanzetten_photo/"
+              class="social-link"
+            >
+              <span>📸</span> Instagram
+            </a>
+            <a
+              href="https://www.linkedin.com/in/dennis-van-zetten-19972818"
+              class="social-link"
+            >
+              <span>💼</span> LinkedIn
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Dennis van Zetten. Alle rechten voorbehouden.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Filter functionaliteit voor artikelen
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const articleCards = document.querySelectorAll(".article-card");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const filter = button.getAttribute("data-filter");
+
+          // Update active button
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+
+          // Filter articles
+          articleCards.forEach((card) => {
+            if (
+              filter === "all" ||
+              card.getAttribute("data-category") === filter
+            ) {
+              card.style.display = "block";
+              setTimeout(() => {
+                card.style.opacity = "1";
+                card.style.transform = "translateY(0)";
+              }, 100);
+            } else {
+              card.style.opacity = "0";
+              card.style.transform = "translateY(20px)";
+              setTimeout(() => {
+                card.style.display = "none";
+              }, 300);
+            }
+          });
+        });
+      });
+
+      // Toggle artikel content
+      function toggleArticle(articleId) {
+        const article = document.getElementById(articleId);
+        const content = article.querySelector(".article-content-preview");
+        const button = article.querySelector(".read-more-btn");
+
+        if (content.style.display === "none" || content.style.display === "") {
+          content.style.display = "block";
+          button.textContent = "Lees minder";
+          article.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+          content.style.display = "none";
+          button.textContent = "Lees meer";
+        }
+      }
+
+      // Smooth scrolling voor navigatie
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Check for article hash in URL
+      window.addEventListener("load", () => {
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+          const article = document.getElementById(hash);
+          if (article) {
+            setTimeout(() => {
+              toggleArticle(hash);
+            }, 500);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
