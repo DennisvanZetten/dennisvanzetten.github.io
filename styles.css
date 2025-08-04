@@ -9,7 +9,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: #333;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
   min-height: 100vh;
 }
 
@@ -39,7 +39,7 @@ nav {
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #667eea;
+  color: #2c3e50;
   text-decoration: none;
 }
 
@@ -58,7 +58,7 @@ nav {
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: #667eea;
+  color: #e74c3c;
 }
 
 /* ===== HERO SECTIES ===== */
@@ -105,20 +105,21 @@ nav {
 /* ===== BUTTONS ===== */
 .cta-button {
   display: inline-block;
-  background: #ff6b6b;
+  background: #e74c3c;
   color: white;
   padding: 1rem 2rem;
   text-decoration: none;
   border-radius: 50px;
   font-weight: bold;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
   margin: 0 0.5rem;
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+  background: #c0392b;
 }
 
 .cta-secondary {
@@ -169,7 +170,7 @@ nav {
   width: 80px;
   height: 80px;
   margin: 0 auto 1rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #2c3e50, #34495e);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -213,8 +214,8 @@ nav {
 
 .filter-btn:hover,
 .filter-btn.active {
-  background: #ff6b6b;
-  border-color: #ff6b6b;
+  background: #e74c3c;
+  border-color: #e74c3c;
   transform: translateY(-2px);
 }
 
@@ -252,8 +253,8 @@ nav {
   bottom: 0;
   background: linear-gradient(
     45deg,
-    rgba(102, 126, 234, 0.8),
-    rgba(118, 75, 162, 0.8)
+    rgba(44, 62, 80, 0.8),
+    rgba(52, 73, 94, 0.8)
   );
   display: flex;
   align-items: center;
@@ -430,7 +431,7 @@ nav {
 }
 
 .post-category {
-  background: #667eea;
+  background: #2c3e50;
   color: white;
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
@@ -452,7 +453,7 @@ nav {
 /* ===== OVER MIJ PAGINA SPECIFIEK ===== */
 .about-content {
   background: white;
-  margin: -50px auto 0;
+  margin: 4rem auto 0; /* Verbeterde spacing: was -50px nu 4rem */
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -502,8 +503,8 @@ nav {
   bottom: 0;
   background: linear-gradient(
     45deg,
-    rgba(102, 126, 234, 0.1),
-    rgba(118, 75, 162, 0.1)
+    rgba(44, 62, 80, 0.1),
+    rgba(52, 73, 94, 0.1)
   );
 }
 
@@ -528,7 +529,7 @@ nav {
 }
 
 .skill-category h3 {
-  color: #667eea;
+  color: #2c3e50;
   margin-bottom: 1rem;
   font-size: 1.5rem;
   display: flex;
@@ -566,7 +567,7 @@ nav {
 
 .skill-progress {
   height: 100%;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #2c3e50, #34495e);
   border-radius: 3px;
   transition: width 0.3s ease;
 }
@@ -590,7 +591,7 @@ nav {
   transform: translateX(-50%);
   width: 4px;
   height: 100%;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #2c3e50, #34495e);
   border-radius: 2px;
 }
 
@@ -624,7 +625,7 @@ nav {
 }
 
 .timeline-year {
-  color: #667eea;
+  color: #2c3e50;
   font-weight: bold;
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
@@ -647,7 +648,7 @@ nav {
   transform: translateX(-50%);
   width: 20px;
   height: 20px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #2c3e50, #34495e);
   border: 4px solid white;
   border-radius: 50%;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -723,7 +724,7 @@ nav {
 }
 
 .social-link:hover {
-  background: #667eea;
+  background: #2c3e50;
   color: white;
   transform: translateY(-2px);
 }
@@ -749,7 +750,7 @@ footer .social-links a {
 }
 
 footer .social-links a:hover {
-  color: #667eea;
+  color: #e74c3c;
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -775,6 +776,10 @@ footer .social-links a:hover {
 
   .portfolio-item {
     height: 300px;
+  }
+
+  .about-content {
+    margin: 2rem auto 0; /* Minder padding op mobiel */
   }
 
   .about-intro {
@@ -834,6 +839,7 @@ footer .social-links a:hover {
 /* ===== ARTIKELEN PAGINA SPECIFIEK ===== */
 .articles-intro {
   background: white;
+  padding-top: 4rem; /* Verbeterde spacing */
 }
 
 .articles-filter {
@@ -895,7 +901,7 @@ footer .social-links a:hover {
 }
 
 .article-category.dotnet {
-  background: #3498db;
+  background: #2c3e50;
 }
 
 .article-category.workflow {
@@ -975,7 +981,7 @@ footer .social-links a:hover {
 }
 
 .read-more-btn {
-  background: #667eea;
+  background: #2c3e50;
   color: white;
   border: none;
   padding: 0.5rem 1.5rem;
@@ -986,7 +992,7 @@ footer .social-links a:hover {
 }
 
 .read-more-btn:hover {
-  background: #5a6fd8;
+  background: #1a252f;
 }
 
 .article-tags {
@@ -1005,6 +1011,10 @@ footer .social-links a:hover {
 }
 
 @media (max-width: 768px) {
+  .articles-intro {
+    padding-top: 2rem; /* Minder padding op mobiel */
+  }
+
   .articles-grid {
     grid-template-columns: 1fr;
   }
@@ -1021,6 +1031,77 @@ footer .social-links a:hover {
 }
 
 /* ===== CONTACT PAGINA SPECIFIEK ===== */
+.contact-intro {
+  background: white;
+  padding-top: 4rem; /* Verbeterde spacing */
+}
+
+.contact-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-text h2 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.contact-text p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.contact-methods {
+  margin-top: 2rem;
+}
+
+.contact-method {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-method h4 {
+  color: #333;
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+}
+
+.contact-method p {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.contact-method a {
+  color: #e74c3c;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-method a:hover {
+  text-decoration: underline;
+}
+
+/* Contact Form */
 .contact-form-container {
   background: #f8f9fa;
   padding: 2rem;
@@ -1055,22 +1136,22 @@ footer .social-links a:hover {
 .form-group input,
 .form-group select,
 .form-group textarea {
-  width: 100%; /* Zorgt voor gelijke breedte */
+  width: 100%;
   padding: 0.75rem;
   border: 2px solid #e9ecef;
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
   font-family: inherit;
-  box-sizing: border-box; /* Inclusief padding en border in breedte */
+  box-sizing: border-box;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #2c3e50;
+  box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
 }
 
 .form-group textarea {
@@ -1081,7 +1162,7 @@ footer .social-links a:hover {
 
 .form-group select {
   cursor: pointer;
-  appearance: none; /* Verwijder standaard dropdown styling */
+  appearance: none;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
   background-position: right 0.75rem center;
   background-repeat: no-repeat;
@@ -1109,12 +1190,12 @@ footer .social-links a:hover {
 .checkbox-label input[type="checkbox"] {
   width: auto !important;
   margin: 0;
-  margin-top: 2px; /* Kleine offset voor betere uitlijning met tekst */
+  margin-top: 2px;
   flex-shrink: 0;
 }
 
 .submit-btn {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #2c3e50, #34495e);
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -1123,16 +1204,16 @@ footer .social-links a:hover {
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 15px rgba(44, 62, 80, 0.4);
   margin-top: 0.5rem;
-  width: 100%; /* Volledige breedte */
-  max-width: 300px; /* Maximale breedte */
-  align-self: center; /* Centreer de knop */
+  width: 100%;
+  max-width: 300px;
+  align-self: center;
 }
 
 .submit-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+  box-shadow: 0 6px 20px rgba(44, 62, 80, 0.6);
 }
 
 .submit-btn:disabled {
@@ -1160,8 +1241,131 @@ footer .social-links a:hover {
   font-weight: bold;
 }
 
+/* Success sectie styling */
+.success-section {
+  background: white;
+}
+
+.success-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: left;
+}
+
+.success-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.success-content h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.success-content p {
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* FAQ Sectie */
+.faq-section {
+  background: #f8f9fa;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.faq-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.faq-item h4 {
+  color: #333;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.faq-item p {
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Response Info */
+.response-info {
+  background: white;
+}
+
+.response-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  padding: 2rem;
+  border-radius: 20px;
+  color: white;
+}
+
+.response-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.response-content h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.response-content p {
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
 /* Responsive aanpassingen */
 @media (max-width: 768px) {
+  .contact-intro {
+    padding-top: 2rem; /* Minder padding op mobiel */
+  }
+
+  .contact-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-method {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .response-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .success-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
   .contact-form-container {
     padding: 1.5rem;
   }
@@ -1170,11 +1374,11 @@ footer .social-links a:hover {
   .form-group select,
   .form-group textarea {
     padding: 0.875rem;
-    font-size: 16px; /* Voorkomt zoom op iOS */
+    font-size: 16px;
   }
 
   .submit-btn {
-    max-width: none; /* Volledige breedte op mobiel */
+    max-width: none;
   }
 
   .checkbox-group {
