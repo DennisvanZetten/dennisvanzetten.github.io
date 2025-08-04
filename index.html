@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dennis van Zetten - Fotografie & .NET Ontwikkeling</title>
+    <title>Dennis van Zetten - Fotograaf</title>
+    <meta
+      name="description"
+      content="Fotografie door Dennis van Zetten. Gespecialiseerd in landschappen, macro en zwart-wit fotografie."
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -11,7 +15,7 @@
       <nav class="container">
         <a href="index.html" class="logo">Dennis van Zetten</a>
         <ul class="nav-links">
-          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="artikelen.html">Artikelen</a></li>
           <li><a href="over-mij.html">Over Mij</a></li>
@@ -20,287 +24,129 @@
       </nav>
     </header>
 
-    <section class="hero" id="home">
+    <section class="hero">
       <div class="container">
-        <h1>Wat mij interesseert</h1>
+        <h3>Fotografie</h3>
         <p>
-          Alles over fotografie en .NET ontwikkeling. Ontdek tutorials, tips en
-          inspiratie voor zowel de creatieve als technische kant van digitale
-          creatie.
+          Fotograaf met een passie voor het vastleggen van bijzondere momenten,
+          prachtige landschappen en tijdloze macro's.
         </p>
-        <a href="#portfolio" class="cta-button">Bekijk Portfolio</a>
-        <a href="artikelen.html" class="cta-button cta-secondary"
-          >Lees Artikelen</a
-        >
+        <h3>softwareontwikkeling</h3>
+        <p>
+          softwareontwikkeling is mijn andere liefde. Geinteresseerd in .NET
+          development? ga dan naar de .NET sectie van mijn website.
+        </p>
+        <div>
+          <a href="#portfolio" class="cta-button">Bekijk Mijn Werk</a>
+          <a href="software.html" class="cta-button cta-secondary"
+            >.NET development</a
+          >
+        </div>
       </div>
     </section>
 
-    <section class="features">
+    <section class="features photo-background">
       <div class="container">
-        <h2 class="section-title">Wat Je Hier Vindt</h2>
+        <h2 class="section-title">Mijn Fotografie Expertise</h2>
         <div class="features-grid">
           <div class="feature-card">
-            <div class="feature-icon">📸</div>
-            <h3>Fotografie</h3>
+            <div class="feature-icon">🌲</div>
+            <h3>Landschapsfotografie</h3>
             <p>
-              Van compositietechnieken tot post-processing tips. Leer hoe je
-              betere foto's maakt en je fotografische vaardigheden ontwikkelt.
+              Nederlandse natuur vastleggen in al haar pracht - van klassieke
+              molens tot dramatische kustlijnen en serene parklandschappen.
             </p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">💻</div>
-            <h3>.NET Ontwikkeling</h3>
+            <div class="feature-icon">👤</div>
+            <h3>Portretfotografie</h3>
             <p>
-              Diepgaande tutorials over C#, ASP.NET Core, en moderne
-              ontwikkelingspraktijken. Van beginner tot gevorderd niveau.
+              Persoonlijke en zakelijke portretten die karakter en
+              persoonlijkheid laten zien, zowel in de studio als op locatie.
             </p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">🔧</div>
-            <h3>Tools & Workflows</h3>
+            <div class="feature-icon">⚫</div>
+            <h3>Zwart-Wit Fotografie</h3>
             <p>
-              Ontdek de beste tools en workflows voor zowel fotografie als
-              softwareontwikkeling om je productiviteit te verhogen.
+              Tijdloze beelden die verhalen vertellen door krachtige contrasten
+              en emotionele diepte zonder kleur.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="portfolio" id="portfolio">
+    <section id="portfolio" class="portfolio">
       <div class="container">
-        <h2 class="section-title">Mijn Fotografie Portfolio</h2>
-        <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem">
-          Een selectie van mijn beste fotografiewerk • Klik op een foto om deze
-          te vergroten
-        </p>
-
+        <h2 class="section-title">Mijn Portfolio</h2>
         <div class="portfolio-categories">
-          <button class="filter-btn active" data-filter="all">Alles</button>
-          <button class="filter-btn" data-filter="natuur">Natuur</button>
-          <button class="filter-btn" data-filter="portret">Portret</button>
-          <button class="filter-btn" data-filter="landschap">Landschap</button>
-          <button class="filter-btn" data-filter="street">Street</button>
+          <button class="filter-btn" data-category="portfolio2025">
+            Portfolio 2025
+          </button>
+          <button class="filter-btn" data-category="landschappen">
+            Landschappen
+          </button>
+          <button class="filter-btn" data-category="macro">Macro</button>
+          <button class="filter-btn" data-category="zwartwit">Zwart Wit</button>
         </div>
-
-        <div class="portfolio-grid">
-          <div
-            class="portfolio-item"
-            data-category="natuur"
-            data-src="/api/placeholder/1200/800"
-            data-title="Herfst in het Bos"
-            data-description="Een prachtige herfstdag vastgelegd tijdens een wandeling door het bos"
-          >
-            <img
-              src="/api/placeholder/400/350"
-              alt="Natuur fotografie - Herfst"
-            />
-            <div class="portfolio-overlay">
-              <div class="portfolio-text">
-                <h4>Herfst in het Bos</h4>
-                <p>Natuur • 2024</p>
-              </div>
-            </div>
-            <div class="expand-icon">🔍</div>
-          </div>
-
-          <div
-            class="portfolio-item"
-            data-category="portret"
-            data-src="/api/placeholder/1200/800"
-            data-title="Portret Sessie"
-            data-description="Een professionele portret sessie met natuurlijk licht"
-          >
-            <img src="/api/placeholder/400/350" alt="Portret fotografie" />
-            <div class="portfolio-overlay">
-              <div class="portfolio-text">
-                <h4>Portret Sessie</h4>
-                <p>Portret • 2024</p>
-              </div>
-            </div>
-            <div class="expand-icon">🔍</div>
-          </div>
-
-          <div
-            class="portfolio-item"
-            data-category="landschap"
-            data-src="/api/placeholder/1200/800"
-            data-title="Nederlandse Polders"
-            data-description="Het typische Nederlandse landschap in al zijn glorie"
-          >
-            <img
-              src="/api/placeholder/400/350"
-              alt="Landschap fotografie - Polders"
-            />
-            <div class="portfolio-overlay">
-              <div class="portfolio-text">
-                <h4>Nederlandse Polders</h4>
-                <p>Landschap • 2024</p>
-              </div>
-            </div>
-            <div class="expand-icon">🔍</div>
-          </div>
-
-          <div
-            class="portfolio-item"
-            data-category="street"
-            data-src="/api/placeholder/1200/800"
-            data-title="Stadsleven"
-            data-description="Het dagelijkse leven in de stad vastgelegd"
-          >
-            <img src="/api/placeholder/400/350" alt="Street fotografie" />
-            <div class="portfolio-overlay">
-              <div class="portfolio-text">
-                <h4>Stadsleven</h4>
-                <p>Street • 2024</p>
-              </div>
-            </div>
-            <div class="expand-icon">🔍</div>
-          </div>
-
-          <div
-            class="portfolio-item"
-            data-category="natuur"
-            data-src="/api/placeholder/1200/800"
-            data-title="Macro Detail"
-            data-description="De kleine wonderen van de natuur in detail"
-          >
-            <img src="/api/placeholder/400/350" alt="Macro fotografie" />
-            <div class="portfolio-overlay">
-              <div class="portfolio-text">
-                <h4>Macro Detail</h4>
-                <p>Natuur • 2024</p>
-              </div>
-            </div>
-            <div class="expand-icon">🔍</div>
-          </div>
-
-          <div
-            class="portfolio-item"
-            data-category="landschap"
-            data-src="/api/placeholder/1200/800"
-            data-title="Zonsondergang aan Zee"
-            data-description="Een adembenemende zonsondergang aan de Nederlandse kust"
-          >
-            <img
-              src="/api/placeholder/400/350"
-              alt="Zonsondergang fotografie"
-            />
-            <div class="portfolio-overlay">
-              <div class="portfolio-text">
-                <h4>Zonsondergang aan Zee</h4>
-                <p>Landschap • 2024</p>
-              </div>
-            </div>
-            <div class="expand-icon">🔍</div>
-          </div>
-
-          <div
-            class="portfolio-item"
-            data-category="portret"
-            data-src="/api/placeholder/1200/800"
-            data-title="Creatief Portret"
-            data-description="Experimenteren met licht en schaduw in portraitfotografie"
-          >
-            <img src="/api/placeholder/400/350" alt="Creatief portret" />
-            <div class="portfolio-overlay">
-              <div class="portfolio-text">
-                <h4>Creatief Portret</h4>
-                <p>Portret • 2024</p>
-              </div>
-            </div>
-            <div class="expand-icon">🔍</div>
-          </div>
-
-          <div
-            class="portfolio-item"
-            data-category="street"
-            data-src="/api/placeholder/1200/800"
-            data-title="Urban Architecture"
-            data-description="Moderne architectuur in stedelijke omgeving"
-          >
-            <img src="/api/placeholder/400/350" alt="Architectuur fotografie" />
-            <div class="portfolio-overlay">
-              <div class="portfolio-text">
-                <h4>Urban Architecture</h4>
-                <p>Street • 2024</p>
-              </div>
-            </div>
-            <div class="expand-icon">🔍</div>
-          </div>
+        <div class="portfolio-grid" id="portfolio-grid">
+          <!-- Portfolio items worden hier door JavaScript ingevoegd -->
         </div>
       </div>
     </section>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-      <div class="lightbox-content">
-        <button class="lightbox-close" id="lightbox-close">&times;</button>
-        <button class="lightbox-nav lightbox-prev" id="lightbox-prev">
-          &larr;
-        </button>
-        <button class="lightbox-nav lightbox-next" id="lightbox-next">
-          &rarr;
-        </button>
-        <img id="lightbox-image" src="" alt="" />
-        <div class="lightbox-info" id="lightbox-info">
-          <h4 id="lightbox-title"></h4>
-          <p id="lightbox-description"></p>
-        </div>
-      </div>
-    </div>
-
-    <section class="recent-posts" id="recent-posts">
+    <section class="recent-posts photo-background">
       <div class="container">
-        <h2 class="section-title">Recente Artikelen</h2>
+        <h2 class="section-title">Fotografie Artikelen</h2>
         <div class="posts-grid">
-          <article
-            class="post-card"
-            onclick="window.location.href='artikelen.html#compositieregels'"
-          >
+          <article class="post-card">
             <div class="post-image">
-              <img src="/api/placeholder/350/200" alt="Fotografietutorial" />
+              <img
+                src="/api/placeholder/350/200"
+                alt="5 Tips voor Betere Landschapsfotografie"
+              />
             </div>
             <div class="post-content">
-              <span class="post-category">Fotografie</span>
-              <h3 class="post-title">Compositieregels die Echt Werken</h3>
+              <span class="post-category">Landschappen</span>
+              <h3 class="post-title">
+                5 Tips voor Betere Landschapsfotografie
+              </h3>
               <p class="post-excerpt">
-                Leer de fundamentele compositieregels kennen die je foto's naar
-                een hoger niveau tillen, inclusief praktische voorbeelden.
+                Ontdek hoe je meer diepte en drama in je landschapsfoto's kunt
+                brengen met deze praktische technieken...
               </p>
             </div>
           </article>
-
-          <article
-            class="post-card"
-            onclick="window.location.href='artikelen.html#minimal-apis'"
-          >
+          <article class="post-card">
             <div class="post-image">
-              <img src="/api/placeholder/350/200" alt=".NET tutorial" />
+              <img
+                src="/api/placeholder/350/200"
+                alt="De Kracht van Zwart-Wit Fotografie"
+              />
             </div>
             <div class="post-content">
-              <span class="post-category">.NET</span>
-              <h3 class="post-title">ASP.NET Core Minimal APIs</h3>
+              <span class="post-category">Zwart-Wit</span>
+              <h3 class="post-title">De Kracht van Zwart-Wit Fotografie</h3>
               <p class="post-excerpt">
-                Een complete gids voor het bouwen van snelle en efficiënte APIs
-                met de nieuwe Minimal API features in .NET 6+.
+                Waarom zwart-wit fotografie nog steeds relevant is en hoe je
+                krachtige monochrome beelden creëert...
               </p>
             </div>
           </article>
-
-          <article
-            class="post-card"
-            onclick="window.location.href='artikelen.html#git-fotografen'"
-          >
+          <article class="post-card">
             <div class="post-image">
-              <img src="/api/placeholder/350/200" alt="Workflow tutorial" />
+              <img
+                src="/api/placeholder/350/200"
+                alt="Portretfotografie met Natuurlijk Licht"
+              />
             </div>
             <div class="post-content">
-              <span class="post-category">Workflow</span>
-              <h3 class="post-title">Git voor Fotografen</h3>
+              <span class="post-category">Portretten</span>
+              <h3 class="post-title">Portretfotografie met Natuurlijk Licht</h3>
               <p class="post-excerpt">
-                Hoe je versiecontrole kunt gebruiken voor je fotografieprojecten
-                en waarom elke creatieve professional Git moet kennen.
+                Leer hoe je het mooiste natuurlijke licht vindt en gebruikt voor
+                adembenemende portretfoto's...
               </p>
             </div>
           </article>
@@ -310,83 +156,155 @@
 
     <footer>
       <div class="container">
-        <p>&copy; 2025 Dennis van Zetten. Alle rechten voorbehouden.</p>
+        <p>
+          &copy; 2025 Dennis van Zetten Fotografie. Alle rechten voorbehouden.
+        </p>
         <div class="social-links">
-          <a href="https://github.com/DennisvanZetten">GitHub</a>
-          <a href="https://www.instagram.com/dennisvanzetten_photo/"
-            >Instagram</a
-          >
-          <a href="https://www.linkedin.com/in/dennis-van-zetten-19972818"
-            >LinkedIn</a
+          <a
+            href="https://www.instagram.com/dennisvanzetten_photo/"
+            target="_blank"
+            >📷 Instagram</a
           >
         </div>
       </div>
     </footer>
 
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+      <div class="lightbox-content">
+        <button class="lightbox-close">&times;</button>
+        <button class="lightbox-nav lightbox-prev">&#8249;</button>
+        <button class="lightbox-nav lightbox-next">&#8250;</button>
+        <img id="lightbox-img" src="" alt="" />
+        <div class="lightbox-info">
+          <h4 id="lightbox-title">Foto titel</h4>
+          <p id="lightbox-description">Foto beschrijving</p>
+          <p><span id="lightbox-counter">1 / 10</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Externe portfolio configuratie -->
+    <script src="portfolio-config.js"></script>
+
     <script>
-      // Portfolio Filter Functionaliteit
-      const filterButtons = document.querySelectorAll(".filter-btn");
-      const portfolioItems = document.querySelectorAll(".portfolio-item");
+      // *** CONFIGURATIE - Hier stel je de standaard categorie in ***
+      const DEFAULT_CATEGORY = "landschappen"; // ← Verander dit naar elke categorie die je wilt!
 
-      filterButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const filter = button.getAttribute("data-filter");
+      // Portfolio rendering - Gebruikt nu de externe PORTFOLIO_CONFIG
+      let currentImages = [];
+      let currentImageIndex = 0;
 
+      function renderPortfolio(category = "alle") {
+        const grid = document.getElementById("portfolio-grid");
+        grid.innerHTML = "";
+        currentImages = [];
+
+        // Check of de configuratie geladen is
+        if (typeof PORTFOLIO_CONFIG === "undefined") {
+          console.error(
+            "Portfolio configuratie niet gevonden! Zorg dat portfolio-config.js geladen is."
+          );
+          grid.innerHTML =
+            '<p style="text-align: center; color: white; width: 100%;">Portfolio configuratie wordt geladen...</p>';
+          return;
+        }
+
+        const categoriesToShow =
+          category === "alle" ? Object.keys(PORTFOLIO_CONFIG) : [category];
+
+        let imageIndex = 0;
+
+        categoriesToShow.forEach((cat) => {
+          if (PORTFOLIO_CONFIG[cat]) {
+            PORTFOLIO_CONFIG[cat].images.forEach((image) => {
+              const portfolioItem = document.createElement("div");
+              portfolioItem.className = "portfolio-item";
+              portfolioItem.setAttribute("data-category", cat);
+
+              const imageUrl = `images/portfolio/${cat}/${image.filename}`;
+
+              portfolioItem.innerHTML = `
+                <img src="${imageUrl}" alt="${image.title}" loading="lazy" />
+                <div class="portfolio-overlay">
+                  <div class="portfolio-text">
+                    <h4>${image.title}</h4>
+                    <p>${PORTFOLIO_CONFIG[cat].description}</p>
+                  </div>
+                </div>
+                <div class="expand-icon">🔍</div>
+              `;
+
+              // Voeg image toe aan currentImages array voor lightbox
+              currentImages.push({
+                src: imageUrl,
+                title: image.title,
+                description: image.description,
+                category: PORTFOLIO_CONFIG[cat].title,
+                filename: image.filename,
+              });
+
+              // Add click event voor lightbox met de juiste index
+              const currentIndex = imageIndex;
+              portfolioItem.addEventListener("click", () => {
+                openLightbox(currentIndex);
+              });
+
+              grid.appendChild(portfolioItem);
+              imageIndex++;
+            });
+          }
+        });
+
+        // Als er geen items zijn, toon een bericht
+        if (currentImages.length === 0) {
+          grid.innerHTML =
+            '<p style="text-align: center; color: white; width: 100%;">Nog geen foto\'s in deze categorie.</p>';
+        }
+
+        // Voeg een smooth animation toe voor de nieuwe items
+        const items = grid.querySelectorAll(".portfolio-item");
+        items.forEach((item, index) => {
+          item.style.opacity = "0";
+          item.style.transform = "translateY(20px)";
+          setTimeout(() => {
+            item.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+            item.style.opacity = "1";
+            item.style.transform = "translateY(0)";
+          }, index * 100);
+        });
+      }
+
+      // Filter functionaliteit
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
           // Update active button
-          filterButtons.forEach((btn) => btn.classList.remove("active"));
-          button.classList.add("active");
+          document
+            .querySelectorAll(".filter-btn")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
 
-          // Filter portfolio items
-          portfolioItems.forEach((item) => {
-            if (
-              filter === "all" ||
-              item.getAttribute("data-category") === filter
-            ) {
-              item.style.display = "block";
-              setTimeout(() => {
-                item.style.opacity = "1";
-                item.style.transform = "scale(1)";
-              }, 100);
-            } else {
-              item.style.opacity = "0";
-              item.style.transform = "scale(0.8)";
-              setTimeout(() => {
-                item.style.display = "none";
-              }, 300);
-            }
-          });
+          // Render portfolio met geselecteerde categorie
+          const category = btn.getAttribute("data-category");
+          renderPortfolio(category);
         });
       });
 
-      // Lightbox Functionaliteit
+      // Lightbox functionaliteit
       const lightbox = document.getElementById("lightbox");
-      const lightboxImage = document.getElementById("lightbox-image");
+      const lightboxImg = document.getElementById("lightbox-img");
       const lightboxTitle = document.getElementById("lightbox-title");
       const lightboxDescription = document.getElementById(
         "lightbox-description"
       );
-      const lightboxClose = document.getElementById("lightbox-close");
-      const lightboxPrev = document.getElementById("lightbox-prev");
-      const lightboxNext = document.getElementById("lightbox-next");
-
-      let currentImageIndex = 0;
-      const images = Array.from(portfolioItems);
-
-      function showImage(index) {
-        const item = images[index];
-        const src = item.getAttribute("data-src");
-        const title = item.getAttribute("data-title");
-        const description = item.getAttribute("data-description");
-
-        lightboxImage.src = src;
-        lightboxTitle.textContent = title;
-        lightboxDescription.textContent = description;
-        currentImageIndex = index;
-      }
+      const lightboxCounter = document.getElementById("lightbox-counter");
 
       function openLightbox(index) {
+        if (currentImages.length === 0) return;
+
+        currentImageIndex = index;
+        updateLightboxContent();
         lightbox.classList.add("active");
-        showImage(index);
         document.body.style.overflow = "hidden";
       }
 
@@ -395,43 +313,80 @@
         document.body.style.overflow = "auto";
       }
 
+      function updateLightboxContent() {
+        if (
+          currentImageIndex >= 0 &&
+          currentImageIndex < currentImages.length
+        ) {
+          const image = currentImages[currentImageIndex];
+          lightboxImg.src = image.src;
+          lightboxImg.alt = image.title;
+          lightboxTitle.textContent = image.title;
+          lightboxDescription.textContent = `${image.description} • ${image.category}`;
+          lightboxCounter.textContent = `${currentImageIndex + 1} van ${
+            currentImages.length
+          }`;
+        }
+      }
+
       function nextImage() {
-        const nextIndex = (currentImageIndex + 1) % images.length;
-        showImage(nextIndex);
+        if (currentImageIndex < currentImages.length - 1) {
+          currentImageIndex++;
+          updateLightboxContent();
+        } else {
+          // Loop terug naar eerste foto
+          currentImageIndex = 0;
+          updateLightboxContent();
+        }
       }
 
       function prevImage() {
-        const prevIndex =
-          (currentImageIndex - 1 + images.length) % images.length;
-        showImage(prevIndex);
+        if (currentImageIndex > 0) {
+          currentImageIndex--;
+          updateLightboxContent();
+        } else {
+          // Loop naar laatste foto
+          currentImageIndex = currentImages.length - 1;
+          updateLightboxContent();
+        }
       }
 
-      // Event listeners
-      portfolioItems.forEach((item, index) => {
-        item.addEventListener("click", () => openLightbox(index));
-      });
+      // Event listeners voor lightbox
+      document
+        .querySelector(".lightbox-close")
+        .addEventListener("click", closeLightbox);
+      document
+        .querySelector(".lightbox-next")
+        .addEventListener("click", nextImage);
+      document
+        .querySelector(".lightbox-prev")
+        .addEventListener("click", prevImage);
 
-      lightboxClose.addEventListener("click", closeLightbox);
-      lightboxNext.addEventListener("click", nextImage);
-      lightboxPrev.addEventListener("click", prevImage);
-
-      // Close lightbox on background click
+      // Click buiten de content om te sluiten
       lightbox.addEventListener("click", (e) => {
         if (e.target === lightbox) {
           closeLightbox();
         }
       });
 
-      // Keyboard navigation
+      // Keyboard navigatie
       document.addEventListener("keydown", (e) => {
         if (lightbox.classList.contains("active")) {
-          if (e.key === "Escape") closeLightbox();
-          if (e.key === "ArrowRight") nextImage();
-          if (e.key === "ArrowLeft") prevImage();
+          switch (e.key) {
+            case "Escape":
+              closeLightbox();
+              break;
+            case "ArrowLeft":
+              prevImage();
+              break;
+            case "ArrowRight":
+              nextImage();
+              break;
+          }
         }
       });
 
-      // Smooth scrolling voor navigatie links
+      // Smooth scrolling voor navigatie
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
@@ -445,9 +400,29 @@
         });
       });
 
-      // Maak post cards klikbaar
-      document.querySelectorAll(".post-card").forEach((card) => {
-        card.style.cursor = "pointer";
+      // *** AANGEPAST: Initiële render met configureerbare standaard categorie ***
+      document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+          // Render de standaard categorie
+          renderPortfolio(DEFAULT_CATEGORY);
+
+          // Update de actieve button naar de standaard categorie
+          document.querySelectorAll(".filter-btn").forEach((btn) => {
+            btn.classList.remove("active");
+            if (btn.getAttribute("data-category") === DEFAULT_CATEGORY) {
+              btn.classList.add("active");
+            }
+          });
+        }, 100);
+      });
+
+      // Error handling voor als de config niet geladen kan worden
+      window.addEventListener("error", (e) => {
+        if (e.filename && e.filename.includes("portfolio-config.js")) {
+          console.error("Kon portfolio-config.js niet laden");
+          document.getElementById("portfolio-grid").innerHTML =
+            '<p style="text-align: center; color: white; width: 100%;">Portfolio configuratie niet beschikbaar.</p>';
+        }
       });
     </script>
   </body>

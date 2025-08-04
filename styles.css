@@ -1413,3 +1413,223 @@ footer .social-links a:hover {
     align-items: center !important;
   }
 }
+
+/* ========================================
+   GEDEELDE PHOTO BACKGROUND STYLING
+   Gebruik: voeg class "photo-background" toe aan elke sectie
+======================================== */
+
+.photo-background {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Parallax effect */
+  position: relative;
+  padding: 6rem 0;
+  min-height: 600px;
+}
+
+/* Donkere overlay voor alle photo-background secties */
+.photo-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+/* Container altijd boven overlay */
+.photo-background .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Titels op donkere achtergrond */
+.photo-background .section-title {
+  color: white !important;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* ========================================
+   SPECIFIEKE ACHTERGROND AFBEELDINGEN
+======================================== */
+
+/* Features sectie - roze/blauw gradient */
+.features.photo-background {
+  background-image: linear-gradient(
+      135deg,
+      rgba(236, 72, 153, 0.1),
+      rgba(59, 130, 246, 0.1)
+    ),
+    url("images/backgrounds/features-bg.jpg");
+}
+
+/* Recent posts sectie - paars/roze gradient */
+.recent-posts.photo-background {
+  background-image: linear-gradient(
+      135deg,
+      rgba(168, 85, 247, 0.1),
+      rgba(236, 72, 153, 0.1)
+    ),
+    url("images/backgrounds/articles-bg.jpg");
+}
+
+/* Andere secties kunnen je later makkelijk toevoegen:
+.hero.photo-background {
+  background-image: url('images/backgrounds/hero-bg.jpg');
+}
+*/
+
+/* ========================================
+   GLASS-MORPHISM KAARTEN
+======================================== */
+
+.photo-background .feature-card,
+.photo-background .post-card {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+/* Hover effects voor alle kaarten */
+.photo-background .feature-card:hover,
+.photo-background .post-card:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* ========================================
+   TEKST STYLING OP DONKERE ACHTERGROND
+======================================== */
+
+/* Feature cards tekst */
+.photo-background .feature-card h3 {
+  color: white !important;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.photo-background .feature-card p {
+  color: rgba(255, 255, 255, 0.95) !important;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.photo-background .feature-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  display: block;
+  opacity: 0.9;
+}
+
+/* Post cards tekst */
+.photo-background .post-content {
+  padding: 1.5rem;
+  color: white;
+}
+
+.photo-background .post-title {
+  color: white !important;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.photo-background .post-excerpt {
+  color: rgba(255, 255, 255, 0.9) !important;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.photo-background .post-category {
+  background: rgba(59, 130, 246, 0.8) !important;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   ANIMATIES
+======================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.photo-background .feature-card,
+.photo-background .post-card {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.photo-background .feature-card:nth-child(1),
+.photo-background .post-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.photo-background .feature-card:nth-child(2),
+.photo-background .post-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.photo-background .feature-card:nth-child(3),
+.photo-background .post-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+  .photo-background {
+    background-attachment: scroll; /* Beter voor mobiel */
+    padding: 4rem 0;
+  }
+
+  .photo-background .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .photo-background .feature-card,
+  .photo-background .post-card {
+    padding: 1.5rem;
+  }
+
+  .photo-background .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-background {
+    padding: 3rem 0;
+  }
+
+  .photo-background .features-grid,
+  .photo-background .posts-grid {
+    gap: 1.5rem;
+  }
+}
