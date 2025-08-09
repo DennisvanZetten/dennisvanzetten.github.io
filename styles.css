@@ -74,6 +74,14 @@ nav {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+.hero h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  margin-top: 2rem;
+  color: hsl(236, 15%, 77%);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
 .hero p {
   font-size: 1.3rem;
   margin-bottom: 2rem;
@@ -141,48 +149,94 @@ nav {
   color: #333;
 }
 
+/* ===== FEATURES SECTIE - MET AFBEELDINGEN ===== */
 .features {
   background: white;
   padding: 4rem 0;
 }
 
 .features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
   margin-top: 2rem;
 }
 
 .feature-card {
   background: linear-gradient(145deg, #f0f0f0, #ffffff);
-  padding: 2rem;
   border-radius: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  text-align: center;
   transition: transform 0.3s ease;
+  overflow: hidden;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
 }
 
 .feature-card:hover {
   transform: translateY(-5px);
 }
 
-.feature-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 1rem;
-  background: linear-gradient(135deg, #2c3e50, #34495e);
-  border-radius: 50%;
+/* Feature afbeelding over volledige breedte */
+.feature-image {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+}
+
+.feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-image img {
+  transform: scale(1.05);
+}
+
+/* Content onder de afbeelding */
+.feature-content {
+  padding: 1.5rem 2rem 2rem;
+  flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: white;
+  flex-direction: column;
 }
 
 .feature-card h3 {
   color: #333;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+/* Optionele overlay op afbeelding */
+.feature-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(44, 62, 80, 0.1),
+    rgba(52, 73, 94, 0.1)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-card:hover .feature-image::after {
+  opacity: 1;
 }
 
 /* ===== PORTFOLIO SECTIE ===== */
@@ -231,18 +285,25 @@ nav {
 
 /* Artikelen specifieke styling (lichte achtergrond) */
 .articles-filter .filter-btn {
-  background: white;
-  border: 2px solid #2c3e50;
-  color: #2c3e50;
+  background: #f8fafc;
+  color: #475569;
+  border: 2px solid #e2e8f0;
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
-.articles-filter .filter-btn:hover,
+.articles-filter .filter-btn:hover {
+  background: #e2e8f0;
+  color: #334155;
+}
+
 .articles-filter .filter-btn.active {
-  background: #e74c3c;
-  border-color: #e74c3c;
+  background: #3b82f6;
   color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 .portfolio-grid {
@@ -479,7 +540,7 @@ nav {
 /* ===== OVER MIJ PAGINA SPECIFIEK ===== */
 .about-content {
   background: white;
-  margin: 4rem auto 0; /* Verbeterde spacing: was -50px nu 4rem */
+  margin: 4rem auto 0;
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -779,93 +840,13 @@ footer .social-links a:hover {
   color: #e74c3c;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.5rem;
-  }
+/* ========================================
+   ARTIKELEN PAGINA SPECIFIEK - NORMALE STYLING
+======================================== */
 
-  .hero-about h1 {
-    font-size: 2.5rem;
-  }
-
-  .nav-links {
-    gap: 1rem;
-  }
-
-  .features-grid,
-  .portfolio-grid,
-  .skills-grid,
-  .passion-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .portfolio-item {
-    height: 300px;
-  }
-
-  .about-content {
-    margin: 2rem auto 0; /* Minder padding op mobiel */
-  }
-
-  .about-intro {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 2rem;
-  }
-
-  .intro-photo {
-    order: -1;
-    max-width: 250px;
-    margin: 0 auto;
-  }
-
-  .intro-photo img {
-    height: 300px;
-  }
-
-  .timeline::before {
-    left: 20px;
-  }
-
-  .timeline-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .timeline-content {
-    width: 100%;
-    margin-left: 40px !important;
-    text-align: left !important;
-  }
-
-  .timeline-dot {
-    left: 20px;
-  }
-
-  .lightbox-nav {
-    display: none;
-  }
-
-  .lightbox-info {
-    position: static;
-    margin-top: 1rem;
-  }
-
-  .filter-btn {
-    margin: 0.25rem;
-    padding: 0.4rem 1rem;
-  }
-
-  .social-links {
-    flex-wrap: wrap;
-  }
-}
-
-/* ===== ARTIKELEN PAGINA SPECIFIEK ===== */
 .articles-intro {
   background: white;
-  padding-top: 4rem; /* Verbeterde spacing */
+  padding-top: 4rem;
 }
 
 .articles-filter {
@@ -873,6 +854,13 @@ footer .social-links a:hover {
   border-bottom: 1px solid #eee;
   padding: 2rem 0;
   text-align: center;
+}
+
+.articles-filter .container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .articles-grid-section {
@@ -885,28 +873,50 @@ footer .social-links a:hover {
   gap: 2rem;
 }
 
-.article-card {
-  background: white;
+/* NORMALE ARTIKEL KAARTEN (NIET PHOTO-BACKGROUND) */
+.articles-grid-section:not(.photo-background) .article-card {
+  background: white !important;
+  color: #333 !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
 }
 
-.article-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+.articles-grid-section:not(.photo-background) .article-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
+}
+
+.article-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
 }
 
 .article-image img {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.articles-grid-section:not(.photo-background)
+  .article-card:hover
+  .article-image
+  img {
+  transform: scale(1.05);
 }
 
 .article-content {
   padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .article-meta {
@@ -917,151 +927,257 @@ footer .social-links a:hover {
 }
 
 .article-category {
-  padding: 0.3rem 0.8rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 15px;
   font-size: 0.8rem;
-  font-weight: bold;
-  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Category specific colors */
+.article-category.dotnet {
+  background: #3b82f6 !important;
+  color: white !important;
 }
 
 .article-category.fotografie {
-  background: #e74c3c;
-}
-
-.article-category.dotnet {
-  background: #2c3e50;
+  background: #ec4899 !important;
+  color: white !important;
 }
 
 .article-category.workflow {
-  background: #2ecc71;
+  background: #10b981 !important;
+  color: white !important;
 }
 
-.article-date {
-  color: #666;
-  font-size: 0.85rem;
-}
-
-.article-title {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-  color: #333;
-  line-height: 1.3;
-}
-
-.article-excerpt {
-  color: #666;
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-  line-height: 1.5;
-}
-
-.article-content-preview {
-  display: none;
-  margin: 1.5rem 0;
-  padding-top: 1rem;
-  border-top: 1px solid #eee;
-}
-
-.article-content-preview h3 {
-  color: #333;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-}
-
-.article-content-preview p {
-  color: #666;
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-.article-content-preview ul {
-  margin: 1rem 0;
-  padding-left: 1.5rem;
-}
-
-.article-content-preview li {
-  color: #666;
-  margin-bottom: 0.5rem;
-  line-height: 1.5;
-}
-
-.code-block {
-  background: #f8f9fa;
-  border: 1px solid #e9ecef;
-  border-radius: 8px;
-  padding: 1rem;
-  margin: 1rem 0;
-  overflow-x: auto;
-}
-
-.code-block pre {
-  margin: 0;
-  font-family: "Courier New", monospace;
+.articles-grid-section:not(.photo-background) .article-date {
+  color: #6b7280 !important;
   font-size: 0.9rem;
-  line-height: 1.4;
+  font-weight: 500;
 }
 
+/* Article content text voor normale pagina */
+.articles-grid-section:not(.photo-background) .article-title {
+  color: #1f2937 !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  margin: 1rem 0 !important;
+  text-shadow: none !important;
+}
+
+.articles-grid-section:not(.photo-background) .article-excerpt {
+  color: #4b5563 !important;
+  line-height: 1.6 !important;
+  margin-bottom: 1.5rem !important;
+  text-shadow: none !important;
+  font-size: 0.95rem;
+}
+
+/* Article actions & tags voor normale pagina */
 .article-actions {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 1.5rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: auto;
 }
 
 .read-more-btn {
-  background: #2c3e50;
-  color: white;
+  background: #3b82f6;
+  color: white !important;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
   border: none;
-  padding: 0.5rem 1.5rem;
-  border-radius: 25px;
   cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s ease;
 }
 
 .read-more-btn:hover {
-  background: #1a252f;
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }
 
 .article-tags {
   display: flex;
-  gap: 0.5rem;
   flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
-.tag {
-  background: #f8f9fa;
-  color: #666;
-  padding: 0.2rem 0.6rem;
+.articles-grid-section:not(.photo-background) .article-tags .tag {
+  background: #f3f4f6 !important;
+  color: #374151 !important;
+  padding: 0.3rem 0.7rem;
   border-radius: 12px;
-  font-size: 0.8rem;
-  border: 1px solid #e9ecef;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid #e5e7eb;
 }
 
-@media (max-width: 768px) {
-  .articles-intro {
-    padding-top: 2rem; /* Minder padding op mobiel */
-  }
+.articles-grid-section:not(.photo-background) .article-tags .tag:hover {
+  background: #e5e7eb !important;
+}
 
-  .articles-grid {
-    grid-template-columns: 1fr;
-  }
+/* Article counter styling */
+.article-counter {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: inline-block;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
 
-  .article-actions {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
-  }
+/* ========================================
+   SOFTWARE PAGINA ARTIKELEN - PHOTO BACKGROUND STYLING
+======================================== */
 
-  .article-tags {
-    width: 100%;
-  }
+/* Software pagina artikelen MOETEN glass-morphism styling behouden */
+.articles-section.photo-background .article-card {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  padding: 0 !important;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  color: white !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.articles-section.photo-background .article-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  background: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Article Header op photo background */
+.articles-section.photo-background .article-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 0;
+  margin-bottom: 1rem;
+}
+
+.articles-section.photo-background .article-category {
+  background: rgba(59, 130, 246, 0.8) !important;
+  color: white !important;
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.articles-section.photo-background .article-date {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Article Content op photo background */
+.articles-section.photo-background .article-content {
+  padding: 0 1.5rem 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.articles-section.photo-background .article-title {
+  color: white !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  margin: 0 0 1rem 0 !important;
+  line-height: 1.3;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.articles-section.photo-background .article-excerpt {
+  color: rgba(255, 255, 255, 0.9) !important;
+  line-height: 1.6 !important;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3) !important;
+  font-size: 0.95rem;
+}
+
+/* Article Tags op photo background */
+.articles-section.photo-background .article-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.articles-section.photo-background .article-tags .tag {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Article Footer op photo background */
+.articles-section.photo-background .article-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+}
+
+.articles-section.photo-background .read-time {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 0.9rem;
+}
+
+.articles-section.photo-background .read-more {
+  color: #60a5fa !important;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.articles-section.photo-background .read-more:hover {
+  color: #93c5fd !important;
+}
+
+/* Articles CTA op photo background */
+.articles-section.photo-background .articles-cta {
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.articles-section.photo-background .articles-cta p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* ===== CONTACT PAGINA SPECIFIEK ===== */
 .contact-intro {
   background: white;
-  padding-top: 4rem; /* Verbeterde spacing */
+  padding-top: 4rem;
 }
 
 .contact-intro-grid {
@@ -1361,10 +1477,387 @@ footer .social-links a:hover {
   line-height: 1.5;
 }
 
-/* Responsive aanpassingen */
+/* ========================================
+   GEDEELDE PHOTO BACKGROUND STYLING
+======================================== */
+
+.photo-background {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  padding: 6rem 0;
+  min-height: 600px;
+}
+
+.photo-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.photo-background .container {
+  position: relative;
+  z-index: 2;
+}
+
+.photo-background .section-title {
+  color: white !important;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* SPECIFIEKE ACHTERGROND AFBEELDINGEN */
+.features.photo-background {
+  background-image: linear-gradient(
+      135deg,
+      rgba(236, 72, 153, 0.1),
+      rgba(59, 130, 246, 0.1)
+    ),
+    url("images/backgrounds/features-bg.jpg");
+}
+
+.recent-posts.photo-background {
+  background-image: linear-gradient(
+      135deg,
+      rgba(168, 85, 247, 0.1),
+      rgba(236, 72, 153, 0.1)
+    ),
+    url("images/backgrounds/articles-bg.jpg");
+}
+
+.articles-section.photo-background {
+  background-image: linear-gradient(
+      135deg,
+      rgba(30, 58, 138, 0.1),
+      rgba(79, 70, 229, 0.1)
+    ),
+    url("images/backgrounds/software-bg.jpg");
+}
+
+/* PHOTO BACKGROUND FEATURE CARDS MET AFBEELDINGEN */
+.photo-background .feature-card {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.3s ease;
+  color: white;
+  overflow: hidden;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-background .feature-card:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6) !important;
+}
+
+.photo-background .feature-image {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+}
+
+.photo-background .feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.photo-background .feature-card:hover .feature-image img {
+  transform: scale(1.05);
+}
+
+.photo-background .feature-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(44, 62, 80, 0.2),
+    rgba(52, 73, 94, 0.2)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-background .feature-card:hover .feature-image::after {
+  opacity: 1;
+}
+
+.photo-background .feature-content {
+  padding: 1.5rem 2rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-background .feature-card h3 {
+  color: white !important;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.photo-background .feature-card p {
+  color: rgba(255, 255, 255, 0.95) !important;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  flex: 1;
+}
+
+/* GLASS-MORPHISM KAARTEN OP PHOTO BACKGROUND - POST CARDS */
+.photo-background .post-card {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.photo-background .post-card:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6) !important;
+}
+
+.photo-background .post-content {
+  padding: 1.5rem;
+  color: white;
+}
+
+.photo-background .post-title {
+  color: white !important;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.photo-background .post-excerpt {
+  color: rgba(255, 255, 255, 0.9) !important;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.photo-background .post-category {
+  background: rgba(59, 130, 246, 0.8) !important;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   SOFTWARE DEVELOPMENT PAGE STYLING
+======================================== */
+
+.tech-stack {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.tech-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.tech-category {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.tech-category:hover {
+  transform: translateY(-5px);
+}
+
+.tech-category h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.tech-tag {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+}
+
+/* SOFTWARE PAGINA - SPECIFIEKE 6-GRID LAYOUT MET AFBEELDINGEN */
+.features.photo-background.expertise-features .features-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.features.photo-background.expertise-features .feature-card {
+  display: flex !important;
+  flex-direction: column !important;
+  text-align: center !important;
+  min-height: auto !important;
+  padding: 0 !important;
+}
+
+.features.photo-background.expertise-features .feature-image {
+  width: 100%;
+  height: 120px;
+  margin: 0 !important;
+}
+
+.features.photo-background.expertise-features .feature-content {
+  flex: 1;
+  padding: 1.5rem 2rem 2rem;
+  text-align: center;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero h3 {
+    font-size: 1.5rem;
+  }
+
+  .hero-about h1 {
+    font-size: 2.5rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .portfolio-grid,
+  .skills-grid,
+  .passion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-item {
+    height: 300px;
+  }
+
+  .about-content {
+    margin: 2rem auto 0;
+  }
+
+  .about-intro {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .intro-photo {
+    order: -1;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  .intro-photo img {
+    height: 300px;
+  }
+
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timeline-content {
+    width: 100%;
+    margin-left: 40px !important;
+    text-align: left !important;
+  }
+
+  .timeline-dot {
+    left: 20px;
+  }
+
+  .lightbox-nav {
+    display: none;
+  }
+
+  .lightbox-info {
+    position: static;
+    margin-top: 1rem;
+  }
+
+  .filter-btn {
+    margin: 0.25rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .social-links {
+    flex-wrap: wrap;
+  }
+
+  .articles-intro {
+    padding-top: 2rem;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .article-actions {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .article-tags {
+    width: 100%;
+  }
+
   .contact-intro {
-    padding-top: 2rem; /* Minder padding op mobiel */
+    padding-top: 2rem;
   }
 
   .contact-intro-grid {
@@ -1412,198 +1905,9 @@ footer .social-links a:hover {
   .checkbox-group {
     align-items: center !important;
   }
-}
 
-/* ========================================
-   GEDEELDE PHOTO BACKGROUND STYLING
-   Gebruik: voeg class "photo-background" toe aan elke sectie
-======================================== */
-
-.photo-background {
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* Parallax effect */
-  position: relative;
-  padding: 6rem 0;
-  min-height: 600px;
-}
-
-/* Donkere overlay voor alle photo-background secties */
-.photo-background::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(2px);
-  z-index: 1;
-}
-
-/* Container altijd boven overlay */
-.photo-background .container {
-  position: relative;
-  z-index: 2;
-}
-
-/* Titels op donkere achtergrond */
-.photo-background .section-title {
-  color: white !important;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-  margin-bottom: 3rem;
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-/* ========================================
-   SPECIFIEKE ACHTERGROND AFBEELDINGEN
-======================================== */
-
-/* Features sectie - roze/blauw gradient */
-.features.photo-background {
-  background-image: linear-gradient(
-      135deg,
-      rgba(236, 72, 153, 0.1),
-      rgba(59, 130, 246, 0.1)
-    ),
-    url("images/backgrounds/features-bg.jpg");
-}
-
-/* Recent posts sectie - paars/roze gradient */
-.recent-posts.photo-background {
-  background-image: linear-gradient(
-      135deg,
-      rgba(168, 85, 247, 0.1),
-      rgba(236, 72, 153, 0.1)
-    ),
-    url("images/backgrounds/articles-bg.jpg");
-}
-
-/* Andere secties kunnen je later makkelijk toevoegen:
-.hero.photo-background {
-  background-image: url('images/backgrounds/hero-bg.jpg');
-}
-*/
-
-/* ========================================
-   GLASS-MORPHISM KAARTEN
-======================================== */
-
-.photo-background .feature-card,
-.photo-background .post-card {
-  background: rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
-  transition: all 0.3s ease;
-  color: white;
-}
-
-/* Hover effects voor alle kaarten */
-.photo-background .feature-card:hover,
-.photo-background .post-card:hover {
-  background: rgba(255, 255, 255, 0.2) !important;
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6) !important;
-}
-
-/* ========================================
-   TEKST STYLING OP DONKERE ACHTERGROND
-======================================== */
-
-/* Feature cards tekst */
-.photo-background .feature-card h3 {
-  color: white !important;
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.photo-background .feature-card p {
-  color: rgba(255, 255, 255, 0.95) !important;
-  line-height: 1.6;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.photo-background .feature-icon {
-  font-size: 3.5rem;
-  margin-bottom: 1.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  display: block;
-  opacity: 0.9;
-}
-
-/* Post cards tekst */
-.photo-background .post-content {
-  padding: 1.5rem;
-  color: white;
-}
-
-.photo-background .post-title {
-  color: white !important;
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin: 1rem 0;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.photo-background .post-excerpt {
-  color: rgba(255, 255, 255, 0.9) !important;
-  line-height: 1.6;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.photo-background .post-category {
-  background: rgba(59, 130, 246, 0.8) !important;
-  color: white !important;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-/* ========================================
-   ANIMATIES
-======================================== */
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.photo-background .feature-card,
-.photo-background .post-card {
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-.photo-background .feature-card:nth-child(1),
-.photo-background .post-card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.photo-background .feature-card:nth-child(2),
-.photo-background .post-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.photo-background .feature-card:nth-child(3),
-.photo-background .post-card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-/* ========================================
-   RESPONSIVE DESIGN
-======================================== */
-
-@media (max-width: 768px) {
   .photo-background {
-    background-attachment: scroll; /* Beter voor mobiel */
+    background-attachment: scroll;
     padding: 4rem 0;
   }
 
@@ -1612,14 +1916,42 @@ footer .social-links a:hover {
     margin-bottom: 2rem;
   }
 
-  .photo-background .feature-card,
-  .photo-background .post-card {
-    padding: 1.5rem;
+  .tech-categories {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .photo-background .feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+  .articles-filter .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-btn {
+    min-width: 200px;
+  }
+
+  .articles-section.photo-background .article-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .articles-section.photo-background .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* RESPONSIVE VOOR FEATURE CARDS - MET AFBEELDINGEN */
+  .features-grid {
+    gap: 1.5rem;
+  }
+
+  .feature-image {
+    height: 120px;
+  }
+
+  .photo-background .feature-image {
+    height: 120px;
   }
 }
 
@@ -1632,4 +1964,95 @@ footer .social-links a:hover {
   .photo-background .posts-grid {
     gap: 1.5rem;
   }
+
+  .articles-section.photo-background .article-card {
+    margin: 0 -1rem;
+  }
+
+  .feature-card {
+    min-height: auto;
+  }
+
+  .photo-background .feature-card {
+    min-height: auto;
+  }
+
+  .feature-image {
+    height: 100px;
+  }
+
+  .photo-background .feature-image {
+    height: 100px;
+  }
+
+  .feature-content {
+    padding: 1rem 1.5rem 1.5rem;
+  }
+
+  .photo-background .feature-content {
+    padding: 1rem 1.5rem 1.5rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .photo-background .feature-card h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* ===== ANIMATIES VOOR AFBEELDING LAYOUT ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feature-card,
+.photo-background .feature-card,
+.photo-background .post-card,
+.articles-section.photo-background .article-card {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.feature-card:nth-child(1),
+.photo-background .feature-card:nth-child(1),
+.photo-background .post-card:nth-child(1),
+.articles-section.photo-background .article-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.feature-card:nth-child(2),
+.photo-background .feature-card:nth-child(2),
+.photo-background .post-card:nth-child(2),
+.articles-section.photo-background .article-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.feature-card:nth-child(3),
+.photo-background .feature-card:nth-child(3),
+.photo-background .post-card:nth-child(3),
+.articles-section.photo-background .article-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.feature-card:nth-child(4),
+.photo-background .feature-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.feature-card:nth-child(5),
+.photo-background .feature-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.feature-card:nth-child(6),
+.photo-background .feature-card:nth-child(6) {
+  animation-delay: 0.6s;
 }

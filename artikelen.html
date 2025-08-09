@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Artikelen - Dennis van Zetten</title>
+    <meta
+      name="description"
+      content="Artikelen over fotografie, .NET ontwikkeling en workflow tips door Dennis van Zetten."
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -14,6 +18,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#portfolio">Portfolio</a></li>
           <li><a href="artikelen.html" class="active">Artikelen</a></li>
+          <li><a href="software.html">Software</a></li>
           <li><a href="over-mij.html">Over Mij</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -27,6 +32,9 @@
           Inzichten, tips en verhalen over fotografie, .NET ontwikkeling en mijn
           workflow
         </p>
+        <div class="article-counter" style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+          <span id="article-count">Alle artikelen</span>
+        </div>
       </div>
     </section>
 
@@ -58,87 +66,239 @@
               Alle Artikelen
             </button>
             <button class="filter-btn" data-filter="fotografie">
-              Fotografie
+              📷 Fotografie
             </button>
-            <button class="filter-btn" data-filter="dotnet">.NET</button>
-            <button class="filter-btn" data-filter="workflow">Workflow</button>
+            <button class="filter-btn" data-filter="dotnet">
+              💻 .NET
+            </button>
+            <button class="filter-btn" data-filter="workflow">
+              ⚙️ Workflow
+            </button>
           </div>
         </section>
 
         <!-- Articles Grid -->
         <section class="articles-grid-section">
           <div class="container" style="padding: 3rem">
-            <div class="articles-grid">
-              <!-- Artikel 1 -->
+            <div class="articles-grid" id="articles-grid">
+              
+              <!-- .NET Artikel 1 -->
+              <article class="article-card" data-category="dotnet">
+                <div class="article-image">
+                  <img src="/api/placeholder/400/200" alt="Clean Architecture in .NET 8" />
+                </div>
+                <div class="article-content">
+                  <div class="article-meta">
+                    <span class="article-category dotnet">.NET</span>
+                    <span class="article-date">15 Dec 2024</span>
+                  </div>
+                  <h3 class="article-title">
+                    Clean Architecture in .NET 8: Een Praktische Gids
+                  </h3>
+                  <p class="article-excerpt">
+                    Leer hoe je Clean Architecture principes toepast in je .NET 8 
+                    projecten voor betere testbaarheid, onderhoudbaarheid en schaalbaarheid 
+                    met praktische voorbeelden.
+                  </p>
+                  <div class="article-actions">
+                    <a href="artikelen/clean-architecture-dotnet8.html" class="read-more-btn">
+                      Lees Meer
+                    </a>
+                    <div class="article-tags">
+                      <span class="tag">Clean Architecture</span>
+                      <span class="tag">.NET 8</span>
+                      <span class="tag">SOLID</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- .NET Artikel 2 -->
+              <article class="article-card" data-category="dotnet">
+                <div class="article-image">
+                  <img src="/api/placeholder/400/200" alt="Microservices met Azure Container Apps" />
+                </div>
+                <div class="article-content">
+                  <div class="article-meta">
+                    <span class="article-category dotnet">Azure</span>
+                    <span class="article-date">8 Dec 2024</span>
+                  </div>
+                  <h3 class="article-title">
+                    Microservices met Azure Container Apps
+                  </h3>
+                  <p class="article-excerpt">
+                    Van monoliet naar microservices: complete gids voor het bouwen 
+                    van cloud-native applicaties in Azure met Container Apps en 
+                    best practices.
+                  </p>
+                  <div class="article-actions">
+                    <a href="artikelen/microservices-azure.html" class="read-more-btn">
+                      Lees Meer
+                    </a>
+                    <div class="article-tags">
+                      <span class="tag">Microservices</span>
+                      <span class="tag">Azure</span>
+                      <span class="tag">Containers</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- .NET Artikel 3 -->
+              <article class="article-card" data-category="dotnet">
+                <div class="article-image">
+                  <img src="/api/placeholder/400/200" alt="Performance Optimalisatie .NET" />
+                </div>
+                <div class="article-content">
+                  <div class="article-meta">
+                    <span class="article-category dotnet">.NET</span>
+                    <span class="article-date">1 Dec 2024</span>
+                  </div>
+                  <h3 class="article-title">
+                    High Performance APIs met .NET Core
+                  </h3>
+                  <p class="article-excerpt">
+                    Concrete technieken voor het optimaliseren van API performance: 
+                    caching strategies, async patterns, memory management en benchmarking 
+                    met BenchmarkDotNet.
+                  </p>
+                  <div class="article-actions">
+                    <a href="artikelen/high-performance-apis.html" class="read-more-btn">
+                      Lees Meer
+                    </a>
+                    <div class="article-tags">
+                      <span class="tag">Performance</span>
+                      <span class="tag">APIs</span>
+                      <span class="tag">Optimization</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- .NET Artikel 4 -->
+              <article class="article-card" data-category="dotnet">
+                <div class="article-image">
+                  <img src="/api/placeholder/400/200" alt="AI Integration .NET" />
+                </div>
+                <div class="article-content">
+                  <div class="article-meta">
+                    <span class="article-category dotnet">AI/ML</span>
+                    <span class="article-date">24 Nov 2024</span>
+                  </div>
+                  <h3 class="article-title">
+                    AI Integratie in .NET Applicaties
+                  </h3>
+                  <p class="article-excerpt">
+                    OpenAI GPT, Azure Cognitive Services en custom ML modellen 
+                    integreren in je .NET applicaties met praktische voorbeelden 
+                    en best practices.
+                  </p>
+                  <div class="article-actions">
+                    <a href="artikelen/ai-integration-dotnet.html" class="read-more-btn">
+                      Lees Meer
+                    </a>
+                    <div class="article-tags">
+                      <span class="tag">AI/ML</span>
+                      <span class="tag">OpenAI</span>
+                      <span class="tag">Integration</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Fotografie Artikel 1 -->
               <article class="article-card" data-category="fotografie">
                 <div class="article-image">
-                  <img
-                    src="/api/placeholder/400/200"
-                    alt="Street Photography Tips"
-                  />
+                  <img src="/api/placeholder/400/200" alt="Landschapsfotografie Tips" />
                 </div>
                 <div class="article-content">
                   <div class="article-meta">
                     <span class="article-category fotografie">Fotografie</span>
-                    <span class="article-date">15 Dec 2024</span>
+                    <span class="article-date">17 Nov 2024</span>
                   </div>
                   <h3 class="article-title">
-                    5 Tips voor Betere Straatfotografie
+                    5 Tips voor Betere Landschapsfotografie
                   </h3>
                   <p class="article-excerpt">
-                    Ontdek hoe je meer leven en emotie in je straatfoto's kunt
-                    brengen met deze praktische tips die ik heb geleerd tijdens
-                    mijn fotografie reizen.
+                    Ontdek hoe je meer diepte en drama in je landschapsfoto's kunt 
+                    brengen met deze praktische technieken voor compositie, licht 
+                    en timing.
                   </p>
                   <div class="article-actions">
-                    <a
-                      href="artikelen/straatfotografie-tips.html"
-                      class="read-more-btn"
-                      >Lees Meer</a
-                    >
+                    <a href="artikelen/landschapsfotografie-tips.html" class="read-more-btn">
+                      Lees Meer
+                    </a>
                     <div class="article-tags">
-                      <span class="tag">Fotografie</span>
-                      <span class="tag">Street Photography</span>
+                      <span class="tag">Landschappen</span>
+                      <span class="tag">Compositie</span>
                       <span class="tag">Tips</span>
                     </div>
                   </div>
                 </div>
               </article>
 
-              <!-- Artikel 2 -->
-              <article class="article-card" data-category="dotnet">
+              <!-- Fotografie Artikel 2 -->
+              <article class="article-card" data-category="fotografie">
                 <div class="article-image">
-                  <img src="/api/placeholder/400/200" alt=".NET Performance" />
+                  <img src="/api/placeholder/400/200" alt="Zwart-Wit Fotografie" />
                 </div>
                 <div class="article-content">
                   <div class="article-meta">
-                    <span class="article-category dotnet">.NET</span>
-                    <span class="article-date">8 Dec 2024</span>
+                    <span class="article-category fotografie">Fotografie</span>
+                    <span class="article-date">10 Nov 2024</span>
                   </div>
                   <h3 class="article-title">
-                    Performance Optimalisatie in .NET Core
+                    De Kracht van Zwart-Wit Fotografie
                   </h3>
                   <p class="article-excerpt">
-                    Een diepe duik in moderne technieken om je .NET Core
-                    applicaties sneller te maken, met praktische voorbeelden en
-                    benchmarks.
+                    Waarom zwart-wit fotografie nog steeds relevant is en hoe je 
+                    krachtige, emotionele monochrome beelden creëert die verhalen 
+                    vertellen.
                   </p>
                   <div class="article-actions">
-                    <a
-                      href="artikelen/dotnet-performance.html"
-                      class="read-more-btn"
-                      >Lees Meer</a
-                    >
+                    <a href="artikelen/zwart-wit-fotografie.html" class="read-more-btn">
+                      Lees Meer
+                    </a>
                     <div class="article-tags">
-                      <span class="tag">.NET Core</span>
-                      <span class="tag">Performance</span>
-                      <span class="tag">Optimalisatie</span>
+                      <span class="tag">Zwart-Wit</span>
+                      <span class="tag">Emotie</span>
+                      <span class="tag">Verhalen</span>
                     </div>
                   </div>
                 </div>
               </article>
 
-              <!-- Artikel 3 -->
+              <!-- Fotografie Artikel 3 -->
+              <article class="article-card" data-category="fotografie">
+                <div class="article-image">
+                  <img src="/api/placeholder/400/200" alt="Lightroom Workflow" />
+                </div>
+                <div class="article-content">
+                  <div class="article-meta">
+                    <span class="article-category fotografie">Fotografie</span>
+                    <span class="article-date">3 Nov 2024</span>
+                  </div>
+                  <h3 class="article-title">
+                    Mijn Lightroom Workflow: Van Import tot Export
+                  </h3>
+                  <p class="article-excerpt">
+                    Een stap-voor-stap guide door mijn Lightroom workflow die me 
+                    helpt om honderden foto's efficiënt te organiseren en bewerken.
+                  </p>
+                  <div class="article-actions">
+                    <a href="artikelen/lightroom-workflow.html" class="read-more-btn">
+                      Lees Meer
+                    </a>
+                    <div class="article-tags">
+                      <span class="tag">Lightroom</span>
+                      <span class="tag">Workflow</span>
+                      <span class="tag">Post-processing</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Workflow Artikel 1 -->
               <article class="article-card" data-category="workflow">
                 <div class="article-image">
                   <img src="/api/placeholder/400/200" alt="Remote Work Setup" />
@@ -146,22 +306,20 @@
                 <div class="article-content">
                   <div class="article-meta">
                     <span class="article-category workflow">Workflow</span>
-                    <span class="article-date">1 Dec 2024</span>
+                    <span class="article-date">27 Oct 2024</span>
                   </div>
                   <h3 class="article-title">
                     Mijn Remote Work Setup voor Maximale Productiviteit
                   </h3>
                   <p class="article-excerpt">
-                    Een kijkje in mijn thuiswerkplek en de tools die mij helpen
-                    om productief en georganiseerd te blijven terwijl ik vanuit
-                    huis werk.
+                    Een kijkje in mijn thuiswerkplek en de tools, hardware en 
+                    gewoontes die mij helpen om productief en georganiseerd te 
+                    blijven tijdens remote werken.
                   </p>
                   <div class="article-actions">
-                    <a
-                      href="artikelen/remote-work-setup.html"
-                      class="read-more-btn"
-                      >Lees Meer</a
-                    >
+                    <a href="artikelen/remote-work-setup.html" class="read-more-btn">
+                      Lees Meer
+                    </a>
                     <div class="article-tags">
                       <span class="tag">Productiviteit</span>
                       <span class="tag">Remote Work</span>
@@ -171,75 +329,47 @@
                 </div>
               </article>
 
-              <!-- Artikel 4 -->
-              <article class="article-card" data-category="dotnet">
+              <!-- Workflow Artikel 2 -->
+              <article class="article-card" data-category="workflow">
                 <div class="article-image">
-                  <img
-                    src="/api/placeholder/400/200"
-                    alt="Clean Architecture"
-                  />
+                  <img src="/api/placeholder/400/200" alt="Git Workflow" />
                 </div>
                 <div class="article-content">
                   <div class="article-meta">
-                    <span class="article-category dotnet">.NET</span>
-                    <span class="article-date">24 Nov 2024</span>
+                    <span class="article-category workflow">Workflow</span>
+                    <span class="article-date">20 Oct 2024</span>
                   </div>
                   <h3 class="article-title">
-                    Clean Architecture in .NET: Een Praktische Gids
+                    Efficiënte Git Workflows voor Teams
                   </h3>
                   <p class="article-excerpt">
-                    Leer hoe je Clean Architecture principes toepast in je .NET
-                    projecten voor betere testbaarheid en onderhoudbaarheid.
+                    Hoe ik Git gebruik in team verband: branching strategies, 
+                    commit conventies en tools die helpen bij code review en 
+                    samenwerking.
                   </p>
                   <div class="article-actions">
-                    <a
-                      href="artikelen/clean-architecture.html"
-                      class="read-more-btn"
-                      >Lees Meer</a
-                    >
+                    <a href="artikelen/git-workflow-teams.html" class="read-more-btn">
+                      Lees Meer
+                    </a>
                     <div class="article-tags">
-                      <span class="tag">Architecture</span>
-                      <span class="tag">Clean Code</span>
-                      <span class="tag">.NET</span>
+                      <span class="tag">Git</span>
+                      <span class="tag">Teams</span>
+                      <span class="tag">Version Control</span>
                     </div>
                   </div>
                 </div>
               </article>
 
-              <!-- Artikel 5 -->
-              <article class="article-card" data-category="fotografie">
-                <div class="article-image">
-                  <img
-                    src="/api/placeholder/400/200"
-                    alt="Lightroom Workflow"
-                  />
-                </div>
-                <div class="article-content">
-                  <div class="article-meta">
-                    <span class="article-category fotografie">Fotografie</span>
-                    <span class="article-date">17 Nov 2024</span>
-                  </div>
-                  <h3 class="article-title">
-                    Mijn Lightroom Workflow: Van Import tot Export
-                  </h3>
-                  <p class="article-excerpt">
-                    Een stap-voor-stap guide door mijn Lightroom workflow die me
-                    helpt om honderden foto's efficiënt te bewerken.
-                  </p>
-                  <div class="article-actions">
-                    <a
-                      href="artikelen/lightroom-workflow.html"
-                      class="read-more-btn"
-                      >Lees Meer</a
-                    >
-                    <div class="article-tags">
-                      <span class="tag">Lightroom</span>
-                      <span class="tag">Workflow</span>
-                      <span class="tag">Post-processing</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
+            </div>
+
+            <!-- Load More Section -->
+            <div class="load-more-section" style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee;">
+              <p style="color: #666; margin-bottom: 1.5rem;">
+                Meer artikelen binnenkort beschikbaar!
+              </p>
+              <p style="color: #888; font-size: 0.9rem;">
+                Volg mij op sociale media voor updates over nieuwe artikelen.
+              </p>
             </div>
           </div>
         </section>
@@ -249,47 +379,165 @@
     <footer>
       <div class="container">
         <p>&copy; 2025 Dennis van Zetten. Alle rechten voorbehouden.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/dennisvanzetten_photo/" target="_blank">📷 Instagram</a>
+          <a href="https://github.com/DennisvanZetten" target="_blank">💻 GitHub</a>
+          <a href="https://www.linkedin.com/in/dennis-van-zetten-19972818" target="_blank">💼 LinkedIn</a>
+        </div>
       </div>
-    </footer>
+    </header>
 
     <script>
-      // Filter functionaliteit
-      const filterBtns = document.querySelectorAll(".filter-btn");
-      const articleCards = document.querySelectorAll(".article-card");
-
-      filterBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          // Update active button
-          filterBtns.forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-
-          const filterValue = btn.getAttribute("data-filter");
-
-          // Filter articles
-          articleCards.forEach((card) => {
-            if (
-              filterValue === "alle" ||
-              card.getAttribute("data-category") === filterValue
-            ) {
-              card.style.display = "block";
-              setTimeout(() => {
-                card.style.opacity = "1";
-                card.style.transform = "translateY(0)";
-              }, 50);
-            } else {
-              card.style.opacity = "0";
-              card.style.transform = "translateY(10px)";
-              setTimeout(() => {
-                card.style.display = "none";
-              }, 300);
-            }
-          });
-        });
+      // Enhanced filter functionaliteit met URL support
+      document.addEventListener('DOMContentLoaded', function() {
+        
+        // Check URL parameters eerst
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryFilter = urlParams.get('category');
+        
+        if (categoryFilter) {
+          // Trigger de filter direct
+          triggerFilter(categoryFilter);
+        } else {
+          // Default: toon alle artikelen en update counter
+          updateArticleCount('alle');
+        }
+        
+        // Setup normale filter buttons
+        setupFilterButtons();
+        
+        // Initialize cards
+        initializeCards();
       });
 
-      // Initialize cards
-      articleCards.forEach((card) => {
-        card.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+      function triggerFilter(filterValue) {
+        
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const articleCards = document.querySelectorAll(".article-card");
+        
+        // Update active button
+        filterBtns.forEach((btn) => {
+          btn.classList.remove("active");
+          
+          // Check of deze button overeenkomt met de filter
+          const btnFilter = btn.getAttribute("data-filter");
+          if (btnFilter === filterValue) {
+            btn.classList.add("active");
+          }
+        });
+        
+        // Filter articles
+        let visibleCount = 0;
+        articleCards.forEach((card, index) => {
+          const cardCategory = card.getAttribute("data-category");
+          
+          if (filterValue === "alle" || cardCategory === filterValue) {
+            card.style.display = "block";
+            visibleCount++;
+            
+            // Staggered animation voor mooier effect
+            setTimeout(() => {
+              card.style.opacity = "1";
+              card.style.transform = "translateY(0)";
+            }, index * 100);
+          } else {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(10px)";
+            setTimeout(() => {
+              card.style.display = "none";
+            }, 300);
+          }
+        });
+        
+        // Update page title en counter
+        updatePageTitle(filterValue);
+        updateArticleCount(filterValue, visibleCount);
+      }
+
+      function setupFilterButtons() {
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const filterValue = btn.getAttribute("data-filter");
+            
+            // Trigger de filter
+            triggerFilter(filterValue);
+            
+            // Update URL zonder page refresh
+            updateURL(filterValue);
+          });
+        });
+      }
+
+      function initializeCards() {
+        const articleCards = document.querySelectorAll(".article-card");
+        
+        articleCards.forEach((card) => {
+          card.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+        });
+      }
+
+      function updatePageTitle(filterValue) {
+        const titles = {
+          'alle': 'Alle Artikelen - Dennis van Zetten',
+          'dotnet': '.NET Artikelen - Dennis van Zetten', 
+          'fotografie': 'Fotografie Artikelen - Dennis van Zetten',
+          'workflow': 'Workflow Artikelen - Dennis van Zetten'
+        };
+        
+        document.title = titles[filterValue] || 'Artikelen - Dennis van Zetten';
+      }
+
+      function updateArticleCount(filterValue, count = null) {
+        const counter = document.getElementById('article-count');
+        
+        if (count === null) {
+          // Count visible articles
+          const visibleArticles = document.querySelectorAll('.article-card:not([style*="display: none"])').length;
+          count = visibleArticles;
+        }
+        
+        const categoryNames = {
+          'alle': 'Alle artikelen',
+          'dotnet': '.NET artikelen',
+          'fotografie': 'Fotografie artikelen', 
+          'workflow': 'Workflow artikelen'
+        };
+        
+        const categoryName = categoryNames[filterValue] || 'artikelen';
+        counter.textContent = `${count} ${categoryName}`;
+      }
+
+      function updateURL(filterValue) {
+        const url = new URL(window.location);
+        
+        if (filterValue === 'alle') {
+          // Remove category parameter
+          url.searchParams.delete('category');
+        } else {
+          // Set category parameter
+          url.searchParams.set('category', filterValue);
+        }
+        
+        // Update URL zonder page reload
+        window.history.replaceState({}, '', url);
+        
+        console.log('Updated URL to:', url.href);
+      }
+
+      // Smooth scrolling voor eventuele interne links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
       });
     </script>
   </body>
