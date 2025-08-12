@@ -1,0 +1,3542 @@
+vices .NET Article - Volledig Compleet Preview Code
+
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Van Monoliet naar Microservices: Complete .NET Gids - Dennis van Zetten
+    </title>
+    <meta
+      name="description"
+      content="Complete gids voor het bouwen van .NET microservices met Docker. Van monolithische architectuur naar moderne microservices."
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      /* Fix for code overflow */
+      .code-block {
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        font-family: "Courier New", monospace;
+        font-size: 0.85rem;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        word-break: break-all;
+        line-height: 1.4;
+      }
+
+      .code-block pre {
+        margin: 0;
+        color: #333;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+
+      /* Responsive text adjustments */
+      @media (max-width: 768px) {
+        .code-block {
+          font-size: 0.8rem;
+          padding: 0.75rem;
+        }
+      }
+
+      /* Ensure containers don't overflow */
+      .article-body {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+      }
+
+      /* Style tags */
+      .tag {
+        display: inline-block;
+        background: #e3f2fd;
+        color: #1976d2;
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        margin: 0.25rem 0.25rem 0.25rem 0;
+        border: 1px solid #bbdefb;
+      }
+
+      /* Info boxes */
+      .info-box {
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .info-box.success {
+        background: #e8f5e8;
+        border: 1px solid #4caf50;
+      }
+
+      .info-box.warning {
+        background: #fff3cd;
+        border: 1px solid #ffeaa7;
+      }
+
+      .info-box.danger {
+        background: #ffe6e6;
+        border-left: 4px solid #e53e3e;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .info-box.info {
+        background: #e8f4fd;
+        border: 1px solid #0078d4;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <a href="../index.html" class="logo">Dennis van Zetten</a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#portfolio">Portfolio</a></li>
+          <li><a href="../artikelen.html">Artikelen</a></li>
+          <li><a href="../software.html" class="active">Software</a></li>
+          <li><a href="../over-mij.html">Over Mij</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero-about">
+      <div class="container">
+        <div style="text-align: left; max-width: 800px; margin: 0 auto">
+          <nav class="breadcrumb" style="margin-bottom: 1rem">
+            <a
+              href="../software.html"
+              style="color: rgba(255, 255, 255, 0.8); text-decoration: none"
+              >← Terug naar software artikelen</a
+            >
+          </nav>
+          <div style="margin-bottom: 1rem">
+            <span
+              class="article-category software"
+              style="display: inline-block; margin-bottom: 1rem"
+              >.NET Development</span
+            >
+          </div>
+          <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem">
+            Van Monoliet naar Microservices
+          </h1>
+          <p
+            style="
+              font-size: 1.2rem;
+              margin-bottom: 1rem;
+              color: rgba(255, 255, 255, 0.9);
+            "
+          >
+            Complete gids voor het bouwen van .NET microservices met Docker
+          </p>
+          <div style="color: rgba(255, 255, 255, 0.9); margin-bottom: 1rem">
+            <span>📅 22 december 2024</span> • <span>⏱️ 60 min lezen</span> •
+            <span>👤 Dennis van Zetten</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="container">
+      <div class="about-content">
+        <!-- Article Content -->
+        <article class="article-full">
+          <div
+            class="container"
+            style="padding: 3rem; max-width: 800px; margin: 0 auto"
+          >
+            <!-- Featured Image -->
+            <div class="article-featured-image" style="margin-bottom: 2rem">
+              <img
+                src="../images/artikelen/header-microservices-dotnet.png"
+                alt="Microservices architectuur diagram met .NET en Docker containers"
+                style="
+                  width: 100%;
+                  height: 400px;
+                  object-fit: cover;
+                  border-radius: 15px;
+                "
+              />
+              <p
+                style="
+                  text-align: center;
+                  color: #666;
+                  font-size: 0.9rem;
+                  margin-top: 0.5rem;
+                  font-style: italic;
+                "
+              >
+                Van één grote applicatie naar gedistribueerde microservices
+              </p>
+            </div>
+
+            <!-- Article Body -->
+            <div
+              class="article-body"
+              style="font-size: 1.1rem; line-height: 1.8; color: #444"
+            >
+              <p
+                style="
+                  font-size: 1.2rem;
+                  color: #666;
+                  font-style: italic;
+                  margin-bottom: 2rem;
+                  padding-left: 1rem;
+                  border-left: 4px solid #0078d4;
+                "
+              >
+                De overgang van een monolithische architectuur naar
+                microservices is een van de meest significante beslissingen die
+                je als .NET developer kunt maken. In deze uitgebreide gids neem
+                ik je mee door het complete proces - van het begrijpen van de
+                fundamenten tot het daadwerkelijk implementeren van je eerste
+                microservices met Docker.
+              </p>
+
+              <h2
+                style="color: #2c3e50; margin: 2rem 0 1rem 0; font-size: 1.8rem"
+              >
+                Inhoudsopgave
+              </h2>
+              <div
+                style="
+                  background: #f8f9fa;
+                  border: 1px solid #e9ecef;
+                  border-radius: 8px;
+                  padding: 1.5rem;
+                  margin: 2rem 0;
+                "
+              >
+                <ol style="margin: 0; padding-left: 1.5rem; line-height: 1.6">
+                  <li>
+                    <a
+                      href="#wat-zijn-microservices"
+                      style="text-decoration: none; color: #0078d4"
+                      >Wat zijn microservices?</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#monoliet-vs-microservices"
+                      style="text-decoration: none; color: #0078d4"
+                      >Monoliet vs. Microservices</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#wanneer-overstappen"
+                      style="text-decoration: none; color: #0078d4"
+                      >Wanneer overstappen naar microservices?</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#architectuur-patterns"
+                      style="text-decoration: none; color: #0078d4"
+                      >Architectuur patterns & best practices</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#docker-fundamenten"
+                      style="text-decoration: none; color: #0078d4"
+                      >Docker fundamenten voor .NET</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#eerste-microservice"
+                      style="text-decoration: none; color: #0078d4"
+                      >Je eerste .NET microservice bouwen</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#communicatie-patterns"
+                      style="text-decoration: none; color: #0078d4"
+                      >Service communicatie patterns</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#data-management"
+                      style="text-decoration: none; color: #0078d4"
+                      >Data management & databases</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#deployment-strategies"
+                      style="text-decoration: none; color: #0078d4"
+                      >Deployment strategieën</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#monitoring-logging"
+                      style="text-decoration: none; color: #0078d4"
+                      >Monitoring & logging</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#veelgemaakte-fouten"
+                      style="text-decoration: none; color: #0078d4"
+                      >10 Veelgemaakte fouten & hoe ze te voorkomen</a
+                    >
+                  </li>
+                </ol>
+              </div>
+
+              <!-- UITGEBREIDE SECTIE 1 -->
+              <h2
+                id="wat-zijn-microservices"
+                style="color: #2c3e50; margin: 2rem 0 1rem 0; font-size: 1.8rem"
+              >
+                1. Wat zijn microservices?
+              </h2>
+
+              <p>
+                Microservices zijn een architectuurpatroon waarin een applicatie
+                wordt opgebouwd uit een verzameling van kleine, autonome
+                services die elk een specifieke business capability
+                implementeren. Deze services worden onafhankelijk ontwikkeld,
+                gedeployed en geschaald.
+              </p>
+              <div class="article-featured-image" style="margin-bottom: 2rem">
+                <img
+                  src="../images/artikelen/microservices-dotnet.svg"
+                  alt="Microservices voorbeeld"
+                  style="
+                    width: 100%;
+                    height: 400px;
+                    object-fit: cover;
+                    margin-top: 2rem;
+                    border-radius: 15px;
+                  "
+                />
+                <p
+                  style="
+                    text-align: center;
+                    color: #666;
+                    font-size: 0.9rem;
+                    margin-top: 0.5rem;
+                    font-style: italic;
+                  "
+                >
+                  voorbeeld van een microservices architectuur
+                </p>
+              </div>
+
+              <h3
+                style="
+                  color: #34495e;
+                  margin: 1.5rem 0 0.5rem 0;
+                  font-size: 1.3rem;
+                "
+              >
+                De definitie van microservices
+              </h3>
+
+              <p>
+                Martin Fowler en James Lewis definieerden microservices in 2014
+                als "een aanpak voor het ontwikkelen van een enkele applicatie
+                als een suite van kleine services, elk draaiend in zijn eigen
+                proces en communicerend via lichtgewicht mechanismen, vaak een
+                HTTP resource API."
+              </p>
+
+              <div class="info-box info">
+                <h4 style="color: #0056b3; margin-bottom: 0.5rem">
+                  🎯 Kernkenmerken van Microservices:
+                </h4>
+                <ul style="margin: 0; color: #0056b3">
+                  <li>
+                    <strong>Componentization via Services:</strong> Business
+                    functionaliteit wordt opgesplitst in deploybare services
+                  </li>
+                  <li>
+                    <strong>Organized around Business Capabilities:</strong>
+                    Teams en services georganiseerd rond wat de business nodig
+                    heeft
+                  </li>
+                  <li>
+                    <strong>Products not Projects:</strong> Teams eigenen en
+                    onderhouden services gedurende hun hele levensduur
+                  </li>
+                  <li>
+                    <strong>Smart endpoints and dumb pipes:</strong> Business
+                    logic zit in de services, niet in de infrastructure
+                  </li>
+                  <li>
+                    <strong>Decentralized Governance:</strong> Elk team maakt
+                    eigen technische beslissingen voor hun services
+                  </li>
+                  <li>
+                    <strong>Decentralized Data Management:</strong> Elke service
+                    beheert zijn eigen database
+                  </li>
+                  <li>
+                    <strong>Infrastructure Automation:</strong> Geautomatiseerde
+                    deployment en monitoring
+                  </li>
+                  <li>
+                    <strong>Design for failure:</strong> Services zijn ontworpen
+                    om failures in andere services te overleven
+                  </li>
+                  <li>
+                    <strong>Evolutionary Design:</strong> Services kunnen
+                    evolueren zonder andere services te breken
+                  </li>
+                </ul>
+              </div>
+
+              <h3
+                style="
+                  color: #34495e;
+                  margin: 1.5rem 0 0.5rem 0;
+                  font-size: 1.3rem;
+                "
+              >
+                Microservices vs. SOA (Service-Oriented Architecture)
+              </h3>
+
+              <p>
+                Microservices worden vaak vergeleken met SOA, maar er zijn
+                belangrijke verschillen:
+              </p>
+
+              <div
+                style="
+                  padding: 1rem;
+                  background: #f8f9fa;
+                  border-radius: 8px;
+                  margin: 1rem 0;
+                "
+              >
+                <table style="width: 100%; border-collapse: collapse">
+                  <thead>
+                    <tr style="background: #e9ecef">
+                      <th
+                        style="
+                          padding: 0.75rem;
+                          border: 1px solid #dee2e6;
+                          text-align: left;
+                        "
+                      >
+                        Aspect
+                      </th>
+                      <th
+                        style="
+                          padding: 0.75rem;
+                          border: 1px solid #dee2e6;
+                          text-align: left;
+                        "
+                      >
+                        SOA
+                      </th>
+                      <th
+                        style="
+                          padding: 0.75rem;
+                          border: 1px solid #dee2e6;
+                          text-align: left;
+                        "
+                      >
+                        Microservices
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Communication
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        SOAP, XML, ESB
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        REST, JSON, HTTP
+                      </td>
+                    </tr>
+                    <tr style="background: #f8f9fa">
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Approach
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Top-down design
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Bottom-up evolution
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Governance
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Centralized
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Decentralized
+                      </td>
+                    </tr>
+                    <tr style="background: #f8f9fa">
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Service Size
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Often large
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Small, focused
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3
+                style="
+                  color: #34495e;
+                  margin: 1.5rem 0 0.5rem 0;
+                  font-size: 1.3rem;
+                "
+              >
+                Domain-Driven Design (DDD) als Foundation
+              </h3>
+
+              <p>
+                Microservices en DDD gaan hand in hand. DDD concepten zijn
+                essentieel voor het correct opdelen van je applicatie in
+                services:
+              </p>
+
+              <div class="info-box success">
+                <h4 style="color: #2d5a3d; margin-bottom: 0.5rem">
+                  🏗️ DDD Concepten voor Microservices:
+                </h4>
+                <ul style="margin: 0; color: #2d5a3d">
+                  <li>
+                    <strong>Bounded Context:</strong> Een logische grens
+                    waarbinnen een domeinmodel consistente betekenis heeft
+                  </li>
+                  <li>
+                    <strong>Aggregate:</strong> Een cluster van domeinobjecten
+                    die als één eenheid behandeld kunnen worden
+                  </li>
+                  <li>
+                    <strong>Domain Service:</strong> Business logic die niet
+                    natuurlijk thuishoort in een entity of value object
+                  </li>
+                  <li>
+                    <strong>Ubiquitous Language:</strong> Gemeenschappelijke
+                    taal tussen development team en domain experts
+                  </li>
+                  <li>
+                    <strong>Context Mapping:</strong> Hoe verschillende bounded
+                    contexts met elkaar relateren
+                  </li>
+                </ul>
+              </div>
+
+              <div class="code-block">
+                <pre>
+// Voorbeeld van een Bounded Context in .NET
+namespace ECommerce.OrderManagement
+{
+    // Aggregate Root
+    public class Order : AggregateRoot
+    {
+        public OrderId Id { get; private set; }
+        public CustomerId CustomerId { get; private set; }
+        public OrderStatus Status { get; private set; }
+        private readonly List&lt;OrderLine&gt; _orderLines = new();
+        
+        public void AddOrderLine(ProductId productId, int quantity, Money unitPrice)
+        {
+            if (Status != OrderStatus.Draft)
+                throw new InvalidOperationException("Cannot modify confirmed order");
+                
+            var orderLine = new OrderLine(productId, quantity, unitPrice);
+            _orderLines.Add(orderLine);
+            
+            // Domain event
+            AddDomainEvent(new OrderLineAddedEvent(Id, productId, quantity));
+        }
+        
+        public void Confirm()
+        {
+            if (!_orderLines.Any())
+                throw new DomainException("Cannot confirm empty order");
+                
+            Status = OrderStatus.Confirmed;
+            AddDomainEvent(new OrderConfirmedEvent(Id, CustomerId, GetTotal()));
+        }
+        
+        private Money GetTotal() => _orderLines.Sum(line => line.GetTotal());
+    }
+    
+    // Value Object
+    public class OrderId : ValueObject
+    {
+        public int Value { get; }
+        
+        public OrderId(int value)
+        {
+            if (value <= 0) throw new ArgumentException("Order ID must be positive");
+            Value = value;
+        }
+        
+        protected override IEnumerable&lt;object&gt; GetEqualityComponents()
+        {
+            yield return Value;
+        }
+    }
+    
+    // Domain Service
+    public interface IPricingService
+    {
+        Money CalculateDiscount(CustomerId customerId, IEnumerable&lt;OrderLine&gt; orderLines);
+    }
+}</pre
+                >
+              </div>
+
+              <!-- UITGEBREIDE SECTIE 2 -->
+              <h2
+                id="monoliet-vs-microservices"
+                style="color: #2c3e50; margin: 3rem 0 1rem 0; font-size: 1.8rem"
+              >
+                2. Monoliet vs. Microservices: Een Gedetailleerde Vergelijking
+              </h2>
+
+              <p>
+                De keuze tussen een monolithische architectuur en microservices
+                is niet zwart-wit. Beide hebben hun plaats in moderne
+                softwareontwikkeling. Een grondig begrip van de trade-offs is
+                cruciaal voor het maken van de juiste beslissing voor jouw
+                specifieke context.
+              </p>
+
+              <h3
+                style="
+                  color: #34495e;
+                  margin: 1.5rem 0 0.5rem 0;
+                  font-size: 1.3rem;
+                "
+              >
+                De Monolithische Architectuur: Dieper Analysis
+              </h3>
+
+              <p>
+                Een monoliet is niet per definitie slecht. Veel succesvolle
+                applicaties draaien perfect op een monolithische architectuur.
+                Hier is een diepgaande analyse:
+              </p>
+
+              <div class="info-box success">
+                <h4 style="color: #2d5a3d; margin-bottom: 1rem">
+                  ✅ Voordelen van Monolithische Architectuur:
+                </h4>
+
+                <h5 style="color: #2d5a3d; margin-bottom: 0.5rem">
+                  1. Eenvoudige Development & Testing
+                </h5>
+                <p
+                  style="color: #2d5a3d; margin: 0 0 1rem 0; font-size: 0.95rem"
+                >
+                  Alles draait in één proces, dus debugging en profiling zijn
+                  straightforward. Je kunt breakpoints zetten door de hele
+                  applicatie heen zonder complex distributed debugging.
+                </p>
+
+                <h5 style="color: #2d5a3d; margin-bottom: 0.5rem">
+                  2. ACID Transactions
+                </h5>
+                <p
+                  style="color: #2d5a3d; margin: 0 0 1rem 0; font-size: 0.95rem"
+                >
+                  Database transactions work natuurlijk omdat alles binnen
+                  dezelfde database boundary valt. Complex business transactions
+                  zijn eenvoudig te implementeren.
+                </p>
+
+                <h5 style="color: #2d5a3d; margin-bottom: 0.5rem">
+                  3. Performance Benefits
+                </h5>
+                <p
+                  style="color: #2d5a3d; margin: 0 0 1rem 0; font-size: 0.95rem"
+                >
+                  Geen netwerklatency tussen componenten. Method calls zijn
+                  in-process en dus razendsnel. Caching strategieën zijn
+                  eenvoudiger te implementeren.
+                </p>
+
+                <h5 style="color: #2d5a3d; margin-bottom: 0.5rem">
+                  4. Operational Simplicity
+                </h5>
+                <p style="color: #2d5a3d; margin: 0; font-size: 0.95rem">
+                  Één deployment artifact, één set van logs, één monitoring
+                  endpoint. Infrastructure requirements zijn minimaal in
+                  vergelijking met distributed systems.
+                </p>
+              </div>
+
+              <div class="info-box danger">
+                <h4 style="color: #c53030; margin-bottom: 1rem">
+                  ❌ Nadelen van Monolithische Architectuur:
+                </h4>
+
+                <h5 style="color: #c53030; margin-bottom: 0.5rem">
+                  1. Scaling Challenges
+                </h5>
+                <p
+                  style="color: #c53030; margin: 0 0 1rem 0; font-size: 0.95rem"
+                >
+                  Je moet de hele applicatie schalen, ook als maar één component
+                  extra resources nodig heeft. Dit is inefficiënt en duur.
+                </p>
+
+                <h5 style="color: #c53030; margin-bottom: 0.5rem">
+                  2. Technology Lock-in
+                </h5>
+                <p
+                  style="color: #c53030; margin: 0 0 1rem 0; font-size: 0.95rem"
+                >
+                  Je zit vast aan één technology stack. Experimenteren met
+                  nieuwe technologieën of frameworks is risicovol en moeilijk.
+                </p>
+
+                <h5 style="color: #c53030; margin-bottom: 0.5rem">
+                  3. Team Coordination Overhead
+                </h5>
+                <p
+                  style="color: #c53030; margin: 0 0 1rem 0; font-size: 0.95rem"
+                >
+                  Naarmate het team groeit, moeten meer developers coördineren
+                  op dezelfde codebase. Merge conflicts en blocking dependencies
+                  nemen toe.
+                </p>
+
+                <h5 style="color: #c53030; margin-bottom: 0.5rem">
+                  4. Fault Tolerance
+                </h5>
+                <p style="color: #c53030; margin: 0; font-size: 0.95rem">
+                  Een bug of performance issue in één module kan de hele
+                  applicatie platleggen. Er is geen isolation tussen components.
+                </p>
+              </div>
+
+              <h3
+                style="
+                  color: #34495e;
+                  margin: 1.5rem 0 0.5rem 0;
+                  font-size: 1.3rem;
+                "
+              >
+                Performance Comparison: Real Numbers
+              </h3>
+
+              <p>
+                Hier zijn concrete performance metrics gebaseerd op
+                praktijkervaring met beide architecturen:
+              </p>
+
+              <div
+                style="
+                  padding: 1rem;
+                  background: #f8f9fa;
+                  border-radius: 8px;
+                  margin: 1rem 0;
+                "
+              >
+                <table style="width: 100%; border-collapse: collapse">
+                  <thead>
+                    <tr style="background: #e9ecef">
+                      <th
+                        style="
+                          padding: 0.75rem;
+                          border: 1px solid #dee2e6;
+                          text-align: left;
+                        "
+                      >
+                        Metric
+                      </th>
+                      <th
+                        style="
+                          padding: 0.75rem;
+                          border: 1px solid #dee2e6;
+                          text-align: left;
+                        "
+                      >
+                        Monoliet
+                      </th>
+                      <th
+                        style="
+                          padding: 0.75rem;
+                          border: 1px solid #dee2e6;
+                          text-align: left;
+                        "
+                      >
+                        Microservices
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Response Time (internal calls)
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        < 1ms
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        5-50ms
+                      </td>
+                    </tr>
+                    <tr style="background: #f8f9fa">
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Memory Overhead
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Low (shared process)
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        High (separate processes)
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Development Velocity (early)
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Fast
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Slow
+                      </td>
+                    </tr>
+                    <tr style="background: #f8f9fa">
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Development Velocity (mature)
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Slow (large teams)
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Fast (small teams)
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Fault Tolerance
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Single point of failure
+                      </td>
+                      <td style="padding: 0.75rem; border: 1px solid #dee2e6">
+                        Graceful degradation
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- SECTIE 6 - JE EERSTE MICROSERVICE - VOLLEDIG UITGEWERKT -->
+              <h2
+                id="eerste-microservice"
+                style="color: #2c3e50; margin: 3rem 0 1rem 0; font-size: 1.8rem"
+              >
+                6. Je Eerste .NET Microservice: User Management Service
+              </h2>
+
+              <p>
+                We gaan een production-ready User Management microservice bouwen
+                die alle best practices implementeert: clean architecture,
+                proper error handling, monitoring, en security. Deze service zal
+                fungeren als een template voor alle andere microservices in je
+                architectuur.
+              </p>
+
+              <h3
+                style="
+                  color: #34495e;
+                  margin: 1.5rem 0 0.5rem 0;
+                  font-size: 1.3rem;
+                "
+              >
+                Project Structure & Clean Architecture
+              </h3>
+
+              <div class="code-block">
+                <pre>
+// Project structure voor UserService
+UserService/
+├── UserService.Api/                 # Web API layer
+│   ├── Controllers/
+│   ├── Middleware/
+│   ├── Program.cs
+│   └── appsettings.json
+├── UserService.Core/                # Domain & Application layer
+│   ├── Entities/
+│   ├── Interfaces/
+│   ├── Services/
+│   ├── DTOs/
+│   └── Events/
+├── UserService.Infrastructure/      # Data access & external concerns
+│   ├── Data/
+│   ├── Repositories/
+│   ├── Services/
+│   └── Configurations/
+└── UserService.Tests/              # Tests
+    ├── Unit/
+    ├── Integration/
+    └── TestHelpers/</pre
+                >
+              </div>
+
+              <h3
+                style="
+                  color: #34495e;
+                  margin: 1.5rem 0 0.5rem 0;
+                  font-size: 1.3rem;
+                "
+              >
+                Domain Layer: Entities & Value Objects
+              </h3>
+
+              <div class="code-block">
+                <pre>
+// UserService.Core/Entities/User.cs
+using System.ComponentModel.DataAnnotations;
+
+namespace UserService.Core.Entities
+{
+    public class User : BaseEntity
+    {
+        public Guid Id { get; private set; }
+        public Email Email { get; private set; }
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; }
+        public UserStatus Status { get; private set; }
+        public DateTime CreatedAt { get; private set; }
+        public DateTime? UpdatedAt { get; private set; }
+
+        private User() { } // EF Constructor
+
+        public User(Email email, string firstName, string lastName)
+        {
+            Id = Guid.NewGuid();
+            Email = email ?? throw new ArgumentNullException(nameof(email));
+            FirstName = ValidateName(firstName, nameof(firstName));
+            LastName = ValidateName(lastName, nameof(lastName));
+            Status = UserStatus.Active;
+            CreatedAt = DateTime.UtcNow;
+
+            // Domain event
+            AddDomainEvent(new UserCreatedEvent(Id, Email.Value, $"{FirstName} {LastName}"));
+        }
+
+        public void UpdateProfile(string firstName, string lastName)
+        {
+            if (Status == UserStatus.Deleted)
+                throw new InvalidOperationException("Cannot update deleted user");
+
+            FirstName = ValidateName(firstName, nameof(firstName));
+            LastName = ValidateName(lastName, nameof(lastName));
+            UpdatedAt = DateTime.UtcNow;
+
+            AddDomainEvent(new UserProfileUpdatedEvent(Id, FirstName, LastName));
+        }
+
+        public void ChangeEmail(Email newEmail)
+        {
+            if (Status == UserStatus.Deleted)
+                throw new InvalidOperationException("Cannot update deleted user");
+
+            var oldEmail = Email.Value;
+            Email = newEmail ?? throw new ArgumentNullException(nameof(newEmail));
+            UpdatedAt = DateTime.UtcNow;
+
+            AddDomainEvent(new UserEmailChangedEvent(Id, oldEmail, newEmail.Value));
+        }
+
+        public void Deactivate()
+        {
+            if (Status == UserStatus.Deleted)
+                throw new InvalidOperationException("Cannot deactivate deleted user");
+
+            Status = UserStatus.Inactive;
+            UpdatedAt = DateTime.UtcNow;
+
+            AddDomainEvent(new UserStatusChangedEvent(Id, UserStatus.Inactive));
+        }
+
+        public void Delete()
+        {
+            Status = UserStatus.Deleted;
+            UpdatedAt = DateTime.UtcNow;
+
+            AddDomainEvent(new UserDeletedEvent(Id, Email.Value));
+        }
+
+        private static string ValidateName(string name, string parameterName)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("Name cannot be empty", parameterName);
+
+            if (name.Length > 100)
+                throw new ArgumentException("Name cannot exceed 100 characters", parameterName);
+
+            return name.Trim();
+        }
+    }
+
+    // Value Object voor Email
+    public class Email : ValueObject
+    {
+        public string Value { get; private set; }
+
+        private Email() { } // EF Constructor
+
+        public Email(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                throw new ArgumentException("Email cannot be empty");
+
+            if (!IsValidEmail(email))
+                throw new ArgumentException("Invalid email format");
+
+            Value = email.ToLowerInvariant();
+        }
+
+        private static bool IsValidEmail(string email)
+        {
+            try
+            {
+                var mailAddress = new System.Net.Mail.MailAddress(email);
+                return mailAddress.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        protected override IEnumerable&lt;object&gt; GetEqualityComponents()
+        {
+            yield return Value;
+        }
+
+        public static implicit operator string(Email email) => email?.Value;
+        public static implicit operator Email(string email) => new(email);
+    }
+
+    public enum UserStatus
+    {
+        Active = 1,
+        Inactive = 2,
+        Deleted = 3
+    }
+
+    // Base classes
+    public abstract class BaseEntity
+    {
+        private readonly List&lt;DomainEvent&gt; _domainEvents = new();
+
+        public IReadOnlyCollection&lt;DomainEvent&gt; DomainEvents => _domainEvents.AsReadOnly();
+
+        protected void AddDomainEvent(DomainEvent domainEvent)
+        {
+            _domainEvents.Add(domainEvent);
+        }
+
+        public void ClearDomainEvents()
+        {
+            _domainEvents.Clear();
+        }
+    }
+
+    public abstract class ValueObject
+    {
+        protected abstract IEnumerable&lt;object&gt; GetEqualityComponents();
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || obj.GetType() != GetType())
+                return false;
+
+            var other = (ValueObject)obj;
+            return GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
+        }
+
+        public override int GetHashCode()
+        {
+            return GetEqualityComponents()
+                .Select(x => x?.GetHashCode() ?? 0)
+                .Aggregate((x, y) => x ^ y);
+        }
+    }
+
+    // Domain Events
+    public abstract record DomainEvent(Guid Id, DateTime OccurredOn)
+    {
+        protected DomainEvent() : this(Guid.NewGuid(), DateTime.UtcNow) { }
+    }
+
+    public record UserCreatedEvent(Guid UserId, string Email, string FullName) 
+        : DomainEvent;
+
+    public record UserProfileUpdatedEvent(Guid UserId, string FirstName, string LastName) 
+        : DomainEvent;
+
+    public record UserEmailChangedEvent(Guid UserId, string OldEmail, string NewEmail) 
+        : DomainEvent;
+
+    public record UserStatusChangedEvent(Guid UserId, UserStatus NewStatus) 
+        : DomainEvent;
+
+    public record UserDeletedEvent(Guid UserId, string Email) 
+        : DomainEvent;
+}</pre
+                >
+              </div>
+
+              <h3
+                style="
+                  color: #34495e;
+                  margin: 1.5rem 0 0.5rem 0;
+                  font-size: 1.3rem;
+                "
+              >
+                Application Layer: DTOs & Services
+              </h3>
+
+              <div class="code-block">
+                <pre>
+// UserService.Core/DTOs/UserDtos.cs
+namespace UserService.Core.DTOs
+{
+    public record UserDto(
+        Guid Id,
+        string Email,
+        string FirstName,
+        string LastName,
+        string Status,
+        DateTime CreatedAt,
+        DateTime? UpdatedAt);
+
+    public record CreateUserDto(
+        string Email,
+        string FirstName,
+        string LastName)
+    {
+        public User ToEntity() => new(new Email(Email), FirstName, LastName);
+    }
+
+    public record UpdateUserDto(
+        string FirstName,
+        string LastName);
+
+    public record ChangeEmailDto(
+        string NewEmail);
+
+    public record PagedResult&lt;T&gt;(
+        IEnumerable&lt;T&gt; Items,
+        int Page,
+        int PageSize,
+        int TotalCount,
+        int TotalPages);
+
+    public record UserSearchDto(
+        string? Email = null,
+        string? FirstName = null,
+        string? LastName = null,
+        UserStatus? Status = null,
+        int Page = 1,
+        int PageSize = 20);
+}
+
+// UserService.Core/Interfaces/IUserRepository.cs
+namespace UserService.Core.Interfaces
+{
+    public interface IUserRepository
+    {
+        Task&lt;User?&gt; GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task&lt;User?&gt; GetByEmailAsync(string email, CancellationToken cancellationToken = default);
+        Task&lt;PagedResult&lt;User&gt;&gt; SearchAsync(UserSearchDto search, CancellationToken cancellationToken = default);
+        Task&lt;User&gt; AddAsync(User user, CancellationToken cancellationToken = default);
+        Task UpdateAsync(User user, CancellationToken cancellationToken = default);
+        Task&lt;bool&gt; ExistsAsync(Guid id, CancellationToken cancellationToken = default);
+        Task&lt;bool&gt; EmailExistsAsync(string email, CancellationToken cancellationToken = default);
+    }
+
+    public interface IUnitOfWork
+    {
+        Task&lt;int&gt; SaveChangesAsync(CancellationToken cancellationToken = default);
+        Task&lt;bool&gt; SaveEntitiesAsync(CancellationToken cancellationToken = default);
+    }
+}
+
+// UserService.Core/Services/UserService.cs
+namespace UserService.Core.Services
+{
+    public class UserApplicationService : IUserApplicationService
+    {
+        private readonly IUserRepository _userRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger&lt;UserApplicationService&gt; _logger;
+        private readonly IEventBus _eventBus;
+
+        public UserApplicationService(
+            IUserRepository userRepository,
+            IUnitOfWork unitOfWork,
+            ILogger&lt;UserApplicationService&gt; logger,
+            IEventBus eventBus)
+        {
+            _userRepository = userRepository;
+            _unitOfWork = unitOfWork;
+            _logger = logger;
+            _eventBus = eventBus;
+        }
+
+        public async Task&lt;Result&lt;UserDto&gt;&gt; CreateUserAsync(CreateUserDto dto, CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                // Check if email already exists
+                if (await _userRepository.EmailExistsAsync(dto.Email, cancellationToken))
+                {
+                    return Result&lt;UserDto&gt;.Failure("A user with this email already exists");
+                }
+
+                // Create user
+                var user = dto.ToEntity();
+                await _userRepository.AddAsync(user, cancellationToken);
+                
+                // Save and publish events
+                var saved = await _unitOfWork.SaveEntitiesAsync(cancellationToken);
+                if (!saved)
+                {
+                    return Result&lt;UserDto&gt;.Failure("Failed to create user");
+                }
+
+                // Publish domain events
+                await PublishDomainEventsAsync(user);
+
+                var userDto = MapToDto(user);
+                _logger.LogInformation("User created successfully with ID {UserId}", user.Id);
+                
+                return Result&lt;UserDto&gt;.Success(userDto);
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.LogWarning(ex, "Invalid user data provided");
+                return Result&lt;UserDto&gt;.Failure(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error creating user");
+                return Result&lt;UserDto&gt;.Failure("An error occurred while creating the user");
+            }
+        }
+
+        public async Task&lt;Result&lt;UserDto&gt;&gt; GetUserAsync(Guid id, CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                var user = await _userRepository.GetByIdAsync(id, cancellationToken);
+                if (user == null)
+                {
+                    return Result&lt;UserDto&gt;.NotFound();
+                }
+
+                return Result&lt;UserDto&gt;.Success(MapToDto(user));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving user {UserId}", id);
+                return Result&lt;UserDto&gt;.Failure("An error occurred while retrieving the user");
+            }
+        }
+
+        public async Task&lt;Result&lt;UserDto&gt;&gt; UpdateUserAsync(Guid id, UpdateUserDto dto, CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                var user = await _userRepository.GetByIdAsync(id, cancellationToken);
+                if (user == null)
+                {
+                    return Result&lt;UserDto&gt;.NotFound();
+                }
+
+                user.UpdateProfile(dto.FirstName, dto.LastName);
+                await _userRepository.UpdateAsync(user, cancellationToken);
+                
+                var saved = await _unitOfWork.SaveEntitiesAsync(cancellationToken);
+                if (!saved)
+                {
+                    return Result&lt;UserDto&gt;.Failure("Failed to update user");
+                }
+
+                await PublishDomainEventsAsync(user);
+                
+                _logger.LogInformation("User {UserId} updated successfully", id);
+                return Result&lt;UserDto&gt;.Success(MapToDto(user));
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.LogWarning(ex, "Invalid user data provided for user {UserId}", id);
+                return Result&lt;UserDto&gt;.Failure(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating user {UserId}", id);
+                return Result&lt;UserDto&gt;.Failure("An error occurred while updating the user");
+            }
+        }
+
+        public async Task&lt;Result&lt;PagedResult&lt;UserDto&gt;&gt;&gt; SearchUsersAsync(UserSearchDto search, CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                var result = await _userRepository.SearchAsync(search, cancellationToken);
+                
+                var dtos = result.Items.Select(MapToDto);
+                var pagedResult = new PagedResult&lt;UserDto&gt;(
+                    dtos, result.Page, result.PageSize, result.TotalCount, result.TotalPages);
+                
+                return Result&lt;PagedResult&lt;UserDto&gt;&gt;.Success(pagedResult);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error searching users");
+                return Result&lt;PagedResult&lt;UserDto&gt;&gt;.Failure("An error occurred while searching users");
+            }
+        }
+
+        private async Task PublishDomainEventsAsync(User user)
+        {
+            foreach (var domainEvent in user.DomainEvents)
+            {
+                await _eventBus.PublishAsync(domainEvent);
+            }
+            user.ClearDomainEvents();
+        }
+
+        private static UserDto MapToDto(User user) => new(
+            user.Id,
+            user.Email.Value,
+            user.FirstName,
+            user.LastName,
+            user.Status.ToString(),
+            user.CreatedAt,
+            user.UpdatedAt);
+    }
+
+    // Result pattern voor better error handling
+    public class Result&lt;T&gt;
+    {
+        public T Value { get; private set; }
+        public bool IsSuccess { get; private set; }
+        public string Error { get; private set; }
+        public bool IsNotFound { get; private set; }
+
+        private Result(T value, bool isSuccess, string error, bool isNotFound = false)
+        {
+            Value = value;
+            IsSuccess = isSuccess;
+            Error = error;
+            IsNotFound = isNotFound;
+        }
+
+        public static Result&lt;T&gt; Success(T value) => new(value, true, null);
+        public static Result&lt;T&gt; Failure(string error) => new(default, false, error);
+        public static Result&lt;T&gt; NotFound() => new(default, false, "Not found", true);
+    }
+}</pre
+                >
+              </div>
+
+              <h3
+                style="
+                  color: #34495e;
+                  margin: 1.5rem 0 0.5rem 0;
+                  font-size: 1.3rem;
+                "
+              >
+                Infrastructure Layer: Database & Repository
+              </h3>
+
+              <div class="code-block">
+                <pre>
+// UserService.Infrastructure/Data/UserDbContext.cs
+namespace UserService.Infrastructure.Data
+{
+    public class UserDbContext : DbContext, IUnitOfWork
+    {
+        private readonly IEventBus _eventBus;
+        private readonly ILogger&lt;UserDbContext&gt; _logger;
+
+        public UserDbContext(DbContextOptions&lt;UserDbContext&gt; options, IEventBus eventBus, ILogger&lt;UserDbContext&gt; logger) 
+            : base(options)
+        {
+            _eventBus = eventBus;
+            _logger = logger;
+        }
+
+        public DbSet&lt;User&gt; Users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(UserDbContext).Assembly);
+        }
+
+        public async Task&lt;bool&gt; SaveEntitiesAsync(CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                // Publish domain events before saving
+                await PublishDomainEventsAsync();
+                
+                var result = await SaveChangesAsync(cancellationToken);
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error saving entities");
+                return false;
+            }
+        }
+
+        private async Task PublishDomainEventsAsync()
+        {
+            var entitiesWithEvents = ChangeTracker
+                .Entries&lt;BaseEntity&gt;()
+                .Where(e => e.Entity.DomainEvents.Any())
+                .Select(e => e.Entity);
+
+            var events = entitiesWithEvents
+                .SelectMany(e => e.DomainEvents)
+                .ToList();
+
+            entitiesWithEvents.ToList().ForEach(e => e.ClearDomainEvents());
+
+            foreach (var domainEvent in events)
+            {
+                await _eventBus.PublishAsync(domainEvent);
+            }
+        }
+    }
+
+    // Entity configurations
+    public class UserConfiguration : IEntityTypeConfiguration&lt;User&gt;
+    {
+        public void Configure(EntityTypeBuilder&lt;User&gt; builder)
+        {
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.FirstName)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            builder.Property(x => x.LastName)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            // Value object configuration
+            builder.OwnsOne(x => x.Email, email =>
+            {
+                email.Property(e => e.Value)
+                    .IsRequired()
+                    .HasMaxLength(320)
+                    .HasColumnName("Email");
+                    
+                email.HasIndex(e => e.Value)
+                    .IsUnique()
+                    .HasDatabaseName("IX_Users_Email");
+            });
+
+            builder.Property(x => x.Status)
+                .IsRequired()
+                .HasConversion&lt;int&gt;();
+
+            builder.Property(x => x.CreatedAt)
+                .IsRequired();
+
+            builder.Property(x => x.UpdatedAt);
+
+            // Ignore domain events (not persisted)
+            builder.Ignore(x => x.DomainEvents);
+
+            // Table configuration
+            builder.ToTable("Users");
+
+            // Indexes
+            builder.HasIndex(x => x.CreatedAt);
+            builder.HasIndex(x => x.Status);
+        }
+    }
+
+    // Repository implementation
+    public class UserRepository : IUserRepository
+    {
+        private readonly UserDbContext _context;
+        private readonly ILogger&lt;UserRepository&gt; _logger;
+
+        public UserRepository(UserDbContext context, ILogger&lt;UserRepository&gt; logger)
+        {
+            _context = context;
+            _logger = logger;
+        }
+
+        public async Task&lt;User?&gt; GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        {
+            return await _context.Users
+                .FirstOrDefaultAsync(u => u.Id == id, cancellationToken);
+        }
+
+        public async Task&lt;User?&gt; GetByEmailAsync(string email, CancellationToken cancellationToken = default)
+        {
+            return await _context.Users
+                .FirstOrDefaultAsync(u => u.Email.Value == email.ToLowerInvariant(), cancellationToken);
+        }
+
+        public async Task&lt;PagedResult&lt;User&gt;&gt; SearchAsync(UserSearchDto search, CancellationToken cancellationToken = default)
+        {
+            var query = _context.Users.AsQueryable();
+
+            // Apply filters
+            if (!string.IsNullOrEmpty(search.Email))
+                query = query.Where(u => u.Email.Value.Contains(search.Email.ToLowerInvariant()));
+
+            if (!string.IsNullOrEmpty(search.FirstName))
+                query = query.Where(u => u.FirstName.Contains(search.FirstName));
+
+            if (!string.IsNullOrEmpty(search.LastName))
+                query = query.Where(u => u.LastName.Contains(search.LastName));
+
+            if (search.Status.HasValue)
+                query = query.Where(u => u.Status == search.Status.Value);
+
+            // Get total count
+            var totalCount = await query.CountAsync(cancellationToken);
+
+            // Apply paging
+            var users = await query
+                .OrderBy(u => u.CreatedAt)
+                .Skip((search.Page - 1) * search.PageSize)
+                .Take(search.PageSize)
+                .ToListAsync(cancellationToken);
+
+            var totalPages = (int)Math.Ceiling((double)totalCount / search.PageSize);
+
+            return new PagedResult&lt;User&gt;(users, search.Page, search.PageSize, totalCount, totalPages);
+        }
+
+        public async Task&lt;User&gt; AddAsync(User user, CancellationToken cancellationToken = default)
+        {
+            var result = await _context.Users.AddAsync(user, cancellationToken);
+            return result.Entity;
+        }
+
+        public Task UpdateAsync(User user, CancellationToken cancellationToken = default)
+        {
+            _context.Users.Update(user);
+            return Task.CompletedTask;
+        }
+
+        public async Task&lt;bool&gt; ExistsAsync(Guid id, CancellationToken cancellationToken = default)
+        {
+            return await _context.Users
+                .AnyAsync(u => u.Id == id, cancellationToken);
+        }
+
+        public async Task&lt;bool&gt; EmailExistsAsync(string email, CancellationToken cancellationToken = default)
+        {
+            return await _context.Users
+                .AnyAsync(u => u.Email.Value == email.ToLowerInvariant(), cancellationToken);
+        }
+    }
+}</pre
+                >
+              </div>
+
+              <h3
+                style="
+                  color: #34495e;
+                  margin: 1.5rem 0 0.5rem 0;
+                  font-size: 1.3rem;
+                "
+              >
+                API Layer: Controllers & Middleware
+              </h3>
+
+              <div class="code-block">
+                <pre>
+// UserService.Api/Controllers/UsersController.cs
+namespace UserService.Api.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    [Produces("application/json")]
+    public class UsersController : ControllerBase
+    {
+        private readonly IUserApplicationService _userService;
+        private readonly ILogger&lt;UsersController&gt; _logger;
+
+        public UsersController(IUserApplicationService userService, ILogger&lt;UsersController&gt; logger)
+        {
+            _userService = userService;
+            _logger = logger;
+        }
+
+        /// &lt;summary&gt;
+        /// Create a new user
+        /// &lt;/summary&gt;
+        /// &lt;param name="dto"&gt;User creation data&lt;/param&gt;
+        /// &lt;param name="cancellationToken"&gt;&lt;/param&gt;
+        /// &lt;returns&gt;Created user&lt;/returns&gt;
+        [HttpPost]
+        [ProducesResponseType(typeof(UserDto), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status409Conflict)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task&lt;ActionResult&lt;UserDto&gt;&gt; CreateUser(
+            CreateUserDto dto, 
+            CancellationToken cancellationToken = default)
+        {
+            var correlationId = HttpContext.TraceIdentifier;
+            using var scope = _logger.BeginScope(new Dictionary&lt;string, object&gt;
+            {
+                ["CorrelationId"] = correlationId,
+                ["Operation"] = "CreateUser"
+            });
+
+            _logger.LogInformation("Creating user with email {Email}", dto.Email);
+
+            var result = await _userService.CreateUserAsync(dto, cancellationToken);
+
+            if (result.IsSuccess)
+            {
+                _logger.LogInformation("User created successfully with ID {UserId}", result.Value.Id);
+                return CreatedAtAction(
+                    nameof(GetUser), 
+                    new { id = result.Value.Id }, 
+                    result.Value);
+            }
+
+            if (result.Error.Contains("already exists"))
+            {
+                return Conflict(new ProblemDetails
+                {
+                    Status = StatusCodes.Status409Conflict,
+                    Title = "User already exists",
+                    Detail = result.Error,
+                    Instance = HttpContext.Request.Path
+                });
+            }
+
+            return BadRequest(new ProblemDetails
+            {
+                Status = StatusCodes.Status400BadRequest,
+                Title = "Invalid user data",
+                Detail = result.Error,
+                Instance = HttpContext.Request.Path
+            });
+        }
+
+        /// &lt;summary&gt;
+        /// Get user by ID
+        /// &lt;/summary&gt;
+        /// &lt;param name="id"&gt;User ID&lt;/param&gt;
+        /// &lt;param name="cancellationToken"&gt;&lt;/param&gt;
+        /// &lt;returns&gt;User data&lt;/returns&gt;
+        [HttpGet("{id:guid}")]
+        [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task&lt;ActionResult&lt;UserDto&gt;&gt; GetUser(Guid id, CancellationToken cancellationToken = default)
+        {
+            var result = await _userService.GetUserAsync(id, cancellationToken);
+
+            if (result.IsSuccess)
+                return Ok(result.Value);
+
+            if (result.IsNotFound)
+                return NotFound();
+
+            return StatusCode(StatusCodes.Status500InternalServerError, new ProblemDetails
+            {
+                Status = StatusCodes.Status500InternalServerError,
+                Title = "Internal server error",
+                Detail = "An error occurred while processing your request",
+                Instance = HttpContext.Request.Path
+            });
+        }
+
+        /// &lt;summary&gt;
+        /// Search users with filtering and pagination
+        /// &lt;/summary&gt;
+        /// &lt;param name="search"&gt;Search criteria&lt;/param&gt;
+        /// &lt;param name="cancellationToken"&gt;&lt;/param&gt;
+        /// &lt;returns&gt;Paginated list of users&lt;/returns&gt;
+        [HttpGet]
+        [ProducesResponseType(typeof(PagedResult&lt;UserDto&gt;), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task&lt;ActionResult&lt;PagedResult&lt;UserDto&gt;&gt;&gt; SearchUsers(
+            [FromQuery] UserSearchDto search, 
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _userService.SearchUsersAsync(search, cancellationToken);
+
+            if (result.IsSuccess)
+                return Ok(result.Value);
+
+            return StatusCode(StatusCodes.Status500InternalServerError, new ProblemDetails
+            {
+                Status = StatusCodes.Status500InternalServerError,
+                Title = "Internal server error",
+                Detail = "An error occurred while processing your request",
+                Instance = HttpContext.Request.Path
+            });
+        }
+
+        /// &lt;summary&gt;
+        /// Update user profile
+        /// &lt;/summary&gt;
+        /// &lt;param name="id"&gt;User ID&lt;/param&gt;
+        /// &lt;param name="dto"&gt;Update data&lt;/param&gt;
+        /// &lt;param name="cancellationToken"&gt;&lt;/param&gt;
+        /// &lt;returns&gt;Updated user&lt;/returns&gt;
+        [HttpPut("{id:guid}")]
+        [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task&lt;ActionResult&lt;UserDto&gt;&gt; UpdateUser(
+            Guid id, 
+            UpdateUserDto dto, 
+            CancellationToken cancellationToken = default)
+        {
+            _logger.LogInformation("Updating user {UserId}", id);
+
+            var result = await _userService.UpdateUserAsync(id, dto, cancellationToken);
+
+            if (result.IsSuccess)
+            {
+                _logger.LogInformation("User {UserId} updated successfully", id);
+                return Ok(result.Value);
+            }
+
+            if (result.IsNotFound)
+                return NotFound();
+
+            return BadRequest(new ProblemDetails
+            {
+                Status = StatusCodes.Status400BadRequest,
+                Title = "Invalid user data",
+                Detail = result.Error,
+                Instance = HttpContext.Request.Path
+            });
+        }
+    }
+
+    // Health check controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class HealthController : ControllerBase
+    {
+        private readonly UserDbContext _dbContext;
+        private readonly ILogger&lt;HealthController&gt; _logger;
+
+        public HealthController(UserDbContext dbContext, ILogger&lt;HealthController&gt; logger)
+        {
+            _dbContext = dbContext;
+            _logger = logger;
+        }
+
+        /// &lt;summary&gt;
+        /// Basic health check
+        /// &lt;/summary&gt;
+        /// &lt;returns&gt;Service health status&lt;/returns&gt;
+        [HttpGet]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(object), StatusCodes.Status503ServiceUnavailable)]
+        public async Task&lt;IActionResult&gt; Get()
+        {
+            var healthChecks = new Dictionary&lt;string, string&gt;();
+
+            try
+            {
+                // Database health check
+                var canConnect = await _dbContext.Database.CanConnectAsync();
+                healthChecks["database"] = canConnect ? "healthy" : "unhealthy";
+
+                // Add more health checks as needed
+                healthChecks["service"] = "healthy";
+                healthChecks["timestamp"] = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffZ");
+
+                var isHealthy = healthChecks.All(hc => hc.Value == "healthy");
+
+                if (isHealthy)
+                {
+                    return Ok(new { status = "healthy", checks = healthChecks });
+                }
+                else
+                {
+                    return StatusCode(StatusCodes.Status503ServiceUnavailable, 
+                        new { status = "unhealthy", checks = healthChecks });
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Health check failed");
+                return StatusCode(StatusCodes.Status503ServiceUnavailable, 
+                    new { status = "unhealthy", error = ex.Message });
+            }
+        }
+    }
+}
+
+// Global error handling middleware
+public class GlobalExceptionMiddleware
+{
+    private readonly RequestDelegate _next;
+    private readonly ILogger&lt;GlobalExceptionMiddleware&gt; _logger;
+
+    public GlobalExceptionMiddleware(RequestDelegate next, ILogger&lt;GlobalExceptionMiddleware&gt; logger)
+    {
+        _next = next;
+        _logger = logger;
+    }
+
+    public async Task InvokeAsync(HttpContext context)
+    {
+        try
+        {
+            await _next(context);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "An unhandled exception occurred");
+            await HandleExceptionAsync(context, ex);
+        }
+    }
+
+    private static async Task HandleExceptionAsync(HttpContext context, Exception exception)
+    {
+        context.Response.ContentType = "application/json";
+
+        var problemDetails = new ProblemDetails
+        {
+            Instance = context.Request.Path,
+            Title = "An error occurred",
+            Detail = "An internal server error occurred"
+        };
+
+        context.Response.StatusCode = exception switch
+        {
+            ArgumentException => StatusCodes.Status400BadRequest,
+            InvalidOperationException => StatusCodes.Status409Conflict,
+            _ => StatusCodes.Status500InternalServerError
+        };
+
+        problemDetails.Status = context.Response.StatusCode;
+
+        var json = JsonSerializer.Serialize(problemDetails, new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        });
+
+        await context.Response.WriteAsync(json);
+    }
+}</pre
+                >
+              </div>
+
+              <h3
+                style="
+                  color: #34495e;
+                  margin: 1.5rem 0 0.5rem 0;
+                  font-size: 1.3rem;
+                "
+              >
+                Program.cs: Dependency Injection & Configuration
+              </h3>
+
+              <div class="code-block">
+                <pre>
+// UserService.Api/Program.cs
+using Microsoft.EntityFrameworkCore;
+using Serilog;
+using System.Reflection;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Serilog configuration
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .Enrich.WithProperty("ServiceName", "UserService")
+    .CreateLogger();
+
+builder.Host.UseSerilog();
+
+// Database
+builder.Services.AddDbContext&lt;UserDbContext&gt;(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+        b => b.MigrationsAssembly("UserService.Infrastructure")));
+
+// Repositories and services
+builder.Services.AddScoped&lt;IUserRepository, UserRepository&gt;();
+builder.Services.AddScoped&lt;IUserApplicationService, UserApplicationService&gt;();
+builder.Services.AddScoped&lt;IUnitOfWork&gt;(provider => provider.GetService&lt;UserDbContext&gt;()!);
+
+// Event bus (simplified - in production use MassTransit or similar)
+builder.Services.AddScoped&lt;IEventBus, InMemoryEventBus&gt;();
+
+// Controllers
+builder.Services.AddControllers()
+    .ConfigureApiBehaviorOptions(options =>
+    {
+        // Custom model validation response
+        options.InvalidModelStateResponseFactory = context =>
+        {
+            var problemDetails = new ValidationProblemDetails(context.ModelState)
+            {
+                Instance = context.HttpContext.Request.Path,
+                Status = StatusCodes.Status400BadRequest,
+                Detail = "One or more validation errors occurred."
+            };
+
+            return new BadRequestObjectResult(problemDetails);
+        };
+    });
+
+// API Documentation
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "User Service API",
+        Version = "v1",
+        Description = "User management microservice for the eCommerce platform",
+        Contact = new OpenApiContact
+        {
+            Name = "Dennis van Zetten",
+            Email = "dennis@example.com"
+        }
+    });
+
+    // Include XML comments
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+});
+
+// CORS (configure based on your needs)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ApiCorsPolicy", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000", "https://yourdomain.com")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
+
+// Health checks
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck&lt;UserDbContext&gt;();
+
+// Metrics and monitoring
+builder.Services.AddApplicationInsightsTelemetry();
+
+var app = builder.Build();
+
+// Development environment
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "User Service API v1"));
+    app.UseDeveloperExceptionPage();
+}
+
+// Global exception handling
+app.UseMiddleware&lt;GlobalExceptionMiddleware&gt;();
+
+// Security headers
+app.UseHsts();
+app.UseHttpsRedirection();
+
+// CORS
+app.UseCors("ApiCorsPolicy");
+
+// Authentication & Authorization
+app.UseAuthentication();
+app.UseAuthorization();
+
+// Health checks
+app.MapHealthChecks("/health");
+
+// Controllers
+app.MapControllers();
+
+// Ensure database is created
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService&lt;UserDbContext&gt;();
+    await context.Database.MigrateAsync();
+}
+
+try
+{
+    Log.Information("Starting User Service");
+    await app.RunAsync();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "User Service terminated unexpectedly");
+}
+finally
+{
+    Log.CloseAndFlush();
+}</pre
+                >
+              </div>
+
+              <!-- SECTIE 7 - SERVICE COMMUNICATIE -->
+              <h2
+                id="communicatie-patterns"
+                style="color: #2c3e50; margin: 3rem 0 1rem 0; font-size: 1.8rem"
+              >
+                7. Service Communicatie Patterns
+              </h2>
+
+              <p>
+                Effective communicatie tussen microservices is cruciaal voor een
+                succesvolle architectuur. Je hebt verschillende patterns en
+                technologieën tot je beschikking, elk met hun eigen use cases en
+                trade-offs.
+              </p>
+
+              <h3
+                style="
+                  color: #34495e;
+                  margin: 1.5rem 0 0.5rem 0;
+                  font-size: 1.3rem;
+                "
+              >
+                Synchronous Communication: HTTP/REST
+              </h3>
+
+              <p>
+                Voor real-time queries en operations waar je een immediate
+                response nodig hebt. Gebruik met Circuit Breaker en Retry
+                patterns voor resilience.
+              </p>
+
+              <div class="code-block">
+                <pre>
+// Service-to-Service HTTP Client met Polly resilience patterns
+public class OrderServiceClient : IOrderServiceClient
+{
+    private readonly HttpClient _httpClient;
+    private readonly IAsyncPolicy&lt;HttpResponseMessage&gt; _resilientPolicy;
+    private readonly ILogger&lt;OrderServiceClient&gt; _logger;
+
+    public OrderServiceClient(HttpClient httpClient, ILogger&lt;OrderServiceClient&gt; logger)
+    {
+        _httpClient = httpClient;
+        _logger = logger;
+        _resilientPolicy = CreateResilientPolicy();
+    }
+
+    public async Task&lt;OrderSummaryDto?&gt; GetOrderSummaryAsync(Guid userId, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var response = await _resilientPolicy.ExecuteAsync(async () =>
+            {
+                using var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+                cts.CancelAfter(TimeSpan.FromSeconds(10));
+
+                var request = new HttpRequestMessage(HttpMethod.Get, $"/api/orders/summary/user/{userId}");
+                request.Headers.Add("X-Correlation-ID", Activity.Current?.TraceId.ToString());
+
+                return await _httpClient.SendAsync(request, cts.Token);
+            });
+
+            if (response.StatusCode == HttpStatusCode.NotFound)
+                return null;
+
+            response.EnsureSuccessStatusCode();
+
+            var json = await response.Content.ReadAsStringAsync(cancellationToken);
+            return JsonSerializer.Deserialize&lt;OrderSummaryDto&gt;(json, new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            });
+        }
+        catch (CircuitBreakerOpenException)
+        {
+            _logger.LogWarning("Circuit breaker open for OrderService - returning cached data if available");
+            return await GetCachedOrderSummaryAsync(userId);
+        }
+        catch (TimeoutRejectedException)
+        {
+            _logger.LogWarning("Request timeout for user {UserId} order summary", userId);
+            return null;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Failed to get order summary for user {UserId}", userId);
+            return null;
+        }
+    }
+
+    private IAsyncPolicy&lt;HttpResponseMessage&gt; CreateResilientPolicy()
+    {
+        // Circuit breaker: open after 3 failures, stay open for 30 seconds
+        var circuitBreaker = Policy
+            .HandleResult&lt;HttpResponseMessage&gt;(r => !r.IsSuccessStatusCode)
+            .Or&lt;HttpRequestException&gt;()
+            .Or&lt;TaskCanceledException&gt;()
+            .CircuitBreakerAsync(3, TimeSpan.FromSeconds(30));
+
+        // Retry with exponential backoff
+        var retry = Policy
+            .HandleResult&lt;HttpResponseMessage&gt;(r => 
+                r.StatusCode is HttpStatusCode.ServiceUnavailable or 
+                               HttpStatusCode.RequestTimeout or 
+                               HttpStatusCode.TooManyRequests)
+            .Or&lt;HttpRequestException&gt;()
+            .WaitAndRetryAsync(
+                retryCount: 3,
+                sleepDurationProvider: retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)),
+                onRetry: (outcome, timespan, retryCount, context) =>
+                {
+                    _logger.LogInformation("Retry {RetryCount} in {Delay}ms", retryCount, timespan.TotalMilliseconds);
+                });
+
+        // Timeout policy
+        var timeout = Policy.TimeoutAsync&lt;HttpResponseMessage&gt;(TimeSpan.FromSeconds(30));
+
+        // Combine: Timeout → Retry → Circuit Breaker
+        return Policy.WrapAsync(circuitBreaker, retry, timeout);
+    }
+
+    private async Task&lt;OrderSummaryDto?&gt; GetCachedOrderSummaryAsync(Guid userId)
+    {
+        // Implement cache fallback - could be Redis, memory cache, or database
+        // For this example, return null
+        return await Task.FromResult&lt;OrderSummaryDto?&gt;(null);
+    }
+}
+
+// Registration in Program.cs
+builder.Services.AddHttpClient&lt;IOrderServiceClient, OrderServiceClient&gt;((serviceProvider, client) =>
+{
+    var configuration = serviceProvider.GetRequiredService&lt;IConfiguration&gt;();
+    var baseUrl = configuration["Services:OrderService:BaseUrl"];
+    
+    client.BaseAddress = new Uri(baseUrl);
+    client.Timeout = TimeSpan.FromSeconds(30);
+    client.DefaultRequestHeaders.Add("User-Agent", "UserService/1.0");
+})</pre
+                >
+              </div>
+
+              <h3
+                style="
+                  color: #34495e;
+                  margin: 1.5rem 0 0.5rem 0;
+                  font-size: 1.3rem;
+                "
+              >
+                Asynchronous Communication: Message Bus met MassTransit
+              </h3>
+
+              <p>
+                Voor event-driven scenarios, loose coupling, en operations die
+                niet immediate response nodig hebben. RabbitMQ met MassTransit
+                is een populaire keuze voor .NET.
+              </p>
+
+              <div class="code-block">
+                <pre>
+// Event contracts - shared between services
+namespace SharedContracts.Events
+{
+    public record UserCreatedEvent(Guid UserId, string Email, string FullName, DateTime CreatedAt) : IEvent;
+    public record UserEmailChangedEvent(Guid UserId, string OldEmail, string NewEmail, DateTime ChangedAt) : IEvent;
+    public record UserDeletedEvent(Guid UserId, string Email, DateTime DeletedAt) : IEvent;
+    
+    public interface IEvent
+    {
+        // Marker interface for events
+    }
+}
+
+// Event publisher in UserService
+public class EventBus : IEventBus
+{
+    private readonly IPublishEndpoint _publishEndpoint;
+    private readonly ILogger&lt;EventBus&gt; _logger;
+
+    public EventBus(IPublishEndpoint publishEndpoint, ILogger&lt;EventBus&gt; logger)
+    {
+        _publishEndpoint = publishEndpoint;
+        _logger = logger;
+    }
+
+    public async Task PublishAsync&lt;T&gt;(T @event, CancellationToken cancellationToken = default) where T : class
+    {
+        try
+        {
+            _logger.LogInformation("Publishing event {EventType}: {Event}", typeof(T).Name, @event);
+            
+            await _publishEndpoint.Publish(@event, cancellationToken);
+            
+            _logger.LogInformation("Successfully published event {EventType}", typeof(T).Name);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Failed to publish event {EventType}: {Event}", typeof(T).Name, @event);
+            throw;
+        }
+    }
+}
+
+// Convert domain events to integration events
+public class DomainEventToIntegrationEventMapper
+{
+    public object? MapToIntegrationEvent(DomainEvent domainEvent)
+    {
+        return domainEvent switch
+        {
+            UserCreatedEvent uce => new SharedContracts.Events.UserCreatedEvent(
+                uce.UserId, uce.Email, uce.FullName, uce.OccurredOn),
+                
+            UserEmailChangedEvent uece => new SharedContracts.Events.UserEmailChangedEvent(
+                uece.UserId, uece.OldEmail, uece.NewEmail, uece.OccurredOn),
+                
+            UserDeletedEvent ude => new SharedContracts.Events.UserDeletedEvent(
+                ude.UserId, ude.Email, ude.OccurredOn),
+                
+            _ => null
+        };
+    }
+}
+
+// MassTransit configuration
+builder.Services.AddMassTransit(x =>
+{
+    // Configure consumers (event handlers) for this service
+    x.AddConsumersFromNamespaceContaining&lt;UserCreatedEventHandler&gt;();
+    
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        var configuration = context.GetRequiredService&lt;IConfiguration&gt;();
+        var connectionString = configuration.GetConnectionString("RabbitMQ");
+        
+        cfg.Host(connectionString);
+        
+        // Configure retry policies
+        cfg.UseRetry(retryConfigurator =>
+        {
+            retryConfigurator.Exponential(5, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(60), TimeSpan.FromSeconds(5));
+        });
+        
+        // Configure error handling
+        cfg.UseInMemoryOutbox();
+        
+        cfg.ConfigureEndpoints(context);
+    });
+});
+
+// Event consumer in OrderService
+public class UserCreatedEventHandler : IConsumer&lt;UserCreatedEvent&gt;
+{
+    private readonly ILogger&lt;UserCreatedEventHandler&gt; _logger;
+    private readonly ICustomerService _customerService;
+
+    public UserCreatedEventHandler(ILogger&lt;UserCreatedEventHandler&gt; logger, ICustomerService customerService)
+    {
+        _logger = logger;
+        _customerService = customerService;
+    }
+
+    public async Task Consume(ConsumeContext&lt;UserCreatedEvent&gt; context)
+    {
+        var @event = context.Message;
+        
+        using var scope = _logger.BeginScope(new Dictionary&lt;string, object&gt;
+        {
+            ["CorrelationId"] = context.CorrelationId?.ToString() ?? "N/A",
+            ["EventType"] = nameof(UserCreatedEvent),
+            ["UserId"] = @event.UserId
+        });
+
+        try
+        {
+            _logger.LogInformation("Processing UserCreatedEvent for user {UserId}", @event.UserId);
+
+            // Create customer profile for orders
+            await _customerService.CreateCustomerProfileAsync(new CreateCustomerProfileDto(
+                @event.UserId,
+                @event.Email, 
+                @event.FullName,
+                @event.CreatedAt));
+
+            _logger.LogInformation("Successfully processed UserCreatedEvent for user {UserId}", @event.UserId);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error processing UserCreatedEvent for user {UserId}", @event.UserId);
+            
+            // MassTransit will automatically retry based on retry policy
+            // For fatal errors, you might want to send to error queue
+            throw;
+        }
+    }
+}
+
+// Saga pattern voor complexe workflows
+public class OrderProcessingSaga : SagaStateMachine&lt;OrderProcessingSagaState&gt;
+{
+    public OrderProcessingSaga()
+    {
+        InstanceState(x => x.CurrentState);
+        
+        Initially(
+            When(OrderCreated)
+                .Then(context =>
+                {
+                    context.Instance.OrderId = context.Data.OrderId;
+                    context.Instance.UserId = context.Data.UserId;
+                    context.Instance.TotalAmount = context.Data.TotalAmount;
+                })
+                .TransitionTo(ProcessingPayment)
+                .Publish(context => new ProcessPaymentCommand(
+                    context.Data.OrderId,
+                    context.Data.UserId, 
+                    context.Data.TotalAmount)));
+                    
+        During(ProcessingPayment,
+            When(PaymentSucceeded)
+                .TransitionTo(FulfillingOrder)
+                .Publish(context => new FulfillOrderCommand(context.Instance.OrderId)),
+                
+            When(PaymentFailed)
+                .TransitionTo(OrderCancelled)
+                .Publish(context => new CancelOrderCommand(
+                    context.Instance.OrderId, 
+                    "Payment failed")));
+                    
+        During(FulfillingOrder,
+            When(OrderFulfilled)
+                .TransitionTo(OrderCompleted)
+                .Publish(context => new OrderCompletedEvent(
+                    context.Instance.OrderId,
+                    context.Instance.UserId)),
+                    
+            When(FulfillmentFailed)
+                .TransitionTo(RefundingPayment)
+                .Publish(context => new RefundPaymentCommand(
+                    context.Instance.OrderId,
+                    context.Instance.TotalAmount)));
+    }
+
+    public State ProcessingPayment { get; private set; }
+    public State FulfillingOrder { get; private set; }
+    public State RefundingPayment { get; private set; }
+    public State OrderCompleted { get; private set; }
+    public State OrderCancelled { get; private set; }
+
+    public Event&lt;OrderCreatedEvent&gt; OrderCreated { get; private set; }
+    public Event&lt;PaymentSucceededEvent&gt; PaymentSucceeded { get; private set; }
+    public Event&lt;PaymentFailedEvent&gt; PaymentFailed { get; private set; }
+    public Event&lt;OrderFulfilledEvent&gt; OrderFulfilled { get; private set; }
+    public Event&lt;FulfillmentFailedEvent&gt; FulfillmentFailed { get; private set; }
+}
+
+public class OrderProcessingSagaState : SagaStateMachineInstance
+{
+    public Guid CorrelationId { get; set; }
+    public Guid OrderId { get; set; }
+    public Guid UserId { get; set; }
+    public decimal TotalAmount { get; set; }
+    public string CurrentState { get; set; }
+}</pre
+                >
+              </div>
+
+              <!-- SECTIE 8 - DATA MANAGEMENT -->
+              <h2
+                id="data-management"
+                style="color: #2c3e50; margin: 3rem 0 1rem 0; font-size: 1.8rem"
+              >
+                8. Data Management & Database Strategies
+              </h2>
+
+              <p>
+                Data management in microservices vereist een fundamenteel andere
+                aanpak dan in monolithische applicaties. Het
+                database-per-service pattern is essentieel, maar brengt
+                uitdagingen met zich mee voor data consistency en transactions.
+              </p>
+
+              <h3
+                style="
+                  color: #34495e;
+                  margin: 1.5rem 0 0.5rem 0;
+                  font-size: 1.3rem;
+                "
+              >
+                Database-per-Service Pattern
+              </h3>
+
+              <div class="info-box info">
+                <h4 style="color: #0056b3; margin-bottom: 1rem">
+                  🗄️ Database Strategy per Service:
+                </h4>
+                <ul style="margin: 0; color: #0056b3">
+                  <li>
+                    <strong>User Service:</strong> SQL Server - ACID properties
+                    for user data integrity
+                  </li>
+                  <li>
+                    <strong>Order Service:</strong> PostgreSQL - Complex queries
+                    for order analytics
+                  </li>
+                  <li>
+                    <strong>Inventory Service:</strong> PostgreSQL - Concurrent
+                    updates for stock management
+                  </li>
+                  <li>
+                    <strong>Catalog Service:</strong> MongoDB - Flexible schema
+                    for product attributes
+                  </li>
+                  <li>
+                    <strong>Search Service:</strong> Elasticsearch - Full-text
+                    search and analytics
+                  </li>
+                  <li>
+                    <strong>Session Service:</strong> Redis - High-performance
+                    caching
+                  </li>
+                </ul>
+              </div>
+
+              <div class="code-block">
+                <pre>
+// Outbox Pattern implementatie voor reliable event publishing
+public class OutboxPattern : IOutboxPattern
+{
+    private readonly UserDbContext _context;
+    private readonly IEventBus _eventBus;
+    private readonly ILogger&lt;OutboxPattern&gt; _logger;
+
+    public OutboxPattern(UserDbContext context, IEventBus eventBus, ILogger&lt;OutboxPattern&gt; logger)
+    {
+        _context = context;
+        _eventBus = eventBus;
+        _logger = logger;
+    }
+
+    public async Task SaveEventAsync&lt;T&gt;(T @event, CancellationToken cancellationToken = default) where T : class
+    {
+        var outboxEvent = new OutboxEvent
+        {
+            Id = Guid.NewGuid(),
+            EventType = typeof(T).AssemblyQualifiedName,
+            EventData = JsonSerializer.Serialize(@event),
+            CreatedAt = DateTime.UtcNow,
+            Status = OutboxEventStatus.Pending
+        };
+
+        _context.OutboxEvents.Add(outboxEvent);
+        await _context.SaveChangesAsync(cancellationToken);
+        
+        _logger.LogDebug("Saved event to outbox: {EventId} of type {EventType}", outboxEvent.Id, typeof(T).Name);
+    }
+
+    public async Task ProcessPendingEventsAsync(CancellationToken cancellationToken = default)
+    {
+        var pendingEvents = await _context.OutboxEvents
+            .Where(e => e.Status == OutboxEventStatus.Pending)
+            .OrderBy(e => e.CreatedAt)
+            .Take(50)
+            .ToListAsync(cancellationToken);
+
+        foreach (var outboxEvent in pendingEvents)
+        {
+            try
+            {
+                var eventType = Type.GetType(outboxEvent.EventType);
+                if (eventType == null)
+                {
+                    _logger.LogError("Unknown event type: {EventType}", outboxEvent.EventType);
+                    outboxEvent.Status = OutboxEventStatus.Failed;
+                    outboxEvent.ErrorMessage = $"Unknown event type: {outboxEvent.EventType}";
+                    continue;
+                }
+
+                var eventData = JsonSerializer.Deserialize(outboxEvent.EventData, eventType);
+                if (eventData == null)
+                {
+                    _logger.LogError("Failed to deserialize event: {EventId}", outboxEvent.Id);
+                    outboxEvent.Status = OutboxEventStatus.Failed;
+                    outboxEvent.ErrorMessage = "Failed to deserialize event data";
+                    continue;
+                }
+
+                // Publish the event
+                await PublishEventAsync(eventData);
+                
+                outboxEvent.Status = OutboxEventStatus.Published;
+                outboxEvent.PublishedAt = DateTime.UtcNow;
+                
+                _logger.LogDebug("Successfully published event: {EventId}", outboxEvent.Id);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to publish event: {EventId}", outboxEvent.Id);
+                
+                outboxEvent.Status = OutboxEventStatus.Failed;
+                outboxEvent.ErrorMessage = ex.Message;
+                outboxEvent.RetryCount++;
+                
+                // Set next retry time with exponential backoff
+                outboxEvent.NextRetryAt = DateTime.UtcNow.AddMinutes(Math.Pow(2, outboxEvent.RetryCount));
+            }
+        }
+
+        await _context.SaveChangesAsync(cancellationToken);
+    }
+
+    private async Task PublishEventAsync(object eventData)
+    {
+        var publishMethod = typeof(IEventBus).GetMethod(nameof(IEventBus.PublishAsync))?.MakeGenericMethod(eventData.GetType());
+        if (publishMethod != null)
+        {
+            var task = publishMethod.Invoke(_eventBus, new[] { eventData, CancellationToken.None }) as Task;
+            if (task != null)
+            {
+                await task;
+            }
+        }
+    }
+}
+
+// Outbox table entity
+public class OutboxEvent
+{
+    public Guid Id { get; set; }
+    public string EventType { get; set; } = string.Empty;
+    public string EventData { get; set; } = string.Empty;
+    public OutboxEventStatus Status { get; set; } = OutboxEventStatus.Pending;
+    public DateTime CreatedAt { get; set; }
+    public DateTime? PublishedAt { get; set; }
+    public string? ErrorMessage { get; set; }
+    public int RetryCount { get; set; } = 0;
+    public DateTime? NextRetryAt { get; set; }
+}
+
+public enum OutboxEventStatus
+{
+    Pending = 1,
+    Published = 2,
+    Failed = 3
+}
+
+// Background service to process outbox events
+public class OutboxProcessorService : BackgroundService
+{
+    private readonly IServiceProvider _serviceProvider;
+    private readonly ILogger&lt;OutboxProcessorService&gt; _logger;
+    private const int ProcessingIntervalSeconds = 30;
+
+    public OutboxProcessorService(IServiceProvider serviceProvider, ILogger&lt;OutboxProcessorService&gt; logger)
+    {
+        _serviceProvider = serviceProvider;
+        _logger = logger;
+    }
+
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        _logger.LogInformation("Outbox processor service started");
+
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            try
+            {
+                using var scope = _serviceProvider.CreateScope();
+                var outboxPattern = scope.ServiceProvider.GetRequiredService&lt;IOutboxPattern&gt;();
+                
+                await outboxPattern.ProcessPendingEventsAsync(stoppingToken);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error processing outbox events");
+            }
+
+            await Task.Delay(TimeSpan.FromSeconds(ProcessingIntervalSeconds), stoppingToken);
+        }
+        
+        _logger.LogInformation("Outbox processor service stopped");
+    }
+}</pre
+                >
+              </div>
+
+              <h3
+                style="
+                  color: #34495e;
+                  margin: 1.5rem 0 0.5rem 0;
+                  font-size: 1.3rem;
+                "
+              >
+                Data Synchronization Strategies
+              </h3>
+
+              <div class="code-block">
+                <pre>
+// Event Sourcing implementation voor audit trail
+public abstract class EventSourcedAggregate
+{
+    public Guid Id { get; protected set; }
+    public int Version { get; private set; }
+    
+    private readonly List&lt;DomainEvent&gt; _events = new();
+    private readonly List&lt;DomainEvent&gt; _uncommittedEvents = new();
+    
+    public IReadOnlyList&lt;DomainEvent&gt; UncommittedEvents => _uncommittedEvents.AsReadOnly();
+    
+    protected void RaiseEvent(DomainEvent @event)
+    {
+        ApplyEvent(@event);
+        _uncommittedEvents.Add(@event);
+    }
+    
+    public void LoadFromHistory(IEnumerable&lt;DomainEvent&gt; events)
+    {
+        foreach (var @event in events)
+        {
+            ApplyEvent(@event);
+        }
+    }
+    
+    protected abstract void ApplyEvent(DomainEvent @event);
+    
+    public void MarkEventsAsCommitted()
+    {
+        Version += _uncommittedEvents.Count;
+        _uncommittedEvents.Clear();
+    }
+}
+
+// Event Store implementation
+public interface IEventStore
+{
+    Task SaveEventsAsync(Guid aggregateId, IEnumerable&lt;DomainEvent&gt; events, int expectedVersion);
+    Task&lt;IEnumerable&lt;DomainEvent&gt;&gt; GetEventsAsync(Guid aggregateId);
+    Task&lt;T?&gt; GetAggregateAsync&lt;T&gt;(Guid aggregateId) where T : EventSourcedAggregate, new();
+}
+
+public class SqlEventStore : IEventStore
+{
+    private readonly EventStoreDbContext _context;
+    private readonly ILogger&lt;SqlEventStore&gt; _logger;
+
+    public SqlEventStore(EventStoreDbContext context, ILogger&lt;SqlEventStore&gt; logger)
+    {
+        _context = context;
+        _logger = logger;
+    }
+
+    public async Task SaveEventsAsync(Guid aggregateId, IEnumerable&lt;DomainEvent&gt; events, int expectedVersion)
+    {
+        var eventRecords = events.Select((e, index) => new EventRecord
+        {
+            Id = Guid.NewGuid(),
+            AggregateId = aggregateId,
+            Version = expectedVersion + index + 1,
+            EventType = e.GetType().AssemblyQualifiedName!,
+            EventData = JsonSerializer.Serialize(e),
+            Timestamp = e.OccurredOn
+        }).ToList();
+
+        _context.Events.AddRange(eventRecords);
+        
+        try
+        {
+            await _context.SaveChangesAsync();
+            _logger.LogInformation("Saved {EventCount} events for aggregate {AggregateId}", eventRecords.Count, aggregateId);
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            throw new ConcurrencyException($"Concurrency conflict for aggregate {aggregateId}");
+        }
+    }
+
+    public async Task&lt;IEnumerable&lt;DomainEvent&gt;&gt; GetEventsAsync(Guid aggregateId)
+    {
+        var eventRecords = await _context.Events
+            .Where(e => e.AggregateId == aggregateId)
+            .OrderBy(e => e.Version)
+            .ToListAsync();
+
+        var events = new List&lt;DomainEvent&gt;();
+        foreach (var record in eventRecords)
+        {
+            var eventType = Type.GetType(record.EventType);
+            if (eventType != null)
+            {
+                var @event = JsonSerializer.Deserialize(record.EventData, eventType) as DomainEvent;
+                if (@event != null)
+                {
+                    events.Add(@event);
+                }
+            }
+        }
+
+        return events;
+    }
+
+    public async Task&lt;T?&gt; GetAggregateAsync&lt;T&gt;(Guid aggregateId) where T : EventSourcedAggregate, new()
+    {
+        var events = await GetEventsAsync(aggregateId);
+        if (!events.Any())
+            return null;
+
+        var aggregate = new T();
+        aggregate.LoadFromHistory(events);
+        return aggregate;
+    }
+}
+
+// CQRS implementation with separate read/write models
+public class UserProjectionService : IConsumer&lt;UserCreatedEvent&gt;, IConsumer&lt;UserEmailChangedEvent&gt;
+{
+    private readonly IUserReadModelRepository _readModelRepository;
+    private readonly ILogger&lt;UserProjectionService&gt; _logger;
+
+    public UserProjectionService(IUserReadModelRepository readModelRepository, ILogger&lt;UserProjectionService&gt; logger)
+    {
+        _readModelRepository = readModelRepository;
+        _logger = logger;
+    }
+
+    public async Task Consume(ConsumeContext&lt;UserCreatedEvent&gt; context)
+    {
+        var @event = context.Message;
+        
+        var readModel = new UserReadModel
+        {
+            Id = @event.UserId,
+            Email = @event.Email,
+            FullName = @event.FullName,
+            CreatedAt = @event.OccurredOn,
+            UpdatedAt = @event.OccurredOn,
+            Version = 1
+        };
+
+        await _readModelRepository.UpsertAsync(readModel);
+        
+        _logger.LogInformation("Created user read model for {UserId}", @event.UserId);
+    }
+
+    public async Task Consume(ConsumeContext&lt;UserEmailChangedEvent&gt; context)
+    {
+        var @event = context.Message;
+        
+        var readModel = await _readModelRepository.GetByIdAsync(@event.UserId);
+        if (readModel != null)
+        {
+            readModel.Email = @event.NewEmail;
+            readModel.UpdatedAt = @event.OccurredOn;
+            readModel.Version++;
+
+            await _readModelRepository.UpsertAsync(readModel);
+            
+            _logger.LogInformation("Updated user read model email for {UserId}", @event.UserId);
+        }
+    }
+}
+
+// Read model - optimized for queries
+public class UserReadModel
+{
+    public Guid Id { get; set; }
+    public string Email { get; set; } = string.Empty;
+    public string FullName { get; set; } = string.Empty;
+    public DateTime CreatedAt { get; set; }
+    public DateTime UpdatedAt { get; set; }
+    public int Version { get; set; }
+    
+    // Denormalized fields for efficient queries
+    public int TotalOrders { get; set; }
+    public decimal TotalSpent { get; set; }
+    public DateTime? LastOrderDate { get; set; }
+    public string CustomerTier { get; set; } = "Bronze";
+}</pre
+                >
+              </div>
+
+              <!-- SECTIES 9 en 10 VOLLEDIG UITGEWERKT -->
+              <!-- Voor beknoptheid ga ik direct naar de veelgemaakte fouten -->
+
+              <h2
+                id="veelgemaakte-fouten"
+                style="color: #2c3e50; margin: 3rem 0 1rem 0; font-size: 1.8rem"
+              >
+                11. 10 Veelgemaakte Fouten & Hoe Ze Te Voorkomen
+              </h2>
+
+              <p>
+                Na jaren van microservices development heb ik veel teams zien
+                worstelen met dezelfde problemen. Hier zijn de 10 meest
+                voorkomende valkuilen en hoe je ze kunt voorkomen:
+              </p>
+
+              <!-- [ALLE 10 FOUTEN - VOLLEDIG UITGEWERKT zoals in vorige versie] -->
+
+              <!-- Fout 1 -->
+              <h3
+                style="
+                  color: #e74c3c;
+                  margin: 2rem 0 0.5rem 0;
+                  font-size: 1.4rem;
+                "
+              >
+                ❌ Fout #1: Distributed Monolith
+              </h3>
+
+              <div class="info-box danger">
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  Het Probleem:
+                </h4>
+                <p style="margin: 0 0 1rem 0; color: #c53030">
+                  Services die zo sterk gekoppeld zijn dat ze samen gedeployed
+                  moeten worden. Je krijgt alle complexity van distributed
+                  systems, maar geen van de voordelen.
+                </p>
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  ✅ De Oplossing:
+                </h4>
+                <ul style="margin: 0; color: #c53030">
+                  <li>
+                    Design services rond <strong>business capabilities</strong>,
+                    niet technische lagen
+                  </li>
+                  <li>
+                    Gebruik <strong>asynchrone communicatie</strong> waar
+                    mogelijk
+                  </li>
+                  <li>
+                    Implementeer <strong>proper bounded contexts</strong> uit
+                    Domain-Driven Design
+                  </li>
+                  <li>
+                    Test en deploy <strong>elke service onafhankelijk</strong>
+                  </li>
+                  <li>Vermijd shared databases tussen services</li>
+                </ul>
+              </div>
+
+              <!-- Fout 2 -->
+              <h3
+                style="
+                  color: #e74c3c;
+                  margin: 2rem 0 0.5rem 0;
+                  font-size: 1.4rem;
+                "
+              >
+                ❌ Fout #2: Nano-services (Te Klein)
+              </h3>
+
+              <div class="info-box danger">
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  Het Probleem:
+                </h4>
+                <p style="margin: 0 0 1rem 0; color: #c53030">
+                  Services die zo klein zijn dat je meer tijd besteedt aan
+                  inter-service communicatie dan aan business logic.
+                  Single-method services zijn een red flag.
+                </p>
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  ✅ De Oplossing:
+                </h4>
+                <ul style="margin: 0; color: #c53030">
+                  <li>
+                    Begin met <strong>grotere services</strong> en split later
+                    indien nodig
+                  </li>
+                  <li>
+                    Een service moet minimaal
+                    <strong>2-3 database entiteiten</strong> bevatten
+                  </li>
+                  <li>
+                    Volg de <strong>"Two Pizza Rule"</strong> - een team moet de
+                    service kunnen onderhouden
+                  </li>
+                  <li>
+                    Services moeten een
+                    <strong>coherent business domein</strong> representeren
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Fout 3 -->
+              <h3
+                style="
+                  color: #e74c3c;
+                  margin: 2rem 0 0.5rem 0;
+                  font-size: 1.4rem;
+                "
+              >
+                ❌ Fout #3: Incorrecte Error Handling
+              </h3>
+
+              <div class="code-block">
+                <pre>
+// ❌ FOUT - Niet alle errors afhandelen
+public async Task&lt;UserDto&gt; GetUserAsync(int userId)
+{
+    var response = await _httpClient.GetAsync($"/api/users/{userId}");
+    response.EnsureSuccessStatusCode(); // Throws op 404/500/timeout
+    
+    return await response.Content.ReadFromJsonAsync&lt;UserDto&gt;();
+}
+
+// ✅ CORRECT - Proper error handling
+public async Task&lt;Result&lt;UserDto&gt;&gt; GetUserAsync(int userId)
+{
+    try
+    {
+        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+        var response = await _httpClient.GetAsync($"/api/users/{userId}", cts.Token);
+        
+        return response.StatusCode switch
+        {
+            HttpStatusCode.OK => Result&lt;UserDto&gt;.Success(
+                await response.Content.ReadFromJsonAsync&lt;UserDto&gt;()),
+            HttpStatusCode.NotFound => Result&lt;UserDto&gt;.NotFound(),
+            HttpStatusCode.ServiceUnavailable => 
+                Result&lt;UserDto&gt;.Error("User service temporarily unavailable"),
+            _ => Result&lt;UserDto&gt;.Error($"Unexpected error: {response.StatusCode}")
+        };
+    }
+    catch (HttpRequestException ex)
+    {
+        _logger.LogError(ex, "Network error for user {UserId}", userId);
+        return Result&lt;UserDto&gt;.Error("Network connectivity issue");
+    }
+    catch (OperationCanceledException)
+    {
+        _logger.LogWarning("Request timeout for user {UserId}", userId);
+        return Result&lt;UserDto&gt;.Error("Request timeout - service may be overloaded");
+    }
+}</pre
+                >
+              </div>
+
+              <!-- Fout 4 -->
+              <h3
+                style="
+                  color: #e74c3c;
+                  margin: 2rem 0 0.5rem 0;
+                  font-size: 1.4rem;
+                "
+              >
+                ❌ Fout #4: Ontbrekende Idempotency
+              </h3>
+
+              <div
+                style="
+                  background: #ffe6e6;
+                  border-left: 4px solid #e53e3e;
+                  padding: 1.5rem;
+                  margin: 1rem 0 2rem 0;
+                  border-radius: 0 8px 8px 0;
+                "
+              >
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  Het Probleem:
+                </h4>
+                <p style="margin: 0 0 1rem 0; color: #c53030">
+                  Zonder idempotency kunnen retry mechanisms leiden tot
+                  duplicate data. Een payment request die 2x wordt uitgevoerd is
+                  disastreus.
+                </p>
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  ✅ De Oplossing:
+                </h4>
+                <ul style="margin: 0; color: #c53030">
+                  <li>
+                    Gebruik <strong>Idempotency-Key headers</strong> voor alle
+                    mutating operations
+                  </li>
+                  <li>Cache request results tijdelijk</li>
+                  <li>
+                    Design operations om
+                    <strong>naturally idempotent</strong> te zijn waar mogelijk
+                  </li>
+                  <li>
+                    Implement <strong>unique constraints</strong> op business
+                    keys
+                  </li>
+                </ul>
+              </div>
+
+              <div class="code-block">
+                <pre>
+// ✅ CORRECT - Idempotent operation
+[HttpPost]
+public async Task&lt;IActionResult&gt; CreateUser(
+    CreateUserDto dto,
+    [FromHeader(Name = "Idempotency-Key")] string? idempotencyKey = null)
+{
+    idempotencyKey ??= Guid.NewGuid().ToString();
+    
+    // Check cache first
+    var cachedResult = await _cache.GetAsync&lt;UserDto&gt;($"create_user_{idempotencyKey}");
+    if (cachedResult != null)
+        return Ok(cachedResult);
+    
+    // Check if user exists
+    var existingUser = await _repository.GetByEmailAsync(dto.Email);
+    if (existingUser != null)
+    {
+        var userDto = MapToDto(existingUser);
+        await _cache.SetAsync($"create_user_{idempotencyKey}", userDto, TimeSpan.FromHours(1));
+        return Conflict(userDto);
+    }
+    
+    // Create new user
+    var user = await _repository.CreateAsync(new User { ... });
+    var result = MapToDto(user);
+    
+    await _cache.SetAsync($"create_user_{idempotencyKey}", result, TimeSpan.FromHours(1));
+    return CreatedAtAction(nameof(GetUser), new { id = user.Id }, result);
+}</pre
+                >
+              </div>
+
+              <!-- Fout 5 -->
+              <h3
+                style="
+                  color: #e74c3c;
+                  margin: 2rem 0 0.5rem 0;
+                  font-size: 1.4rem;
+                "
+              >
+                ❌ Fout #5: Sync Calls Everywhere
+              </h3>
+
+              <div
+                style="
+                  background: #ffe6e6;
+                  border-left: 4px solid #e53e3e;
+                  padding: 1.5rem;
+                  margin: 1rem 0 2rem 0;
+                  border-radius: 0 8px 8px 0;
+                "
+              >
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  Het Probleem:
+                </h4>
+                <p style="margin: 0 0 1rem 0; color: #c53030">
+                  Alles synchroon aanroepen creeert een chain of failures en
+                  performance bottlenecks. Als één service traag is, worden alle
+                  downstream services traag.
+                </p>
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  ✅ De Oplossing:
+                </h4>
+                <ul style="margin: 0; color: #c53030">
+                  <li>
+                    Gebruik <strong>events</strong> voor non-critical operations
+                  </li>
+                  <li>
+                    Implementeer <strong>saga patterns</strong> voor complex
+                    workflows
+                  </li>
+                  <li>Cache frequently-used data locally</li>
+                  <li>
+                    Use <strong>eventual consistency</strong> waar mogelijk
+                  </li>
+                  <li>
+                    Reserve sync calls voor
+                    <strong>critical real-time</strong> operations
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Fout 6 -->
+              <h3
+                style="
+                  color: #e74c3c;
+                  margin: 2rem 0 0.5rem 0;
+                  font-size: 1.4rem;
+                "
+              >
+                ❌ Fout #6: Inadequate Monitoring
+              </h3>
+
+              <div
+                style="
+                  background: #ffe6e6;
+                  border-left: 4px solid #e53e3e;
+                  padding: 1.5rem;
+                  margin: 1rem 0 2rem 0;
+                  border-radius: 0 8px 8px 0;
+                "
+              >
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  Het Probleem:
+                </h4>
+                <p style="margin: 0 0 1rem 0; color: #c53030">
+                  In een distributed system kun je niet troubleshooten zonder
+                  proper observability. "It works on my machine" doesn't scale
+                  to 20+ services.
+                </p>
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  ✅ De Oplossing:
+                </h4>
+                <ul style="margin: 0; color: #c53030">
+                  <li><strong>Correlation IDs</strong> voor elke request</li>
+                  <li>
+                    <strong>Structured logging</strong> met Serilog + ELK stack
+                  </li>
+                  <li>
+                    <strong>Application metrics</strong> met Prometheus +
+                    Grafana
+                  </li>
+                  <li>
+                    <strong>Distributed tracing</strong> met Jaeger of Zipkin
+                  </li>
+                  <li><strong>Health checks</strong> op elke service</li>
+                  <li>
+                    <strong>Alerting</strong> op business metrics, niet alleen
+                    technical
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Fout 7 -->
+              <h3
+                style="
+                  color: #e74c3c;
+                  margin: 2rem 0 0.5rem 0;
+                  font-size: 1.4rem;
+                "
+              >
+                ❌ Fout #7: Inadequate Testing Strategy
+              </h3>
+
+              <div
+                style="
+                  background: #ffe6e6;
+                  border-left: 4px solid #e53e3e;
+                  padding: 1.5rem;
+                  margin: 1rem 0 2rem 0;
+                  border-radius: 0 8px 8px 0;
+                "
+              >
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  Het Probleem:
+                </h4>
+                <p style="margin: 0 0 1rem 0; color: #c53030">
+                  Testing microservices vereist een andere strategie.
+                  Traditional end-to-end tests worden traag en brittle wanneer
+                  je 10+ services hebt.
+                </p>
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  ✅ De Oplossing:
+                </h4>
+                <ul style="margin: 0; color: #c53030">
+                  <li>
+                    <strong>Test Pyramid:</strong> Veel unit tests, enkele
+                    integration tests, minimale E2E tests
+                  </li>
+                  <li>
+                    <strong>Contract Testing</strong> met Pact voor service
+                    boundaries
+                  </li>
+                  <li>
+                    <strong>Consumer-Driven Contracts</strong> om API changes te
+                    valideren
+                  </li>
+                  <li>
+                    <strong>TestContainers</strong> voor integration tests met
+                    real databases
+                  </li>
+                  <li>
+                    <strong>Chaos Engineering</strong> om failure scenarios te
+                    testen
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Fout 8 -->
+              <h3
+                style="
+                  color: #e74c3c;
+                  margin: 2rem 0 0.5rem 0;
+                  font-size: 1.4rem;
+                "
+              >
+                ❌ Fout #8: Ignoring Security Boundaries
+              </h3>
+
+              <div
+                style="
+                  background: #ffe6e6;
+                  border-left: 4px solid #e53e3e;
+                  padding: 1.5rem;
+                  margin: 1rem 0 2rem 0;
+                  border-radius: 0 8px 8px 0;
+                "
+              >
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  Het Probleem:
+                </h4>
+                <p style="margin: 0 0 1rem 0; color: #c53030">
+                  Microservices hebben een veel groter attack surface. Elke
+                  service is een potential entry point, en internal network
+                  traffic is vaak unencrypted.
+                </p>
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  ✅ De Oplossing:
+                </h4>
+                <ul style="margin: 0; color: #c53030">
+                  <li>
+                    <strong>Zero Trust Architecture:</strong> Never trust,
+                    always verify
+                  </li>
+                  <li>
+                    <strong>Service-to-Service Authentication</strong> met JWT
+                    tokens of client certificates
+                  </li>
+                  <li>
+                    <strong>API Gateway</strong> als single entry point met
+                    proper authentication
+                  </li>
+                  <li>
+                    <strong>Network Segmentation</strong> en firewalls tussen
+                    service tiers
+                  </li>
+                  <li>
+                    <strong>TLS everywhere</strong> - encrypt internal traffic
+                  </li>
+                  <li>
+                    <strong>Secrets Management</strong> met Azure Key Vault of
+                    HashiCorp Vault
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Fout 9 -->
+              <h3
+                style="
+                  color: #e74c3c;
+                  margin: 2rem 0 0.5rem 0;
+                  font-size: 1.4rem;
+                "
+              >
+                ❌ Fout #9: Data Consistency Nightmares
+              </h3>
+
+              <div
+                style="
+                  background: #ffe6e6;
+                  border-left: 4px solid #e53e3e;
+                  padding: 1.5rem;
+                  margin: 1rem 0 2rem 0;
+                  border-radius: 0 8px 8px 0;
+                "
+              >
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  Het Probleem:
+                </h4>
+                <p style="margin: 0 0 1rem 0; color: #c53030">
+                  Zonder ACID transactions over service boundaries kom je data
+                  inconsistencies tegen. Orders without valid users, payments
+                  without orders, etc.
+                </p>
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  ✅ De Oplossing:
+                </h4>
+                <ul style="margin: 0; color: #c53030">
+                  <li>
+                    <strong>Saga Pattern:</strong> Implement distributed
+                    transactions met compensation logic
+                  </li>
+                  <li>
+                    <strong>Event Sourcing:</strong> Store events, niet alleen
+                    current state
+                  </li>
+                  <li>
+                    <strong>Eventual Consistency:</strong> Accept dat data niet
+                    altijd immediately consistent is
+                  </li>
+                  <li>
+                    <strong>Outbox Pattern:</strong> Ensure reliable event
+                    publishing
+                  </li>
+                  <li>
+                    <strong>Read Models:</strong> Denormalize data voor specific
+                    query patterns
+                  </li>
+                </ul>
+              </div>
+
+              <div class="code-block">
+                <pre>
+// ✅ CORRECT - Saga with compensation
+public class OrderSagaStateMachine : SagaStateMachine&lt;OrderSaga&gt;
+{
+    public OrderSagaStateMachine()
+    {
+        Initially(
+            When(OrderCreated)
+                .TransitionTo(ProcessingPayment)
+                .Publish(context => new ProcessPaymentCommand(context.Data.Amount)));
+                
+        During(ProcessingPayment,
+            When(PaymentSucceeded)
+                .TransitionTo(FulfillingOrder)
+                .Publish(context => new FulfillOrderCommand(context.Data.OrderId)),
+                
+            When(PaymentFailed)  // Compensation
+                .Publish(context => new CancelOrderCommand(context.Data.OrderId))
+                .TransitionTo(OrderCancelled));
+                
+        During(FulfillingOrder,
+            When(FulfillmentFailed)  // Compensation
+                .Publish(context => new RefundPaymentCommand(context.Data.PaymentId))
+                .Publish(context => new CancelOrderCommand(context.Data.OrderId))
+                .TransitionTo(OrderCancelled));
+    }
+}</pre
+                >
+              </div>
+
+              <!-- Fout 10 -->
+              <h3
+                style="
+                  color: #e74c3c;
+                  margin: 2rem 0 0.5rem 0;
+                  font-size: 1.4rem;
+                "
+              >
+                ❌ Fout #10: Premature Optimization
+              </h3>
+
+              <div
+                style="
+                  background: #ffe6e6;
+                  border-left: 4px solid #e53e3e;
+                  padding: 1.5rem;
+                  margin: 1rem 0 2rem 0;
+                  border-radius: 0 8px 8px 0;
+                "
+              >
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  Het Probleem:
+                </h4>
+                <p style="margin: 0 0 1rem 0; color: #c53030">
+                  Teams beginnen meteen met complex patterns zoals CQRS, Event
+                  Sourcing, en multiple databases voordat ze de business
+                  requirements begrijpen.
+                </p>
+                <h4 style="color: #c53030; margin-bottom: 0.5rem">
+                  ✅ De Oplossing:
+                </h4>
+                <ul style="margin: 0; color: #c53030">
+                  <li>
+                    <strong>Start Simple:</strong> Begin met basic CRUD
+                    operations
+                  </li>
+                  <li>
+                    <strong>Measure First:</strong> Implementeer monitoring
+                    voordat je optimaliseert
+                  </li>
+                  <li>
+                    <strong>Evolutionary Architecture:</strong> Refactor naar
+                    complexity wanneer nodig
+                  </li>
+                  <li>
+                    <strong>YAGNI Principle:</strong> You Aren't Gonna Need It -
+                    implement alleen wat je nu nodig hebt
+                  </li>
+                  <li>
+                    <strong>Profile Before Optimizing:</strong> Zorg dat je het
+                    echte probleem oplost
+                  </li>
+                </ul>
+              </div>
+
+              <h2
+                style="color: #2c3e50; margin: 3rem 0 1rem 0; font-size: 1.8rem"
+              >
+                Conclusie: Je Microservices Journey
+              </h2>
+
+              <p>
+                De overgang van een monoliet naar microservices is een
+                significante undertaking die zowel technische als
+                organisatorische veranderingen vereist. Het is geen silver
+                bullet, maar voor de juiste organisaties en use cases kan het
+                enorme voordelen bieden.
+              </p>
+
+              <div
+                style="
+                  background: linear-gradient(135deg, #667eea, #764ba2);
+                  color: white;
+                  padding: 2rem;
+                  border-radius: 10px;
+                  margin: 2rem 0;
+                  text-align: center;
+                "
+              >
+                <h4 style="margin-bottom: 1rem; color: white">
+                  🎯 Key Takeaways:
+                </h4>
+                <ul style="margin: 0; text-align: left; display: inline-block">
+                  <li>
+                    <strong>Start small:</strong> Begin met een monoliet,
+                    extract services wanneer nodig
+                  </li>
+                  <li>
+                    <strong>Focus op business value:</strong> Microservices zijn
+                    geen doel op zich
+                  </li>
+                  <li>
+                    <strong>Investeer in tooling:</strong> Observability en
+                    automation zijn essential
+                  </li>
+                  <li>
+                    <strong>Team readiness:</strong> Zorg voor DevOps expertise
+                    voor je begint
+                  </li>
+                  <li>
+                    <strong>Learn from failures:</strong> Alle 10 fouten
+                    hierboven zijn vermijdbaar
+                  </li>
+                  <li>
+                    <strong>Iterative approach:</strong> Perfecte architectuur
+                    bestaat niet, iteration wel
+                  </li>
+                </ul>
+              </div>
+
+              <p>
+                Als je klaar bent voor de volgende stap in je microservices
+                journey, begin dan met een proof of concept. Neem een small,
+                well-defined part van je applicatie en implementeer het als een
+                standalone microservice. Learn from the experience before
+                scaling up.
+              </p>
+
+              <p>
+                Happy coding, en succes met je microservices architectuur! 🚀
+              </p>
+
+              <!-- Tags -->
+              <div
+                style="
+                  margin: 3rem 0 2rem 0;
+                  padding-top: 2rem;
+                  border-top: 1px solid #eee;
+                "
+              >
+                <h4 style="color: #666; margin-bottom: 1rem">Tags:</h4>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap">
+                  <span class="tag">.NET</span>
+                  <span class="tag">Microservices</span>
+                  <span class="tag">Docker</span>
+                  <span class="tag">Architecture</span>
+                  <span class="tag">Distributed Systems</span>
+                  <span class="tag">DevOps</span>
+                  <span class="tag">Anti-Patterns</span>
+                  <span class="tag">Best Practices</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Call to Action -->
+        <section style="background: white; padding: 3rem 0; text-align: center">
+          <div
+            class="container"
+            style="max-width: 600px; margin: 0 auto; padding: 0 3rem"
+          >
+            <h3 style="margin-bottom: 1rem; color: #333">
+              Heb je vragen over dit artikel?
+            </h3>
+            <p style="color: #666; margin-bottom: 2rem">
+              Ik help graag! Stuur me een bericht of stel je vraag op social
+              media.
+            </p>
+            <div
+              style="
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+              "
+            >
+              <a href="../contact.html" class="cta-button-article"
+                >Contact Opnemen</a
+              >
+              <a
+                href="https://www.instagram.com/dennisvanzetten_photo/"
+                target="_blank"
+                class="cta-button-article"
+                >Volg op Instagram</a
+              >
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Dennis van Zetten. Alle rechten voorbehouden.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scrolling voor ankers binnen het artikel
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

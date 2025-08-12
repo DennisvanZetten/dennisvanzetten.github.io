@@ -257,9 +257,7 @@
       <div class="container">
         <h2 class="section-title">Mijn Portfolio</h2>
         <div class="portfolio-categories">
-          <button class="filter-btn" data-category="portfolio2025">
-            Portfolio 2025
-          </button>
+          <button class="filter-btn" data-category="all">Portfolio</button>
           <button class="filter-btn" data-category="landschappen">
             Landschappen
           </button>
@@ -365,13 +363,13 @@
 
     <script>
       // *** CONFIGURATIE - Hier stel je de standaard categorie in ***
-      const DEFAULT_CATEGORY = "landschappen"; // ← Verander dit naar elke categorie die je wilt!
+      const DEFAULT_CATEGORY = "landschappen"; // ← Start met landschapsfoto's
 
-      // Portfolio rendering - Gebruikt nu de externe PORTFOLIO_CONFIG
+      // Portfolio rendering - VOLLEDIG AANGEPAST voor nieuwe portfolio-config structuur
       let currentImages = [];
       let currentImageIndex = 0;
 
-      function renderPortfolio(category = "alle") {
+      function renderPortfolio(category = "all") {
         const grid = document.getElementById("portfolio-grid");
         grid.innerHTML = "";
         currentImages = [];
@@ -386,59 +384,81 @@
           return;
         }
 
-        const categoriesToShow =
-          category === "alle" ? Object.keys(PORTFOLIO_CONFIG) : [category];
+        // ✅ NIEUWE LOGICA: Gebruik direct de PORTFOLIO_CONFIG structuur
+        if (!PORTFOLIO_CONFIG[category]) {
+          console.error(
+            `Categorie ${category} niet gevonden in PORTFOLIO_CONFIG`
+          );
+          grid.innerHTML =
+            '<p style="text-align: center; color: white; width: 100%;">Categorie niet gevonden.</p>';
+          return;
+        }
+
+        const config = PORTFOLIO_CONFIG[category];
+        const images = config.images;
+
+        console.log(`Rendering category: ${category}`, images); // Debug log
 
         let imageIndex = 0;
 
-        categoriesToShow.forEach((cat) => {
-          if (PORTFOLIO_CONFIG[cat]) {
-            PORTFOLIO_CONFIG[cat].images.forEach((image) => {
-              const portfolioItem = document.createElement("div");
-              portfolioItem.className = "portfolio-item";
-              portfolioItem.setAttribute("data-category", cat);
+        images.forEach((image) => {
+          const portfolioItem = document.createElement("div");
+          portfolioItem.className = "portfolio-item";
+          portfolioItem.setAttribute("data-category", category);
 
-              const imageUrl = `images/portfolio/${cat}/${image.filename}`;
+          // ✅ BELANGRIJKE FIX: Voor "all" categorie gebruik image.category, anders gebruik category
+          const imageFolder = image.category || category;
+          const imageUrl = `images/portfolio/${imageFolder}/${image.filename}`;
 
-              portfolioItem.innerHTML = `
-                <img src="${imageUrl}" alt="${image.title}" loading="lazy" />
-                <div class="portfolio-overlay">
-                  <div class="portfolio-text">
-                    <h4>${image.title}</h4>
-                    <p>${PORTFOLIO_CONFIG[cat].description}</p>
-                  </div>
-                </div>
-                <div class="expand-icon">🔍</div>
-              `;
+          console.log(`Generated image path: ${imageUrl}`, image); // Debug log
 
-              // Voeg image toe aan currentImages array voor lightbox
-              currentImages.push({
-                src: imageUrl,
-                title: image.title,
-                description: image.description,
-                category: PORTFOLIO_CONFIG[cat].title,
-                filename: image.filename,
-              });
+          portfolioItem.innerHTML = `
+            <img src="${imageUrl}" alt="${image.title}" loading="lazy" 
+                 onerror="console.error('Failed to load image:', '${imageUrl}'); this.style.opacity='0.3';" />
+            <div class="portfolio-overlay">
+              <div class="portfolio-text">
+                <h4>${image.title}</h4>
+                <p>${image.description}</p>
+                ${
+                  image.categoryTitle
+                    ? `<span class="category-badge" style="display: inline-block; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 12px; font-size: 0.8em; margin-top: 0.5rem;">${image.categoryTitle}</span>`
+                    : ""
+                }
+              </div>
+            </div>
+            <div class="expand-icon">🔍</div>
+          `;
 
-              // Add click event voor lightbox met de juiste index
-              const currentIndex = imageIndex;
-              portfolioItem.addEventListener("click", () => {
-                openLightbox(currentIndex);
-              });
+          // Voeg image toe aan currentImages array voor lightbox
+          currentImages.push({
+            src: imageUrl,
+            title: image.title,
+            description: image.description,
+            category: image.categoryTitle || config.title,
+            filename: image.filename,
+          });
 
-              grid.appendChild(portfolioItem);
-              imageIndex++;
-            });
-          }
+          // Add click event voor lightbox met de juiste index
+          const currentIndex = imageIndex;
+          portfolioItem.addEventListener("click", () => {
+            openLightbox(currentIndex);
+          });
+
+          grid.appendChild(portfolioItem);
+          imageIndex++;
         });
 
         // Als er geen items zijn, toon een bericht
         if (currentImages.length === 0) {
           grid.innerHTML =
             '<p style="text-align: center; color: white; width: 100%;">Nog geen foto\'s in deze categorie.</p>';
+        } else {
+          console.log(
+            `✅ Successfully loaded ${currentImages.length} images for category: ${category}`
+          );
         }
 
-        // Voeg een smooth animation toe voor de nieuwe items
+        // Smooth animation voor de nieuwe items
         const items = grid.querySelectorAll(".portfolio-item");
         items.forEach((item, index) => {
           item.style.opacity = "0";
@@ -462,11 +482,12 @@
 
           // Render portfolio met geselecteerde categorie
           const category = btn.getAttribute("data-category");
+          console.log(`Filter clicked: ${category}`); // Debug log
           renderPortfolio(category);
         });
       });
 
-      // Lightbox functionaliteit
+      // ✅ LIGHTBOX FUNCTIONALITEIT - Volledig aangepast
       const lightbox = document.getElementById("lightbox");
       const lightboxImg = document.getElementById("lightbox-img");
       const lightboxTitle = document.getElementById("lightbox-title");
@@ -482,6 +503,10 @@
         updateLightboxContent();
         lightbox.classList.add("active");
         document.body.style.overflow = "hidden";
+
+        console.log(
+          `Lightbox opened for image ${index + 1} of ${currentImages.length}`
+        ); // Debug log
       }
 
       function closeLightbox() {
@@ -502,6 +527,8 @@
           lightboxCounter.textContent = `${currentImageIndex + 1} van ${
             currentImages.length
           }`;
+
+          console.log(`Lightbox updated:`, image); // Debug log
         }
       }
 
@@ -576,26 +603,51 @@
         });
       });
 
-      // *** AANGEPAST: Initiële render met configureerbare standaard categorie ***
+      // ✅ INITIËLE RENDER - Start nu met "all" categorie
       document.addEventListener("DOMContentLoaded", () => {
-        setTimeout(() => {
-          // Render de standaard categorie
-          renderPortfolio(DEFAULT_CATEGORY);
+        console.log("DOM Content Loaded - Starting portfolio initialization"); // Debug log
 
-          // Update de actieve button naar de standaard categorie
-          document.querySelectorAll(".filter-btn").forEach((btn) => {
-            btn.classList.remove("active");
-            if (btn.getAttribute("data-category") === DEFAULT_CATEGORY) {
-              btn.classList.add("active");
-            }
-          });
+        setTimeout(() => {
+          // Check of PORTFOLIO_CONFIG beschikbaar is
+          if (typeof PORTFOLIO_CONFIG !== "undefined") {
+            console.log(
+              "PORTFOLIO_CONFIG loaded successfully:",
+              PORTFOLIO_CONFIG
+            ); // Debug log
+
+            // Render de standaard categorie
+            renderPortfolio(DEFAULT_CATEGORY);
+
+            // Update de actieve button naar de standaard categorie
+            document.querySelectorAll(".filter-btn").forEach((btn) => {
+              btn.classList.remove("active");
+              if (btn.getAttribute("data-category") === DEFAULT_CATEGORY) {
+                btn.classList.add("active");
+                console.log(`Set active button: ${DEFAULT_CATEGORY}`); // Debug log
+              }
+            });
+          } else {
+            console.error("PORTFOLIO_CONFIG not loaded after 100ms delay");
+            document.getElementById("portfolio-grid").innerHTML =
+              '<p style="text-align: center; color: white; width: 100%;">Portfolio configuratie wordt geladen...</p>';
+
+            // Probeer opnieuw na nog wat tijd
+            setTimeout(() => {
+              if (typeof PORTFOLIO_CONFIG !== "undefined") {
+                renderPortfolio(DEFAULT_CATEGORY);
+                document
+                  .querySelector(`[data-category="${DEFAULT_CATEGORY}"]`)
+                  .classList.add("active");
+              }
+            }, 500);
+          }
         }, 100);
       });
 
       // Error handling voor als de config niet geladen kan worden
       window.addEventListener("error", (e) => {
         if (e.filename && e.filename.includes("portfolio-config.js")) {
-          console.error("Kon portfolio-config.js niet laden");
+          console.error("Kon portfolio-config.js niet laden:", e);
           document.getElementById("portfolio-grid").innerHTML =
             '<p style="text-align: center; color: white; width: 100%;">Portfolio configuratie niet beschikbaar.</p>';
         }

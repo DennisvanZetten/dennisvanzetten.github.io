@@ -15,12 +15,6 @@ const PORTFOLIO_CONFIG = {
       },
     ],
   },
-  portfolio2025: {
-    title: "Portfolio 2025",
-    description: "Mijn beste werk van het nieuwe jaar",
-    // Zet je beste 2025 foto's in images/portfolio/portfolio2025/
-    images: [],
-  },
   macro: {
     title: "Macro Fotografie",
     description: "Macro shots van insecten en bloemen",
@@ -51,4 +45,39 @@ const PORTFOLIO_CONFIG = {
     // Zet je zwart-wit foto's in images/portfolio/zwartwit/
     images: [],
   },
+  // "all" categorie wordt automatisch gevuld - niet handmatig bewerken
+  all: {
+    title: "Portfolio",
+    description: "Een verzameling van mijn beste werk",
+    images: [], // Dit wordt automatisch gevuld door getAllImages()
+  },
 };
+
+// Functie om alle foto's uit andere categorieën te verzamelen
+function getAllImages() {
+  const allImages = [];
+
+  // Loop door alle categorieën behalve "all"
+  Object.keys(PORTFOLIO_CONFIG).forEach((category) => {
+    if (category !== "all" && PORTFOLIO_CONFIG[category].images) {
+      PORTFOLIO_CONFIG[category].images.forEach((image) => {
+        // Voeg category info toe aan elke foto voor correcte pad constructie
+        allImages.push({
+          ...image,
+          category: category, // Voeg categorie toe voor pad: images/portfolio/{category}/{filename}
+          categoryTitle: PORTFOLIO_CONFIG[category].title, // Voor display doeleinden
+        });
+      });
+    }
+  });
+
+  return allImages;
+}
+
+// Automatisch de "all" categorie vullen bij het laden van de configuratie
+PORTFOLIO_CONFIG.all.images = getAllImages();
+
+// Export voor gebruik in andere scripts
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { PORTFOLIO_CONFIG, getAllImages };
+}
