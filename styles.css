@@ -124,6 +124,19 @@ nav {
   margin: 0 0.5rem;
 }
 
+.cta-button-article {
+  display: inline-block;
+  background: #2c3e50;
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(15, 6, 104, 0.4);
+  margin: 0 0.5rem;
+}
+
 .cta-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
