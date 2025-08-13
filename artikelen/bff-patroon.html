@@ -3,6 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="../images/favicon/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images//favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../images//favicon/favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../images/favicon/apple-touch-icon.png"
+    />
     <title>
       Veilige Identity Management met BFF Pattern - OpenIdDict & Azure Redis -
       Dennis van Zetten
@@ -141,7 +159,7 @@
               color: rgba(255, 255, 255, 0.9);
             "
           >
-            Real-world implementatie bij Stichting Open: OpenIdDict, Ocelot
+            Real-world implementatie van het BFF Pattern met: OpenIdDict, Ocelot
             Gateway en Azure Redis
           </p>
           <div style="color: rgba(255, 255, 255, 0.9); margin-bottom: 1rem">
@@ -162,12 +180,12 @@
             <!-- Featured Image -->
             <div class="article-featured-image" style="margin-bottom: 2rem">
               <img
-                src="/api/placeholder/800/400"
+                src="../images/artikelen/bff-pattern.png"
                 alt="BFF Identity architectuur met OpenIdDict en gateway pattern"
                 style="
                   width: 100%;
                   height: 400px;
-                  object-fit: cover;
+                  object-fit: fill;
                   border-radius: 15px;
                 "
               />
@@ -200,11 +218,11 @@
                 "
               >
                 Het Backend For Frontend (BFF) pattern revolutioneert hoe we
-                identity management aanpakken in moderne webapplicaties. Bij
-                Stichting Open hebben we een productie-klare implementatie
-                gebouwd die OpenIdDict combineert met Ocelot Gateway en Azure
-                Redis Cache. In dit artikel deel ik onze complete architectuur
-                met real-world code voorbeelden.
+                identity management aanpakken in moderne webapplicaties. Bij een
+                relatie hebben we een productie-klare implementatie gebouwd die
+                OpenIdDict combineert met Ocelot Gateway en Azure Redis Cache.
+                In dit artikel deel ik onze complete architectuur met real-world
+                code voorbeelden.
               </p>
 
               <!-- Inhoudsopgave -->
@@ -241,7 +259,7 @@
                     <a
                       href="#architectuur-overview"
                       style="text-decoration: none; color: #0078d4"
-                      >Stichting Open Architectuur</a
+                      >Architectuur</a
                     >
                   </li>
                   <li>
@@ -315,7 +333,7 @@
 
               <div class="info-box success">
                 <h4 style="color: #2d5a3d; margin-bottom: 1rem">
-                  🎯 Waarom BFF bij Stichting Open?
+                  🎯 Waarom BFF?
                 </h4>
                 <ul style="margin: 0; color: #2d5a3d">
                   <li>
@@ -343,7 +361,7 @@
 
               <div class="architecture-diagram">
                 <h4 style="color: #333; margin-bottom: 1.5rem">
-                  Stichting Open BFF Architectuur
+                  BFF Architectuur
                 </h4>
                 <div
                   style="
@@ -475,7 +493,7 @@
                 id="architectuur-overview"
                 style="color: #2c3e50; margin: 3rem 0 1rem 0; font-size: 1.8rem"
               >
-                3. Stichting Open Architectuur
+                3. Architectuur
               </h2>
 
               <p>
@@ -582,7 +600,7 @@
 
               <div class="code-block">
                 <pre>
-// STO.Gateway/Startup.cs
+// Startup.cs
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
@@ -596,29 +614,10 @@ using Microsoft.OpenApi.Models;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Serilog;
-using STO.Gateway.Data;
-using STO.Gateway.Extensions;
-using STO.Gateway.Handlers;
-using STO.Gateway.Health;
-using STO.Gateway.Models;
-using STO.Gateway.Repositories;
-using STO.Gateway.Security;
-using STO.Gateway.Services;
-using STO.Gateway.Services.Interfaces;
-using STO.Gateway.Subscribers;
-using STO.Library.Authorization.Const;
-using STO.Library.CMS.Extensions;
-using STO.Library.CMS.Service.Interface;
-using STO.Library.Common.Caching.Interface;
-using STO.Library.Common.Extensions;
-using STO.Library.Common.Helpers;
-using STO.Library.Domain.Handlers;
-using STO.Library.RabbitMq.Configuration;
-using STO.Library.RabbitMq.Extensions;
 using System.Reflection;
 using System.Security.Claims;
 
-namespace STO.Gateway;
+namespace Gateway;
 
 public class Startup(IConfiguration configuration)
 {
@@ -674,11 +673,6 @@ public class Startup(IConfiguration configuration)
             {
                 o.GenerateDocsForGatewayItSelf = false;
             });
-            services.AddSwaggerGen(c =&gt;
-            {
-                c.SwaggerDoc("cms", new OpenApiInfo { Title = "CMS", Version = "v1" });
-                c.SwaggerDoc("cache", new OpenApiInfo { Title = "cache", Version = "v1" });
-            });
         }
         
         // HTTPS redirection voor production
@@ -719,9 +713,6 @@ public class Startup(IConfiguration configuration)
 
         services.AddHttpClient();
         services.AddOptions();
-        
-        // CMS dependencies voor content management
-        services.AddCmsDependencies(Configuration);
 
         // Data Protection setup voor cookie encryption
         services.SetupDataProtection("Gateway");</pre
@@ -1156,7 +1147,7 @@ public class Startup(IConfiguration configuration)
 
               <div class="code-block">
                 <pre>
-// STO.Gateway/Handlers/JwtHandler.cs
+// Gateway/Handlers/JwtHandler.cs
 public class JwtHandler : DelegatingHandler
 {
     private readonly IServiceProvider _serviceProvider;
@@ -1251,7 +1242,7 @@ public class JwtHandler : DelegatingHandler
               </h2>
 
               <p>
-                Stichting Open ondersteunt zowel web als mobile clients. Mobile
+                De websites ondersteunen zowel web als mobile clients. Mobile
                 apps (GoNative/Median) hebben specifieke requirements die we
                 elegant afhandelen in onze BFF architectuur.
               </p>
@@ -1412,27 +1403,27 @@ public async Task&lt;IActionResult&gt; RefreshMobileToken()
 
               <div class="info-box success">
                 <h4 style="color: #2d5a3d; margin-bottom: 1rem">
-                  ✅ What Worked Well:
+                  ✅ Wat werkte goed:
                 </h4>
                 <ul style="margin: 0; color: #2d5a3d">
                   <li>
-                    <strong>Token Security:</strong> Zero JWT token exposure
-                    incidents
+                    <strong>Token beveiliging:</strong> Geen JWT token exposure
+                    incidenten
                   </li>
                   <li>
                     <strong>Redis Performance:</strong> Sub-millisecond token
                     lookups
                   </li>
                   <li>
-                    <strong>Multi-Client Support:</strong> Seamless web + mobile
-                    experience
+                    <strong>Multi-Client Support:</strong> naadloze web + mobile
+                    ervaring
                   </li>
                   <li>
-                    <strong>Deployment Simplicity:</strong> Containers deploy
-                    smoothly
+                    <strong>Deployment versimpeling:</strong> Containers deploy
+                    soepel
                   </li>
                   <li>
-                    <strong>Monitoring:</strong> Excellent observability met
+                    <strong>Monitoring:</strong> Uitstekende observability met
                     Serilog + Application Insights
                   </li>
                 </ul>
@@ -1440,27 +1431,27 @@ public async Task&lt;IActionResult&gt; RefreshMobileToken()
 
               <div class="info-box danger">
                 <h4 style="color: #e53e3e; margin-bottom: 1rem">
-                  ⚠️ Pitfalls to Avoid:
+                  ⚠️ Te vermijden valkuilen:
                 </h4>
                 <ul style="margin: 0; color: #e53e3e">
                   <li>
-                    <strong>Cookie Domain Issues:</strong> Zorgvuldig testen
-                    across subdomains
+                    <strong>Cookie Domein problemen:</strong> Zorgvuldig testen
+                    over de subdomeinen
                   </li>
                   <li>
-                    <strong>Redis Clustering:</strong> Ensure consistent hashing
-                    configuration
+                    <strong>Redis Clustering:</strong> Zorg voor consistente
+                    hashing configuratie
                   </li>
                   <li>
-                    <strong>Token Cleanup:</strong> Implement proper garbage
-                    collection
+                    <strong>Token Cleanup:</strong> Implementeer een goede
+                    garbage collection
                   </li>
                   <li>
-                    <strong>Mobile User Agents:</strong> Keep user agent
-                    detection up-to-date
+                    <strong>Mobile User Agents:</strong> Houd user agent
+                    detectie up-to-date
                   </li>
                   <li>
-                    <strong>CORS Configuration:</strong> Strict maar niet te
+                    <strong>CORS Configuratie:</strong> Strict maar niet te
                     restrictief
                   </li>
                 </ul>
@@ -1503,7 +1494,7 @@ public async Task&lt;IActionResult&gt; RefreshMobileToken()
                           text-align: left;
                         "
                       >
-                        Before BFF
+                        Voor BFF
                       </th>
                       <th
                         style="
@@ -1512,7 +1503,7 @@ public async Task&lt;IActionResult&gt; RefreshMobileToken()
                           text-align: left;
                         "
                       >
-                        With BFF
+                        Met BFF
                       </th>
                       <th
                         style="
@@ -1521,7 +1512,7 @@ public async Task&lt;IActionResult&gt; RefreshMobileToken()
                           text-align: left;
                         "
                       >
-                        Improvement
+                        Verbetering
                       </th>
                     </tr>
                   </thead>
@@ -1543,7 +1534,7 @@ public async Task&lt;IActionResult&gt; RefreshMobileToken()
                           color: #28a745;
                         "
                       >
-                        44% faster
+                        44% sneller
                       </td>
                     </tr>
                     <tr style="background: #f8f9fa">
@@ -1563,18 +1554,18 @@ public async Task&lt;IActionResult&gt; RefreshMobileToken()
                           color: #28a745;
                         "
                       >
-                        28% faster
+                        28% sneller
                       </td>
                     </tr>
                     <tr>
                       <td style="padding: 0.75rem; border: 1px solid #dee2e6">
-                        Security Incidents
+                        beveiligingsincidenten
                       </td>
                       <td style="padding: 0.75rem; border: 1px solid #dee2e6">
-                        2-3 per month
+                        2-3 per maand
                       </td>
                       <td style="padding: 0.75rem; border: 1px solid #dee2e6">
-                        0 per month
+                        0 per maand
                       </td>
                       <td
                         style="
@@ -1583,12 +1574,12 @@ public async Task&lt;IActionResult&gt; RefreshMobileToken()
                           color: #28a745;
                         "
                       >
-                        100% reduction
+                        100% reductie
                       </td>
                     </tr>
                     <tr style="background: #f8f9fa">
                       <td style="padding: 0.75rem; border: 1px solid #dee2e6">
-                        User Experience Score
+                        Gebruikerservaringsscore
                       </td>
                       <td style="padding: 0.75rem; border: 1px solid #dee2e6">
                         7.2/10
@@ -1603,7 +1594,7 @@ public async Task&lt;IActionResult&gt; RefreshMobileToken()
                           color: #28a745;
                         "
                       >
-                        24% improvement
+                        24% Verbetering
                       </td>
                     </tr>
                   </tbody>
@@ -1617,7 +1608,7 @@ public async Task&lt;IActionResult&gt; RefreshMobileToken()
                   font-size: 1.3rem;
                 "
               >
-                Operational Best Practices
+                Operationele Best Practices
               </h3>
 
               <div class="code-block">
@@ -1704,12 +1695,11 @@ public class AuthenticationMetrics
               </h2>
 
               <p>
-                Onze BFF identity architectuur bij Stichting Open heeft bewezen
-                een robuuste, veilige en schaalbare oplossing te zijn voor
-                moderne application security. Door OpenIdDict, Ocelot Gateway en
-                Azure Redis intelligent te combineren, hebben we een systeem
-                gebouwd dat zowel excellent security als outstanding user
-                experience biedt.
+                Onze BFF identity architectuur heeft bewezen een robuuste,
+                veilige en schaalbare oplossing te zijn voor moderne application
+                security. Door OpenIdDict, Ocelot Gateway en Azure Redis
+                intelligent te combineren, hebben we een systeem gebouwd dat
+                zowel excellent security als outstanding user experience biedt.
               </p>
 
               <div
@@ -1750,15 +1740,15 @@ public class AuthenticationMetrics
                   </div>
                   <div style="text-align: center">
                     <div style="font-size: 2rem; margin-bottom: 0.5rem">🏗️</div>
-                    <strong>Production Ready</strong><br />
-                    <small>Maanden stable in productie</small>
+                    <strong>Productie gereed</strong><br />
+                    <small>Maanden stabiel in productie</small>
                   </div>
                 </div>
               </div>
 
               <div class="info-box success">
                 <h4 style="color: #2d5a3d; margin-bottom: 1rem">
-                  🚀 Implementation Roadmap:
+                  🚀 implementatie Roadmap:
                 </h4>
                 <ol style="margin: 0; color: #2d5a3d">
                   <li>
@@ -1766,30 +1756,30 @@ public class AuthenticationMetrics
                     Server
                   </li>
                   <li>
-                    <strong>Configure Ocelot Gateway</strong> met authentication
-                    middleware
+                    <strong>Configureer Ocelot Gateway</strong> met
+                    authentication middleware
                   </li>
                   <li>
-                    <strong>Implement Token Caching</strong> με Azure Redis
+                    <strong>Implementeer Token Caching</strong> met Azure Redis
                     Cache
                   </li>
                   <li>
-                    <strong>Add Security Middleware</strong> voor headers en
-                    CSRF protection
+                    <strong>Security Middleware Toevoegen</strong> voor headers
+                    en CSRF protectie
                   </li>
                   <li>
-                    <strong>Create JwtHandler</strong> voor automatic token
+                    <strong>Creëren JwtHandler</strong> voor automatic token
                     injection
                   </li>
                   <li>
-                    <strong>Test Mobile Scenarios</strong> με refresh token
+                    <strong>Test Mobile Scenarios</strong> met refresh token
                     flows
                   </li>
                   <li>
-                    <strong>Setup Monitoring</strong> με structured logging
+                    <strong>Setup Monitoring</strong> met structured logging
                   </li>
                   <li>
-                    <strong>Deploy & Monitor</strong> production performance
+                    <strong>Deploy & Monitor</strong> productie performance
                   </li>
                 </ol>
               </div>
@@ -1820,7 +1810,6 @@ public class AuthenticationMetrics
                   <span class="tag">ASP.NET Core</span>
                   <span class="tag">Security Architecture</span>
                   <span class="tag">Production Ready</span>
-                  <span class="tag">Stichting Open</span>
                   <span class="tag">Mobile Apps</span>
                   <span class="tag">Enterprise Security</span>
                 </div>
