@@ -1,0 +1,111 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dotnetGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#512BD4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7B68EE;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="serviceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#357ABD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dbGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#28A745;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E7E34;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#F8F9FA"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#333">.NET Microservices Architecture</text>
+  
+  <!-- API Gateway -->
+  <rect x="320" y="70" width="160" height="60" rx="8" fill="url(#dotnetGradient)" stroke="#333" stroke-width="2"/>
+  <text x="400" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">API Gateway</text>
+  <text x="400" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">ASP.NET Core</text>
+  
+  <!-- Load Balancer -->
+  <rect x="350" y="160" width="100" height="30" rx="4" fill="#FFC107" stroke="#333" stroke-width="1"/>
+  <text x="400" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">Load Balancer</text>
+  
+  <!-- Microservices Row 1 -->
+  <rect x="50" y="230" width="140" height="80" rx="8" fill="url(#serviceGradient)" stroke="#333" stroke-width="2"/>
+  <text x="120" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">User Service</text>
+  <text x="120" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">.NET 8</text>
+  <text x="120" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">REST API</text>
+  
+  <rect x="230" y="230" width="140" height="80" rx="8" fill="url(#serviceGradient)" stroke="#333" stroke-width="2"/>
+  <text x="300" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Order Service</text>
+  <text x="300" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">.NET 8</text>
+  <text x="300" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">REST API</text>
+  
+  <rect x="410" y="230" width="140" height="80" rx="8" fill="url(#serviceGradient)" stroke="#333" stroke-width="2"/>
+  <text x="480" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Payment Service</text>
+  <text x="480" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">.NET 8</text>
+  <text x="480" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">REST API</text>
+  
+  <rect x="590" y="230" width="140" height="80" rx="8" fill="url(#serviceGradient)" stroke="#333" stroke-width="2"/>
+  <text x="660" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Notification Service</text>
+  <text x="660" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">.NET 8</text>
+  <text x="660" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">REST API</text>
+  
+  <!-- Databases -->
+  <circle cx="120" cy="380" r="35" fill="url(#dbGradient)" stroke="#333" stroke-width="2"/>
+  <text x="120" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">SQL Server</text>
+  
+  <circle cx="300" cy="380" r="35" fill="url(#dbGradient)" stroke="#333" stroke-width="2"/>
+  <text x="300" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">MongoDB</text>
+  
+  <circle cx="480" cy="380" r="35" fill="url(#dbGradient)" stroke="#333" stroke-width="2"/>
+  <text x="480" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">SQL Server</text>
+  
+  <circle cx="660" cy="380" r="35" fill="#DC3545" stroke="#333" stroke-width="2"/>
+  <text x="660" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">Redis Cache</text>
+  
+  <!-- Message Queue -->
+  <rect x="320" y="450" width="160" height="50" rx="8" fill="#FF6B35" stroke="#333" stroke-width="2"/>
+  <text x="400" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Message Queue</text>
+  <text x="400" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">RabbitMQ</text>
+  
+  <!-- Identity Service -->
+  <rect x="50" y="520" width="140" height="50" rx="8" fill="#6F42C1" stroke="#333" stroke-width="2"/>
+  <text x="120" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Identity Service</text>
+  <text x="120" y="555" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">OpenIddict</text>
+  
+  <!-- Monitoring -->
+  <rect x="590" y="520" width="140" height="50" rx="8" fill="#17A2B8" stroke="#333" stroke-width="2"/>
+  <text x="660" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Monitoring</text>
+  <text x="660" y="555" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Application Insights</text>
+  
+  <!-- Connection Lines -->
+  <!-- API Gateway to Load Balancer -->
+  <line x1="400" y1="130" x2="400" y2="160" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Load Balancer to Services -->
+  <line x1="380" y1="190" x2="120" y2="230" stroke="#333" stroke-width="2"/>
+  <line x1="390" y1="190" x2="300" y2="230" stroke="#333" stroke-width="2"/>
+  <line x1="410" y1="190" x2="480" y2="230" stroke="#333" stroke-width="2"/>
+  <line x1="420" y1="190" x2="660" y2="230" stroke="#333" stroke-width="2"/>
+  
+  <!-- Services to Databases -->
+  <line x1="120" y1="310" x2="120" y2="345" stroke="#333" stroke-width="2"/>
+  <line x1="300" y1="310" x2="300" y2="345" stroke="#333" stroke-width="2"/>
+  <line x1="480" y1="310" x2="480" y2="345" stroke="#333" stroke-width="2"/>
+  <line x1="660" y1="310" x2="660" y2="345" stroke="#333" stroke-width="2"/>
+  
+  <!-- Services to Message Queue -->
+  <line x1="300" y1="310" x2="380" y2="450" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  <line x1="480" y1="310" x2="420" y2="450" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- .NET Logo -->
+  <circle cx="750" cy="50" r="25" fill="url(#dotnetGradient)"/>
+  <text x="750" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">.NET</text>
+</svg>
