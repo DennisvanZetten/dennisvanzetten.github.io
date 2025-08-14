@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dennis van Zetten</title>
+    <meta
+      name="description"
+      content="Dennis van Zetten - Website in ontwikkeling"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #2c3e50;
+        font-weight: 300;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        color: #7f8c8d;
+        margin-bottom: 2rem;
+        font-weight: 300;
+      }
+
+      .status {
+        background: #3498db;
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 25px;
+        display: inline-block;
+        margin: 1rem 0;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+        text-align: left;
+      }
+
+      .feature {
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 10px;
+        border-left: 4px solid #3498db;
+      }
+
+      .feature h3 {
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+      }
+
+      .feature p {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+      }
+
+      .contact {
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid #ecf0f1;
+      }
+
+      .contact-info {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+      }
+
+      .footer {
+        margin-top: 2rem;
+        font-size: 0.8rem;
+        color: #bdc3c7;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .card {
+          padding: 2rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        .features {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .loading-dots {
+        display: inline-block;
+        animation: dots 1.5s infinite;
+      }
+
+      @keyframes dots {
+        0%,
+        20% {
+          content: "";
+        }
+        40% {
+          content: ".";
+        }
+        60% {
+          content: "..";
+        }
+        80%,
+        100% {
+          content: "...";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Dennis van Zetten</h1>
+        <p class="subtitle">Welkom op mijn website</p>
+
+        <div class="status">
+          🚧 Website in ontwikkeling<span class="loading-dots"></span>
+        </div>
+
+        <div class="features">
+          <div class="feature">
+            <h3>📋 Over mij</h3>
+            <p>Binnenkort meer informatie over mijn achtergrond en ervaring.</p>
+          </div>
+          <div class="feature">
+            <h3>💼 Portfolio</h3>
+            <p>Hier komen mijn projecten en werkzaamheden te staan.</p>
+          </div>
+          <div class="feature">
+            <h3>📞 Contact</h3>
+            <p>Contactgegevens en mogelijkheden om in touch te komen.</p>
+          </div>
+        </div>
+
+        <div class="contact">
+          <div class="contact-info">
+            <p>
+              Deze website wordt binnenkort gelanceerd met complete content.
+            </p>
+            <p>Bedankt voor je geduld!</p>
+          </div>
+        </div>
+
+        <div class="footer">
+          <p>&copy; 2025 Dennis van Zetten. Alle rechten voorbehouden.</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Simpele animatie voor de loading dots
+      setInterval(function () {
+        const dots = document.querySelector(".loading-dots");
+        const currentText = dots.textContent;
+        if (currentText === "...") {
+          dots.textContent = "";
+        } else {
+          dots.textContent += ".";
+        }
+      }, 500);
+    </script>
+  </body>
+</html>
