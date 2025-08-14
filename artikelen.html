@@ -29,19 +29,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <nav class="container">
-        <a href="index.html" class="logo">Dennis van Zetten</a>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#portfolio">Portfolio</a></li>
-          <li><a href="artikelen.html" class="active">Artikelen</a></li>
-          <li><a href="software.html">Software</a></li>
-          <li><a href="over-mij.html">Over Mij</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div id="header-container"></div>
 
     <section class="hero-about">
       <div class="container">
@@ -118,7 +106,7 @@
                     van .NET microservices met Docker.
                   </p>
                   <div class="article-actions">
-                    <a href="artikelen/microservices-dotnet.html" class="read-more-btn">
+                    <a href="artikelen/microservices-dotnet.html" target="_blank" class="read-more-btn">
                       Lees Meer
                     </a>
                     <div class="article-tags">
@@ -146,7 +134,7 @@
                     Veilige Identity Management met het BFF Pattern.
                   </p>
                   <div class="article-actions">
-                    <a href="artikelen/bff-patroon.html" class="read-more-btn">
+                    <a href="artikelen/bff-patroon.html" target="_blank" class="read-more-btn">
                       Lees Meer
                     </a>
                     <div class="article-tags">
@@ -177,7 +165,7 @@
                     en timing.
                   </p>
                   <div class="article-actions">
-                    <a href="artikelen/landschapsfotografie-tips.html" class="read-more-btn">
+                    <a href="artikelen/landschapsfotografie-tips.html" target="_blank" class="read-more-btn">
                       Lees Meer
                     </a>
                     <div class="article-tags">
@@ -208,7 +196,7 @@
                     vertellen.
                   </p>
                   <div class="article-actions">
-                    <a href="artikelen/de-kracht-van-zwart-wit.html" class="read-more-btn">
+                    <a href="artikelen/de-kracht-van-zwart-wit.html" target="_blank" class="read-more-btn">
                       Lees Meer
                     </a>
                     <div class="article-tags">
@@ -237,7 +225,7 @@
                     Fotografie, en vooral Landschapsfotografie is op de juiste plek op het juiste tijdstip zijn. Maar waarom moet ik vroeg opstaan?
                   </p>
                   <div class="article-actions">
-                    <a href="artikelen/waarom-vroeg-opstaan.html" class="read-more-btn">
+                    <a href="artikelen/waarom-vroeg-opstaan.html" target="_blank" class="read-more-btn">
                       Lees Meer
                     </a>
                     <div class="article-tags">
@@ -266,7 +254,7 @@
                     Een kijkje in mijn workflow. Welke tools en technieken ik gebruik.
                   </p>
                   <div class="article-actions">
-                    <a href="artikelen/remote-work-setup.html" class="read-more-btn">
+                    <a href="artikelen/remote-work-setup.html" target="_blank" class="read-more-btn">
                       Lees Meer
                     </a>
                     <div class="article-tags">
@@ -295,7 +283,7 @@
                     Een kijkje in mijn workflow. Welke tools en technieken ik gebruik.
                   </p>
                   <div class="article-actions">
-                    <a href="artikelen/remote-work-setup.html" class="read-more-btn">
+                    <a href="artikelen/remote-work-setup.html" target="_blank" class="read-more-btn">
                       Lees Meer
                     </a>
                     <div class="article-tags">
@@ -306,9 +294,7 @@
                     </div>
                   </div>
                 </div>
-              </article>
-
-             
+              </article>       
             </div>
 
             <!-- Load More Section -->
@@ -489,5 +475,7 @@
         });
       });
     </script>
+    <script src="js/header.js"></script>
   </body>
 </html>
+s

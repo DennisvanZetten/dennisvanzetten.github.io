@@ -490,29 +490,20 @@ nav {
   padding: 4rem 0;
 }
 
+/* 🚀 UPDATED POSTS GRID MET GELIJKE HOOGTES */
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
+  align-items: stretch; /* Zorgt dat alle items dezelfde hoogte krijgen */
 }
 
-.post-card {
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.post-card:hover {
-  transform: translateY(-3px);
-}
-
-/* Klikbare post cards */
+/* 🚀 KLIKBARE POST CARDS MET GELIJKE HOOGTES */
 .post-card-link {
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: flex; /* Maak de link een flex container */
+  height: 100%; /* Vul de volledige hoogte */
   transition: transform 0.3s ease;
 }
 
@@ -523,6 +514,22 @@ nav {
 
 .post-card-link:hover .post-card {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.post-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Vul de volledige hoogte van de link */
+  width: 100%;
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
 }
 
 /* Zorg dat tekst styling behouden blijft */
@@ -542,6 +549,7 @@ nav {
   height: 200px;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0; /* Image houdt vaste hoogte */
 }
 
 .post-image img {
@@ -555,8 +563,12 @@ nav {
   transform: scale(1.1);
 }
 
+/* 🚀 UPDATED POST CONTENT VOOR GELIJKE HOOGTES */
 .post-content {
   padding: 1.5rem;
+  flex-grow: 1; /* Laat de content groeien om ruimte te vullen */
+  display: flex;
+  flex-direction: column;
 }
 
 .post-category {
@@ -567,16 +579,22 @@ nav {
   font-size: 0.8rem;
   display: inline-block;
   margin-bottom: 0.5rem;
+  flex-shrink: 0; /* Category neemt alleen benodigde ruimte */
+  align-self: flex-start; /* 🎯 NIEUWE REGEL: Voorkom uitrekking */
+  width: fit-content; /* 🎯 NIEUWE REGEL: Alleen benodigde breedte */
 }
 
 .post-title {
   margin-bottom: 0.5rem;
   color: #333;
+  flex-grow: 0; /* Titel krijgt alleen benodigde ruimte */
 }
 
 .post-excerpt {
   color: #666;
   font-size: 0.9rem;
+  flex-grow: 1; /* Excerpt vult resterende ruimte */
+  margin-bottom: 0;
 }
 
 /* ===== OVER MIJ PAGINA SPECIFIEK ===== */
@@ -678,7 +696,7 @@ nav {
   padding: 0.5rem 0;
   border-bottom: 1px solid #eee;
   display: flex;
-  justify-content: space-between;
+  sse-between;
   align-items: center;
 }
 
@@ -2020,6 +2038,12 @@ footer .social-links a:hover {
 
   .photo-background .feature-image {
     height: 120px;
+  }
+
+  /* 🚀 MOBILE FIX VOOR GELIJKE HOOGTES POST CARDS */
+  .posts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 

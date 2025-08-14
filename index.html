@@ -29,19 +29,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <nav class="container">
-        <a href="index.html" class="logo">Dennis van Zetten</a>
-        <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="artikelen.html">Artikelen</a></li>
-          <li><a href="software.html">Software</a></li>
-          <li><a href="over-mij.html">Over Mij</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div id="header-container"></div>
 
     <section class="hero">
       <div class="container">
@@ -292,7 +280,7 @@
       <div class="container">
         <h2 class="section-title">Fotografie Artikelen</h2>
         <div class="posts-grid">
-          <a href="artikelen/landschapsfotografie-tips.html" class="post-card-link">
+          <a href="artikelen/landschapsfotografie-tips.html" target="_blank" class="post-card-link">
             <article class="post-card">
               <div class="post-image">
                 <img
@@ -312,7 +300,7 @@
               </div>
             </article>
           </a>
-          <a href="artikelen/de-kracht-van-zwart-wit.html" class="post-card-link">
+          <a href="artikelen/de-kracht-van-zwart-wit.html" target="_blank" class="post-card-link">
             <article class="post-card">
               <div class="post-image">
                 <img
@@ -330,7 +318,7 @@
               </div>
             </article>
           </a>
-          <a href="artikelen/waarom-vroeg-opstaan.html" class="post-card-link">
+          <a href="artikelen/waarom-vroeg-opstaan.html" target="_blank" class="post-card-link">
           <article class="post-card">
             <div class="post-image">
               <img
@@ -676,5 +664,6 @@
         }
       });
     </script>
+    <script src="js/header.js"></script>
   </body>
 </html>
